@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Glasset Nora</title>
+</head>
+<body>
+<style>
+/* Layout: et redaksjonelt hefte på papir. Store serif-titler, håndtegnede streker, skisser av planen som hovedsak. Ett bevisst lyst uttrykk. */
+@font-face{font-family:"Nyght Serif";src:url("fonts/NyghtSerif-Light.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Nyght Serif";src:url("fonts/NyghtSerif-LightItalic.woff2") format("woff2");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"HK Grotesk";src:url("fonts/HKGrotesk-Light.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"HK Grotesk";src:url("fonts/HKGrotesk-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+:root{
+  --paper:#ECEBE6; --paper2:#E2E1DB; --ink:#232128; --wine:#46191E; --rosa:#D3AB9F; --sage:#B2CCC1;
+  --stone:#C2C1B8; --line:#C9C8C0; --mute:#5C5A5F; --body:#3B393F; --night:#232128; --nightText:#D7D8D2;
+  --serif:"Nyght Serif",Georgia,"Times New Roman",serif;
+  --sans:"HK Grotesk","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .14 0 0 0 0 .13 0 0 0 0 .16 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;text-wrap:balance;letter-spacing:-.015em}
+h1 em,h2 em,h3 em{font-style:italic}
+h2{font-size:clamp(34px,5.4vw,68px);line-height:.98}
+h3{font-size:clamp(20px,2.2vw,26px);line-height:1.15}
+p{margin:0}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:400}
+.lead{font-family:var(--serif);font-size:clamp(19px,2.1vw,25px);line-height:1.4;max-width:34ch}
+.txt{font-size:16px;line-height:1.65;color:var(--body);max-width:58ch}
+section{padding-block:clamp(64px,9vw,120px)}
+.rule{height:1px;background:var(--ink);opacity:.8}
+
+/* toppmeny */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.top .inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+nav.top .brand{font-family:var(--serif);font-size:18px}
+nav.top .links{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.top a{color:var(--mute);text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+nav.top a:hover{color:var(--ink)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+
+/* forside */
+.hero .inner{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:clamp(40px,7vw,90px) clamp(48px,7vw,96px)}
+.hero h1{font-size:clamp(64px,12vw,168px);line-height:.86;letter-spacing:-.03em}
+.hero .tag{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.6vw,32px);color:var(--wine);margin-top:18px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:30px;font-size:13px;color:var(--mute)}
+.hero .meta b{font-weight:400;color:var(--ink)}
+.hero svg{width:100%;height:auto;max-width:460px;justify-self:center}
+.draw path,.draw line,.draw ellipse,.draw circle{stroke-dasharray:var(--len,1200);stroke-dashoffset:0;animation:ink 2.6s ease both}
+@keyframes ink{from{stroke-dashoffset:var(--len,1200)}to{stroke-dashoffset:0}}
+
+/* filmen */
+.film{padding-block:clamp(48px,7vw,96px)}
+.film-head{display:grid;gap:18px;margin-bottom:28px}
+.screen{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--night);overflow:hidden;border:1px solid var(--line)}
+.screen video{display:block;width:100%;height:100%;object-fit:cover}
+.ph-video{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;color:#D7D8D2;background:radial-gradient(ellipse at 50% 45%,#3A2A2E 0,#232128 70%)}
+.ph-video span{font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+
+.hero-sketch{width:100%;max-width:470px;justify-self:center}
+.arch-pic{margin:0;justify-self:center;width:100%;max-width:470px;display:grid;gap:10px}
+.arch-pic img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:46% 50%;border-radius:999px 999px 0 0;border:1px solid rgba(35,33,40,.15)}
+.yard-pic{margin:0;display:grid;gap:10px}
+.yard-pic img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.arch-pic figcaption,.yard-pic figcaption{font-size:12px;color:var(--mute)}
+/* ideen */
+.idea .inner{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,6vw,88px);align-items:start}
+.i-text{display:grid;gap:18px;align-content:start}
+.i-text h2{font-size:clamp(30px,4vw,50px);line-height:1.05}
+.i-lead{font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.8vw,22px);line-height:1.45;color:var(--wine);max-width:34ch}
+.i-txt{font-size:15px;line-height:1.75;color:var(--body);max-width:52ch}
+.i-pr{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:26px 32px}
+.i-pr li{display:grid;gap:6px;align-content:start;border-top:1px solid var(--line);padding-top:14px}
+.i-no{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--wine)}
+.i-pr h3{font-size:18px}
+.i-pr p{font-size:13.5px;line-height:1.6;color:var(--body)}
+.idea .idea-pic{margin:0;display:grid;gap:12px;position:sticky;top:90px}
+.idea .idea-pic img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 55%}
+.idea .idea-pic figcaption{display:flex;gap:14px;align-items:baseline;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--body)}
+.idea .idea-pic figcaption span{font-family:var(--sans);font-style:normal;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:860px){.idea .inner{grid-template-columns:1fr}.idea .idea-pic{position:static}.idea .idea-pic img{aspect-ratio:4/3}}
+@media (max-width:520px){.i-pr{grid-template-columns:1fr}}
+.yard-skisse{margin:8px 0 0;max-width:340px;display:grid;gap:8px}
+.yard-skisse svg{width:100%;height:auto;display:block}
+.yard-skisse figcaption{font-size:12px;color:var(--mute)}
+
+.entre{margin:0;display:grid;gap:10px}
+.entre svg{width:100%;height:auto;display:block}
+.entre figcaption{font-size:12px;color:var(--mute)}
+
+.matcol{margin-top:40px;display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:40px;gap:12px}
+.mc{margin:0;position:relative;overflow:hidden;background:#D7D8D2;opacity:0;transform:translateY(28px) rotate(var(--rot,0deg));transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease;will-change:transform}
+.mc.inn{opacity:1;transform:translateY(var(--py,0px)) rotate(var(--rot,0deg))}
+.mc.inn.ro{transition:opacity .9s ease,box-shadow .4s ease}
+.mc img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.mc:hover img{transform:scale(1.06)}
+.mc:hover{box-shadow:0 18px 40px -18px rgba(35,33,40,.45);z-index:2}
+.mc figcaption{position:absolute;left:10px;bottom:10px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(35,33,40,.78);padding:5px 8px;opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease}
+.mc:hover figcaption,.mc:focus-within figcaption{opacity:1;transform:none}
+@media (max-width:860px){.matcol{grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:10px}.mc{grid-column:auto!important;grid-row:auto!important;aspect-ratio:3/4}.mc:nth-child(3n+1){grid-column:span 2!important;aspect-ratio:4/3}.mc figcaption{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.mc,.mc.inn{transition:none;opacity:1;transform:none}.mc img{transition:none}}
+.kollasj{margin:36px 0 0;display:grid;gap:10px}
+.kollasj img{display:block;width:100%;height:auto}
+.kollasj figcaption{font-size:12px;color:var(--mute)}
+
+/* døgnet: animert illustrasjon */
+.day-art{position:relative;margin-top:40px;border:1px solid #45434A;background:#29272E;overflow:hidden}
+.day-art svg{display:block;width:100%;height:auto}
+.day-art *{transition:opacity 1.6s ease,fill 1.6s ease,stop-color 1.6s ease,transform 2.2s cubic-bezier(.45,.05,.25,1)}
+.day-art stop{transition:stop-color 1.6s ease}
+.dk-klokke{position:absolute;right:18px;top:12px;font-family:var(--serif);font-size:30px;color:#F4F3EF;opacity:.85}
+.dk-flamme{transform-origin:1010px 286px;animation:flakk 1.4s ease-in-out infinite alternate}
+@keyframes flakk{0%{transform:scale(1,1)}50%{transform:scale(.9,1.12)}100%{transform:scale(1.06,.94)}}
+.dk-noter text{animation:svev 4s ease-in-out infinite}
+.dk-noter text:nth-child(2){animation-delay:1.3s}.dk-noter text:nth-child(3){animation-delay:2.6s}
+@keyframes svev{0%{transform:translateY(8px);opacity:0}30%{opacity:1}100%{transform:translateY(-26px);opacity:0}}
+.scene{cursor:pointer;transition:background .4s ease}
+
+.scene.on .time{color:var(--rosa)}
+@media (prefers-reduced-motion:reduce){.day-art *{transition:none!important;animation:none!important}}
+
+/* døgnet */
+.day{background:var(--night);color:var(--nightText)}
+.day .eyebrow{color:#9A989C}
+.day h2{color:#F4F3EF}
+.scenes{list-style:none;margin:44px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.scenes::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:#45434A}
+.scene{position:relative;padding:30px 16px 0 0;display:grid;gap:6px;align-content:start}
+.scene::before{content:"";position:absolute;left:0;top:2px;width:11px;height:11px;border-radius:50%;background:#232128;border:1px solid #9A989C;transition:background .4s ease,border-color .4s ease}
+.scene.on::before{background:var(--rosa);border-color:var(--rosa)}
+.scene .time{font-family:var(--serif);font-size:26px;line-height:1;color:#F4F3EF}
+.scene h3{color:#F4F3EF;font-size:16px}
+.scene p{font-size:13.5px;line-height:1.5;color:#9A989C}
+
+/* stedet */
+.place .inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink)}
+.facts div{padding:16px 0;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.facts .n{font-family:var(--serif);font-size:30px;color:var(--wine);line-height:1.05}
+.facts .k{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--mute)}
+.photos{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:12px}
+.ph{margin:0;position:relative;overflow:hidden;background:var(--paper2);aspect-ratio:4/3;max-width:100%}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:11.5px;color:#F4F3EF;background:linear-gradient(transparent,rgba(35,33,40,.65))}
+.ph:first-child{grid-row:span 2;aspect-ratio:auto;min-height:300px}
+.plan-ph{aspect-ratio:1/1;background:#fff;border:1px solid var(--line)}
+.plan-ph img{object-fit:contain}
+.plan-ph figcaption{color:var(--ink);background:linear-gradient(transparent,rgba(255,255,255,.92))}
+
+/* planen */
+.plan-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+.controls{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--ink)}
+.seg button{font:inherit;font-size:13px;font-weight:300;background:transparent;color:var(--ink);border:0;padding:9px 16px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sheet{margin-top:28px;background:#F3F2EE;border:1px solid var(--line);box-shadow:0 1px 0 var(--line),0 18px 40px -28px rgba(35,33,40,.35);padding:clamp(10px,2vw,26px);display:grid;grid-template-columns:1fr 290px;gap:26px}
+.sheet > *{min-width:0}
+.drawing{overflow-x:auto}
+.drawing svg{display:block;width:100%;min-width:560px;height:auto}
+.legend h3{font-size:30px;margin-bottom:6px}
+.legend .seats{font-size:13px;color:var(--mute);margin:-6px 0 14px}
+.legend .seats .num{font-family:var(--serif);font-size:22px;color:var(--wine)}
+.legend .sub{font-family:var(--serif);font-style:italic;color:var(--wine);font-size:18px;margin-bottom:16px}
+.legend ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.legend li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.55;color:var(--body);display:grid;grid-template-columns:22px 1fr;gap:6px}
+.legend li span{font-family:var(--serif);color:var(--wine)}
+.keyrow{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;font-size:12px;color:var(--mute)}
+.keyrow i{display:inline-block;width:14px;height:8px;margin-right:6px;vertical-align:1px}
+
+/* modellen */
+.model .stage{position:relative;margin-top:28px;background:#E6E5DF;border:1px solid var(--line);aspect-ratio:16/9;max-width:100%;overflow:hidden}
+.model canvas{display:block;width:100%;height:100%}
+.model .hint{position:absolute;left:16px;bottom:12px;font-size:12px;color:var(--mute);pointer-events:none}
+.model .fallback{position:absolute;inset:0;display:grid;place-items:center;color:var(--mute);font-size:14px}
+
+/* materialer */
+.mat .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.sw{display:grid;gap:10px}
+.sw .chip{aspect-ratio:3/4;max-width:100%;border:1px solid rgba(35,33,40,.12)}
+.sw h3{font-size:19px}
+.sw p{font-size:13.5px;line-height:1.5;color:var(--body)}
+.c-betong{background:#B9B7B0;background-image:radial-gradient(rgba(35,33,40,.18) 1px,transparent 1.4px),radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.6px);background-size:7px 7px,11px 11px;background-position:0 0,3px 5px}
+.c-tre{background:repeating-linear-gradient(92deg,#7A5A3F 0 3px,#8C6A4C 3px 9px,#6E503A 9px 11px,#94735A 11px 19px)}
+.c-kobber{background:linear-gradient(135deg,#B8734A,#D79A6D 40%,#9C5A37 70%,#C9875C)}
+.c-vin{background:var(--wine)}
+.c-rust{background:radial-gradient(ellipse at 30% 25%,rgba(255,255,255,.18),transparent 55%),repeating-linear-gradient(100deg,#A3471F 0 6px,#963F1B 6px 9px),#A3471F}
+.c-boucle{background:radial-gradient(#DCD3C4 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(#E4DCCF 1px,transparent 1.5px) 3px 3px/7px 7px,#F2EDE4}
+.c-flis{background:linear-gradient(90deg,#D9CDB8 2px,transparent 2px) 0 0/22px 100%,linear-gradient(#D9CDB8 2px,transparent 2px) 0 0/100% 14px,linear-gradient(135deg,#EFE6D6,#E6D9C3)}
+.c-sjakk{background:conic-gradient(#4F4A2A 25%,#EFE6DA 0 50%,#4F4A2A 0 75%,#EFE6DA 0) 0 0/28px 28px}
+.c-gront{background:radial-gradient(circle at 30% 30%,#8FA98F 0 18%,transparent 19%),radial-gradient(circle at 70% 60%,#6F8C70 0 22%,transparent 23%),radial-gradient(circle at 40% 80%,#A3BBA2 0 15%,transparent 16%),var(--sage)}
+
+/* bakgården */
+.yard .inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.yard svg{width:100%;height:auto}
+.quote{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,26px);line-height:1.4;color:var(--wine);border-left:1px solid var(--wine);padding-left:18px;margin-top:22px;max-width:36ch}
+
+/* tilbudet */
+.offer{background:var(--wine);color:#F4EDE8}
+.offer .eyebrow{color:#D3AB9F}
+.offer h2{color:#F4EDE8}
+.offer h2 em{color:var(--rosa)}
+.offer .big{color:#F4EDE8}
+.offer .small{color:#D9BFB6}
+.offer .txt{color:#EADCD6}
+.offer .go{background:#F4EDE8;color:var(--wine)}
+.offer .go:hover{background:#fff}
+.offer .signert-merke{color:var(--rosa)}
+.offer .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-top:44px}
+.signert-merke{display:block;margin-top:16px;font-size:13px;letter-spacing:.04em;color:var(--wine)}
+.go{display:inline-block;border-radius:999px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--wine);padding:15px 24px;text-decoration:none}
+.go:hover{background:var(--ink)}
+/* tilbudet som vindu over siden */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(35,33,40,.62);backdrop-filter:blur(3px);display:grid;place-items:center;padding:24px}
+.modal[hidden]{display:none}
+.modal-box{position:relative;width:min(1180px,100%);height:100%;background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(0,0,0,.6);overflow:hidden}
+.modal-box iframe{display:block;width:100%;height:100%;border:0;background:var(--paper)}
+.modal-x{position:absolute;top:12px;right:12px;z-index:2;font:inherit;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--ink);border:0;padding:10px 14px;cursor:pointer}
+.modal-x:hover{background:var(--wine)}
+@media (max-width:640px){.modal{padding:0}.modal-box{border:0}}
+.big{font-family:var(--serif);font-size:clamp(46px,6vw,78px);color:var(--wine);line-height:.95}
+.small{font-size:13px;color:var(--mute);margin-top:8px}
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.list li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5;color:var(--body);display:flex;justify-content:space-between;gap:12px}
+.list li span:last-child{color:var(--mute);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* teamet */
+.team{background:var(--night);color:var(--nightText)}
+.team h2{color:#F4F3EF}
+.team .eyebrow{color:#9A989C}
+.crew{display:grid;grid-template-columns:repeat(3,minmax(0,230px));gap:28px 48px;margin-top:44px}
+.who{display:grid;gap:14px}
+.who .pic{aspect-ratio:4/5;max-width:230px;width:100%;background:#2C3739;overflow:hidden}
+.who img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1);display:block}
+.who .role{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rosa)}
+.who h3{color:#F4F3EF}
+.who p{font-size:13.5px;line-height:1.6;color:#C2C1B8;user-select:text}
+footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px;padding-top:18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero .inner,.place .inner,.yard .inner{grid-template-columns:1fr;gap:36px}
+  .sheet{grid-template-columns:1fr}
+  .mat .grid{grid-template-columns:repeat(3,1fr)}
+  .offer .cols,.crew{grid-template-columns:1fr}
+  .offer .cols > div{grid-column:auto!important}
+  .model .stage{aspect-ratio:4/3}
+}
+@media (max-width:520px){
+  .scenes{grid-template-columns:repeat(4,1fr)}
+  .scene{padding-right:8px}
+  .scene .time{font-size:20px}
+  .scene p{display:none}
+  .mat .grid{grid-template-columns:1fr 1fr}
+  .photos{grid-template-columns:1fr}
+  .ph:first-child{grid-row:auto;min-height:220px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.draw *{animation:none!important}}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="wash" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="9" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#232128" stroke-width=".6" opacity=".35"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10" fill="none" stroke="#46191E" stroke-width="1.4"/>
+    </marker>
+  </defs>
+</svg>
+
+<nav class="top band" aria-label="Innhold">
+  <div class="inner">
+    <span class="brand">Glasset <em>Nora</em></span>
+    <div class="links">
+      <a href="#filmen">Filmen</a><a href="#ideen">Ideen</a><a href="#dognet">Et døgn</a><a href="#stedet">Stedet</a><a href="#planen">Planen</a><a href="#materialer">Materialer</a><a href="#bakgarden">Bakgården</a><a href="#tilbudet">Tilbudet</a><a href="#teamet">Teamet</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero band">
+  <div class="inner">
+    <div>
+      <div class="eyebrow">Konfidensielt · Monn for Glasset Vinbar · November 2026</div>
+      <h1 style="margin-top:22px">Glasset<br><em>Nora</em></h1>
+      <p class="tag">Samme Glasset, mer rom.</p>
+      <div class="meta">
+        <span>Thorvald Meyers gate 56</span><span>Åpner høsten 2027</span><span>Forslag til konsept og interiør</span>
+      </div>
+    </div>
+    <svg class="draw hero-sketch" viewBox="0 0 420 460" role="img" aria-label="Håndtegnet skisse av et vinglass med rødvin under en bue, med ranke, druer og en flaske">
+      <path filter="url(#wash)" opacity=".82" d="M165 214 C186 223 234 223 255 214 C251 247 238 270 210 276 C182 270 169 247 165 214Z" fill="#5A1F26"/>
+      <g filter="url(#wash)" opacity=".5">
+        <ellipse cx="212" cy="384" rx="64" ry="8" fill="#C2C1B8"/>
+        <path d="M66 440 V214 A144 144 0 0 1 354 214 V440Z" fill="#D3AB9F" opacity=".22"/>
+      </g>
+      <g fill="none" stroke="#232128" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+        <path style="--len:1500" d="M40 440 V210 A170 170 0 0 1 380 210 V440"/>
+        <path style="--len:1200" stroke-width="1" d="M66 440 V214 A144 144 0 0 1 354 214 V440"/>
+        <path style="--len:420" d="M18 440 H402"/>
+        <path style="--len:520" d="M158 148 C150 210 160 266 210 280 C260 266 270 210 262 148"/>
+        <path style="--len:300" d="M158 148 C180 139 240 139 262 148 C240 156 180 156 158 148"/>
+        <path style="--len:220" stroke="#46191E" d="M164 214 C186 222 234 222 256 214"/>
+        <path style="--len:120" d="M208 280 C206 312 206 344 209 372"/>
+        <path style="--len:120" stroke-width=".8" d="M213 280 C211 312 211 344 214 372"/>
+        <path style="--len:260" d="M168 380 C180 370 244 370 256 380 C244 389 180 389 168 380"/>
+        <path style="--len:160" stroke="#FFFFFF" stroke-width="2.4" opacity=".85" d="M171 168 C167 196 171 226 181 246"/>
+      </g>
+      <g fill="none" stroke="#6E6C70" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+        <path style="--len:600" d="M296 440 V334 C296 314 308 306 311 290 V244 H327 V290 C330 306 342 314 342 334 V440"/>
+        <path style="--len:120" d="M309 244 H329 M311 252 H327"/>
+        <path style="--len:200" d="M300 372 H338 V410 H300Z"/>
+        <path style="--len:80" stroke-width=".8" d="M308 384 H330 M308 392 H324"/>
+      </g>
+      <g fill="none" stroke="#7F9A86" stroke-width="1.2" stroke-linecap="round" filter="url(#rough)">
+        <path style="--len:520" d="M58 236 C66 168 104 118 158 92 C186 79 214 74 240 76"/>
+        <path style="--len:120" d="M84 160 C70 150 64 136 70 124 C84 128 92 142 84 160Z"/>
+        <path style="--len:120" d="M110 122 C104 106 108 92 120 86 C128 98 124 114 110 122Z"/>
+        <path style="--len:120" d="M146 98 C146 82 156 72 170 70 C172 84 162 96 146 98Z"/>
+        <path style="--len:120" d="M190 82 C196 68 210 62 222 66 C216 80 204 86 190 82Z"/>
+        <path style="--len:80" d="M240 76 C250 72 254 64 248 58 C242 62 244 70 252 70"/>
+        <path style="--len:120" d="M66 196 C52 192 44 182 46 170 C60 172 68 182 66 196Z"/>
+      </g>
+      <g stroke="#46191E" stroke-width="1.1" fill="#46191E" fill-opacity=".14" filter="url(#rough)">
+        <circle cx="106" cy="392" r="8"/><circle cx="122" cy="392" r="8"/><circle cx="138" cy="392" r="8"/>
+        <circle cx="114" cy="406" r="8"/><circle cx="130" cy="406" r="8"/><circle cx="122" cy="420" r="8"/>
+        <path fill="none" stroke="#7F9A86" d="M122 384 C124 372 132 366 142 364 M132 370 C142 358 156 360 160 368 C150 374 138 374 132 370Z"/>
+      </g>
+      <g fill="#D3AB9F">
+        <circle cx="282" cy="168" r="2.2"/><circle cx="292" cy="186" r="1.4"/><circle cx="276" cy="196" r="1.6"/><circle cx="140" cy="182" r="1.6"/><circle cx="132" cy="200" r="2"/>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<section id="filmen" class="film band">
+  <div class="inner">
+    <div class="film-head"><div class="eyebrow">Filmen</div><h2>Gå en runde <em>i Nora</em></h2></div>
+    <div class="screen">
+      <video src="film/nora.mp4" controls playsinline preload="metadata" poster="img/film-poster.webp" aria-label="Film: en runde i Nora, fra spisesalen, forbi vinmaskinene og ut i bakgården"></video>
+    </div>
+    <p class="txt" style="margin-top:18px">En kort film som tar dere gjennom spisesalen, forbi maskinene og ut i bakgården.</p>
+  </div>
+</section>
+
+<section id="ideen" class="idea band">
+  <div class="inner">
+    <div class="i-text">
+      <div class="eyebrow">Ideen</div>
+      <h2>Vinmaskinene <em>er torget</em></h2>
+      <p class="i-lead">Hos Glasset er restauranten vinkartet. På Nora får vinen et eget torg i hver del av huset.</p>
+      <p class="i-txt">Folk kommer for et glass og blir for kvelden. Vi vil at du skal kunne gå inn fra gaten, se maskinene med en gang, smake deg frem og finne en plass som passer selskapet ditt. To venninner ved vinduet. En gjeng ved langbordet. Et par i bakgården når det blir mørkt.</p>
+      <ol class="i-pr"><li><span class="i-no">01</span><h3>Plass til å utforske</h3><p>Fri sone rundt maskinene, så ingen står i veien for hverandre. Luftig å gå rundt, lunt ved bordene.</p></li><li><span class="i-no">02</span><h3>Samme kjerne, eget sted</h3><p>Du kjenner igjen Glasset på maskinene, fargekodene og tonen. Nora får sitt eget uttrykk med betong, gammelt tre, kobber og varmt lys.</p></li><li><span class="i-no">03</span><h3>Fra lunsj til stemningsbar</h3><p>Lys og lyd i scener. Rommet skifter karakter gjennom dagen uten at noen må flytte seg.</p></li><li><span class="i-no">04</span><h3>Livlig, men ikke bråkete</h3><p>God akustikk, så praten holder også når musikken går opp en lørdag.</p></li></ol>
+    </div>
+    <figure class="idea-pic"><img src="img/vis-inne.webp" alt="Visualisering av første etasje med vinmaskinene samlet i en kobberkledd øy midt i rommet, lounge mot gaten og bakgården i enden"><figcaption><span>Visualisering</span>Vintorget i første etasje</figcaption></figure>
+  </div>
+</section>
+
+<section id="dognet" class="day band">
+  <div class="inner">
+    <div class="eyebrow">Et døgn på Nora</div>
+    <h2 style="margin-top:18px">Samme rom, <em>fire stemninger</em></h2>
+    <div class="day-art" id="dagKunst" aria-hidden="true">
+      <svg viewBox="0 0 1120 400">
+        <defs>
+          <linearGradient id="himmel" x1="0" y1="0" x2="0" y2="1"><stop id="h1" offset="0" stop-color="#9CC3E4"/><stop id="h2" offset="1" stop-color="#E9EEF0"/></linearGradient>
+          <radialGradient id="lampeLys"><stop offset="0" stop-color="#F6D3A8" stop-opacity=".95"/><stop offset=".45" stop-color="#D3AB9F" stop-opacity=".35"/><stop offset="1" stop-color="#D3AB9F" stop-opacity="0"/></radialGradient>
+          <radialGradient id="gulvLys"><stop offset="0" stop-color="#E9B98A" stop-opacity=".35"/><stop offset="1" stop-color="#E9B98A" stop-opacity="0"/></radialGradient>
+          <clipPath id="vinduer"><rect x="60" y="70" width="140" height="262"/><rect x="220" y="70" width="140" height="262"/><rect x="380" y="70" width="140" height="262"/></clipPath>
+        </defs>
+        <g clip-path="url(#vinduer)">
+          <rect x="40" y="60" width="500" height="290" fill="url(#himmel)"/>
+          <g class="dk-stjerner" fill="#F4F3EF"><circle cx="90" cy="98" r="1.4"/><circle cx="150" cy="132" r="1"/><circle cx="262" cy="90" r="1.3"/><circle cx="318" cy="150" r="1"/><circle cx="420" cy="104" r="1.5"/><circle cx="480" cy="140" r="1"/><circle cx="350" cy="112" r=".9"/></g>
+          <circle class="dk-sol" cx="0" cy="0" r="26" fill="#F7E3B5"/>
+          <g class="dk-mane"><circle cx="0" cy="0" r="18" fill="#F4F3EF"/><circle cx="8" cy="-5" r="16" fill="#232128"/></g>
+          <g fill="#2E2C33"><path d="M40 350 V236 H96 V214 H150 V250 H214 V200 H270 V230 H318 V190 H372 V240 H430 V206 H486 V236 H540 V350Z"/></g>
+          <g class="dk-byvinduer" fill="#F2C98F"><rect x="108" y="226" width="8" height="10"/><rect x="128" y="226" width="8" height="10"/><rect x="226" y="214" width="8" height="10"/><rect x="246" y="236" width="8" height="10"/><rect x="330" y="206" width="8" height="10"/><rect x="350" y="226" width="8" height="10"/><rect x="442" y="220" width="8" height="10"/><rect x="462" y="248" width="8" height="10"/><rect x="498" y="256" width="8" height="10"/></g>
+          <g class="dk-gatelys"><path d="M300 350 V270 Q300 258 314 258" fill="none" stroke="#6E6C70" stroke-width="2"/><circle cx="316" cy="262" r="16" fill="url(#lampeLys)"/></g>
+        </g>
+        <g fill="none" stroke="#D7D8D2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+          <path d="M20 26 H1100"/><path d="M20 360 H1100"/>
+          <rect x="60" y="70" width="140" height="262"/><rect x="220" y="70" width="140" height="262"/><rect x="380" y="70" width="140" height="262"/>
+          <path d="M130 70 V332 M60 160 H200 M290 70 V332 M220 160 H360 M450 70 V332 M380 160 H520" stroke-width=".7" opacity=".7"/>
+          <path d="M40 340 H540" stroke-width="2"/>
+        </g>
+        <ellipse class="dk-gulv" cx="820" cy="362" rx="300" ry="34" fill="url(#gulvLys)"/>
+        <g class="dk-lamper">
+          <g transform="translate(640 0)"><path d="M0 26 V110" stroke="#9A989C"/><path d="M-22 128 Q0 98 22 128Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="138" r="70" fill="url(#lampeLys)"/></g>
+          <g transform="translate(800 0)"><path d="M0 26 V96" stroke="#9A989C"/><path d="M-22 114 Q0 84 22 114Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="124" r="70" fill="url(#lampeLys)"/></g>
+          <g transform="translate(980 0)"><path d="M0 26 V118" stroke="#9A989C"/><path d="M-22 136 Q0 106 22 136Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="146" r="70" fill="url(#lampeLys)"/></g>
+        </g>
+        <g fill="none" stroke="#D7D8D2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+          <path d="M610 360 V262 Q610 238 634 238 H866 Q890 238 890 262 V360" fill="#5A3326" fill-opacity=".55" stroke="#C98A5E"/>
+          <path d="M600 238 H900" stroke="#C98A5E" stroke-width="2"/>
+          <g stroke="#9A989C"><path d="M632 238 V206 Q632 198 636 194 V182 H642 V194 Q646 198 646 206 V238"/><path d="M660 238 V204 Q660 196 664 192 V178 H670 V192 Q674 196 674 204 V238"/><path d="M826 238 V206 Q826 198 830 194 V182 H836 V194 Q840 198 840 206 V238"/><path d="M854 238 V208 Q854 200 858 196 V184 H864 V196 Q868 200 868 208 V238"/></g>
+          <path d="M940 300 H1080 M960 300 V360 M1060 300 V360" />
+          <path d="M974 300 V286 M968 270 Q974 290 980 270" /><path d="M1046 300 V286 M1040 270 Q1046 290 1052 270"/>
+        </g>
+        <g class="dk-skjermer" fill="#F2C98F"><rect x="640" y="262" width="22" height="14" rx="2"/><rect x="684" y="262" width="22" height="14" rx="2"/><rect x="728" y="262" width="22" height="14" rx="2"/><rect x="772" y="262" width="22" height="14" rx="2"/><rect x="816" y="262" width="22" height="14" rx="2"/></g>
+        <g class="dk-lys2"><rect x="1006" y="286" width="8" height="14" fill="#E9E4DA"/><path class="dk-flamme" d="M1010 272 Q1004 280 1010 286 Q1016 280 1010 272Z" fill="#F6C27A"/><circle cx="1010" cy="280" r="26" fill="url(#lampeLys)" class="dk-flammelys"/></g>
+        <g fill="none" stroke="#D7D8D2" stroke-width="1.4" stroke-linecap="round" filter="url(#rough)">
+          <g class="dk-p" data-n="0"><circle cx="580" cy="262" r="11"/><path d="M580 273 C566 290 566 330 570 360 M580 273 C594 290 594 330 590 360 M572 292 L600 268"/></g>
+          <g class="dk-p" data-n="1"><circle cx="918" cy="262" r="11"/><path d="M918 273 C904 290 904 330 908 360 M918 273 C932 290 932 330 928 360 M926 292 L948 276"/></g>
+          <g class="dk-p" data-n="2"><circle cx="726" cy="196" r="10" /><path d="M726 206 C714 222 712 236 714 238 M726 206 C738 222 740 236 738 238"/></g>
+          <g class="dk-p" data-n="3"><circle cx="1096" cy="262" r="11"/><path d="M1096 273 C1082 290 1082 330 1086 360 M1096 273 C1110 290 1110 330 1106 360 M1088 292 L1066 278"/></g>
+          <g class="dk-p" data-n="4"><circle cx="556" cy="256" r="10"/><path d="M556 266 C544 284 544 330 548 360 M556 266 C568 284 568 330 564 360"/></g>
+        </g>
+        <g class="dk-noter" fill="#D3AB9F" font-family="Georgia, serif" font-size="26"><text x="700" y="160">♪</text><text x="880" y="150">♫</text><text x="1050" y="196">♪</text></g>
+      </svg>
+      <div class="dk-klokke"><span id="dkTid">12:30</span></div>
+    </div>
+    <ol class="scenes">
+      <li class="scene"><span class="time">12:30</span><h3>Lunsj</h3><p>Dagslys og hvitvin.</p></li>
+      <li class="scene"><span class="time">16:30</span><h3>Afterwork</h3><p>Smaking ved maskinene.</p></li>
+      <li class="scene"><span class="time">19:00</span><h3>Middag</h3><p>Lyset senkes over bordene.</p></li>
+      <li class="scene"><span class="time">21:30</span><h3>Kveld</h3><p>Musikken opp, lyset ned.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="stedet" class="place band">
+  <div class="inner">
+    <div style="display:grid;gap:22px;align-content:start">
+      <div class="eyebrow">Stedet</div>
+      <h2>Thorvald Meyers <em>gate 56</em></h2>
+      <p class="txt">Det turkise hjørnehuset ved Metodistkirken, med himmelmaleriet på gavlen. To etasjer midt på Løkka, store vinduer mot gaten og en skjermet bakgård bak. Trappen i midten av huset samler etasjene.</p>
+      <div class="facts num">
+        <div><span class="n">ca. 138 m²</span><span class="k">Per etasje</span></div>
+        <div><span class="n">ca. 130</span><span class="k">Plasser inne og ute</span></div>
+        <div><span class="n">100+</span><span class="k">Viner på glass</span></div>
+        <div><span class="n">20 m²</span><span class="k">Kjøkken i andre etasje</span></div>
+      </div>
+    </div>
+    <figure class="entre">
+      <svg class="draw" viewBox="0 0 600 480" role="img" aria-label="Skisse av inngangen til Glasset Nora: vinrød førsteetasje med skiltet Glasset, store opplyste vinduer, dør i midten, plantekasser og en gatebukk med teksten Vin på glass">
+        <defs><radialGradient id="enLys" cx=".5" cy=".35" r=".75"><stop offset="0" stop-color="#F6D3A8" stop-opacity=".95"/><stop offset="1" stop-color="#C98A5E" stop-opacity=".35"/></radialGradient>
+        <radialGradient id="enLampe"><stop offset="0" stop-color="#FFE2B0" stop-opacity=".9"/><stop offset="1" stop-color="#FFE2B0" stop-opacity="0"/></radialGradient></defs>
+        <g filter="url(#wash)">
+          <rect x="24" y="20" width="552" height="138" fill="#C9CBCB" opacity=".7"/>
+          <rect x="24" y="164" width="552" height="232" fill="#46191E" opacity=".92"/>
+          <rect x="44" y="222" width="170" height="160" fill="url(#enLys)"/>
+          <rect x="386" y="222" width="170" height="160" fill="url(#enLys)"/>
+          <rect x="258" y="214" width="84" height="182" fill="#2A0F13" opacity=".9"/>
+          <rect x="268" y="226" width="64" height="96" fill="url(#enLys)" opacity=".8"/>
+          <ellipse cx="300" cy="440" rx="290" ry="26" fill="#C2C1B8" opacity=".55"/>
+        </g>
+        <g fill="none" stroke="#232128" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+          <path style="--len:1300" d="M24 400 V20 H576 V400"/>
+          <path style="--len:700" d="M18 160 H582 M18 166 H582"/>
+          <path style="--len:700" stroke-width="1" d="M16 24 H584 M16 30 H584"/>
+          <path style="--len:300" d="M90 52 h60 v84 h-60z M270 52 h60 v84 h-60z M450 52 h60 v84 h-60z"/>
+          <path style="--len:300" stroke-width=".8" d="M120 52 V136 M90 92 H150 M300 52 V136 M270 92 H330 M480 52 V136 M450 92 H510"/>
+          <path style="--len:300" stroke-width=".8" d="M84 46 H156 M264 46 H336 M444 46 H516"/>
+          <path style="--len:600" d="M44 222 h170 v160 h-170z M386 222 h170 v160 h-170z"/>
+          <path style="--len:200" stroke-width=".8" d="M129 222 V382 M471 222 V382 M44 268 H214 M386 268 H556"/>
+          <path style="--len:500" d="M258 396 V214 H342 V396"/>
+          <path style="--len:240" stroke-width="1" d="M268 226 h64 v96 h-64z"/>
+          <path style="--len:40" stroke="#C99A5A" stroke-width="2.4" d="M330 342 V362"/>
+          <path style="--len:700" d="M10 400 H590"/>
+          <path style="--len:500" stroke-width=".8" stroke="#7A7873" d="M0 470 L60 400 M120 470 L150 400 M250 470 L262 400 M370 470 L352 400 M480 470 L446 400 M600 470 L540 400 M30 436 H570"/>
+        </g>
+        <g fill="none" stroke="#F3E9DC" stroke-width="1" opacity=".55" filter="url(#rough)">
+          <path d="M62 228 V250 M58 250 Q62 242 66 250Z M108 228 V244 M104 244 Q108 236 112 244Z M174 228 V256 M170 256 Q174 248 178 256Z"/>
+          <path d="M52 352 H206 M398 314 H548 M398 352 H548"/>
+          <path d="M406 314 v-18 m6 18 v-22 m6 22 v-16 m6 16 v-20 m24 20 v-18 m6 18 v-22 m6 22 v-14 m30 14 v-20 m6 20 v-16 m6 16 v-22"/>
+          <path d="M80 352 c-2 -10 2 -16 6 -16 c4 0 8 6 6 16 M150 352 c-2 -10 2 -16 6 -16 c4 0 8 6 6 16"/>
+        </g>
+        <circle cx="62" cy="252" r="22" fill="url(#enLampe)"/><circle cx="108" cy="246" r="20" fill="url(#enLampe)"/><circle cx="174" cy="258" r="22" fill="url(#enLampe)"/>
+        <text x="300" y="198" text-anchor="middle" font-family="Nyght Serif, Georgia, serif" font-style="italic" font-weight="300" font-size="30" fill="#F3E9DC" letter-spacing=".5">Glasset</text>
+        <path d="M262 206 H338" stroke="#D3AB9F" stroke-width="1"/>
+        <text x="300" y="150" text-anchor="middle" font-family="HK Grotesk, Helvetica, Arial, sans-serif" font-size="9" letter-spacing="3" fill="#6E6C70">56</text>
+        <g filter="url(#rough)">
+          <path d="M576 196 H600" stroke="#232128" stroke-width="1.6"/>
+          <circle cx="590" cy="222" r="0" fill="none"/>
+        </g>
+        <g stroke="#232128" stroke-width="1.2" filter="url(#rough)">
+          <path d="M224 396 L228 372 H252 L256 396Z" fill="#7A4E33"/><path d="M344 396 L348 372 H372 L376 396Z" fill="#7A4E33"/>
+          <path d="M240 372 V330 M360 372 V330" fill="none" stroke="#55453A" stroke-width="1.6"/>
+          <path d="M60 396 V384 H200 V396" fill="#9A7452"/><path d="M70 396 V404 M190 396 V404" fill="none"/>
+          <path d="M446 458 L468 396 H524 L546 458" fill="#EFE6DA"/><path d="M468 396 L496 380 L524 396" fill="none"/>
+        </g>
+        <g fill="#6F8C70" filter="url(#rough)"><circle cx="240" cy="324" r="16"/><circle cx="232" cy="312" r="11"/><circle cx="250" cy="314" r="10"/><circle cx="360" cy="324" r="16"/><circle cx="352" cy="312" r="11"/><circle cx="370" cy="314" r="10"/></g>
+        <text x="496" y="420" text-anchor="middle" font-family="Nyght Serif, Georgia, serif" font-style="italic" font-size="11" fill="#46191E">Vin på glass</text>
+        <text x="496" y="436" text-anchor="middle" font-family="HK Grotesk, Helvetica, Arial, sans-serif" font-size="7" letter-spacing="1.6" fill="#6E6C70">100+ VINER</text>
+      </svg>
+      <figcaption>Skisse: inngangen fra Thorvald Meyers gate, med vinrød førsteetasje og skiltet over døren</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="planen" class="band">
+  <div class="inner">
+    <div class="plan-head">
+      <div style="display:grid;gap:18px">
+        <div class="eyebrow">Planen</div>
+        <h2>To måter <em>å bruke huset på</em></h2>
+        <p class="small" style="margin-top:0;max-width:52ch">Tegnet i byggets ramme etter Glassets plantegninger: vegger, vinduer, dører, toaletter, trapper, bar og kjøkken der de står i dag, og den nye trappen midt i lokalet.</p>
+      </div>
+      <div class="controls">
+        <div class="seg" role="group" aria-label="Velg forslag"><button id="pA" aria-pressed="true">Forslag A</button><button id="pB" aria-pressed="false">Forslag B</button></div>
+        <div class="seg" role="group" aria-label="Velg etasje"><button id="f1" aria-pressed="true">1. etasje</button><button id="f2" aria-pressed="false">2. etasje</button></div>
+      </div>
+    </div>
+    <div class="sheet">
+      <div class="drawing" id="drawing" aria-live="polite"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <p class="txt" style="margin-top:18px;font-size:13.5px;color:var(--mute)">Skissene bygger på Glassets plantegning fra 9. november. Mål er omtrentlige, og møbleringen er et forslag.</p>
+  </div>
+</section>
+
+
+<section id="materialer" class="mat band">
+  <div class="inner">
+    <div class="eyebrow">Materialer og lys</div>
+    <h2 style="margin-top:18px">Røft, varmt <em>og ærlig</em></h2>
+    <div class="matcol" id="matcol">
+      <figure class="mc" style="grid-column:1/span 3;grid-row:1/span 8;--rot:-1.2deg" data-speed="-0.06"><img src="img/m3.webp" alt="Rustrøde lenestoler rundt et rundt bord med vinglass" loading="lazy"><figcaption>Rust fløyel</figcaption></figure>
+      <figure class="mc" style="grid-column:4/span 2;grid-row:2/span 5;--rot:1.0deg" data-speed="0.05"><img src="img/m1.webp" alt="Prøvekort med tre i varme brune toner" loading="lazy"><figcaption>Varme tretoner</figcaption></figure>
+      <figure class="mc" style="grid-column:6/span 3;grid-row:1/span 8;--rot:0deg" data-speed="-0.03"><img src="img/m8.webp" alt="Et glass rødvin på mørk marmor med fiken" loading="lazy"><figcaption>Mørk marmor</figcaption></figure>
+      <figure class="mc" style="grid-column:9/span 2;grid-row:3/span 5;--rot:-0.8deg" data-speed="0.07"><img src="img/m4.webp" alt="Materialprøver i marmor, bouclé, tre og skinn" loading="lazy"><figcaption>Marmor og bouclé</figcaption></figure>
+      <figure class="mc" style="grid-column:11/span 2;grid-row:1/span 5;--rot:1.4deg" data-speed="-0.05"><img src="img/m0.webp" alt="Stripet krakk på eikegulv" loading="lazy"><figcaption>Eik og stripe</figcaption></figure>
+      <figure class="mc" style="grid-column:4/span 2;grid-row:8/span 5;--rot:-1.0deg" data-speed="-0.04"><img src="img/m6.webp" alt="Kalkstein, lin og en skål i messing" loading="lazy"><figcaption>Kalk og messing</figcaption></figure>
+      <figure class="mc" style="grid-column:9/span 3;grid-row:9/span 7;--rot:0.6deg" data-speed="0.04"><img src="img/m5.webp" alt="Stablede tallerkener i brent keramikk" loading="lazy"><figcaption>Keramikk</figcaption></figure>
+      <figure class="mc" style="grid-column:1/span 2;grid-row:10/span 5;--rot:0.9deg" data-speed="0.06"><img src="img/m2.webp" alt="Stoler i flettverk ved et mørkt bord" loading="lazy"><figcaption>Flettverk</figcaption></figure>
+      <figure class="mc" style="grid-column:6/span 3;grid-row:10/span 6;--rot:-0.5deg" data-speed="-0.05"><img src="img/m7.webp" alt="Dekket bord i stearinlys" loading="lazy"><figcaption>Levende lys</figcaption></figure>
+    </div>
+    </div>
+</section>
+
+<section id="bakgarden" class="yard band">
+  <div class="inner">
+    <div style="display:grid;gap:22px;align-content:start">
+      <div class="eyebrow">Bakgården</div>
+      <h2>Lille <em>Bordeaux</em></h2>
+      <p class="txt">Ca. 40 plasser under ranker og lyslenker, med egen værbeskyttet vinmaskin langs veggen. Varmelamper og parasoller gir flere kvelder fra april til oktober. Fra første etasje ser du rett ut, og du skjønner at det finnes mer.</p>
+      <p class="quote">Varmt lys over bordene, lyden fra gaten forsvinner, og det er fortsatt fullt når det blir mørkt.</p>
+      <figure class="yard-skisse">
+        <svg class="draw" viewBox="0 0 400 260" role="img" aria-label="Skisse av bakgården: murvegg med ranker, lyslenke over et bord med to stoler, parasoll og en vinmaskin i kobber langs veggen">
+          <g filter="url(#wash)">
+            <rect x="14" y="20" width="372" height="170" fill="#C2C1B8" opacity=".55"/>
+            <rect x="282" y="96" width="54" height="92" fill="#B8734A" opacity=".75"/>
+            <ellipse cx="200" cy="222" rx="190" ry="20" fill="#B2CCC1" opacity=".5"/>
+            <path d="M40 120 Q120 60 200 112 L200 118 Q120 72 40 126Z" fill="#46191E" opacity=".25"/>
+          </g>
+          <g fill="none" stroke="#232128" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 190 L14 20 L386 20 L386 190" style="--len:760"/>
+            <path d="M14 190 L386 190" style="--len:380"/>
+            <path d="M14 46 Q110 92 200 50 Q290 92 386 46" style="--len:420"/>
+            <path d="M40 118 Q120 62 200 112" style="--len:200"/>
+            <line x1="120" y1="88" x2="120" y2="196" style="--len:110"/>
+            <path d="M120 196 L106 206 M120 196 L134 206" style="--len:40"/>
+            <ellipse cx="200" cy="180" rx="44" ry="7" style="--len:280"/>
+            <line x1="200" y1="187" x2="200" y2="214" style="--len:30"/>
+            <path d="M184 216 L216 216" style="--len:32"/>
+            <path d="M138 214 L142 172 L162 172 M150 172 L152 214" style="--len:120"/>
+            <path d="M262 214 L258 172 L238 172 M250 172 L248 214" style="--len:120"/>
+            <path d="M282 188 L282 96 L336 96 L336 188" style="--len:240"/>
+            <path d="M290 110 L328 110 M296 126 L296 150 M309 126 L309 150 M322 126 L322 150" style="--len:120"/>
+            <path d="M22 186 Q30 140 26 96 Q22 60 34 30 M26 120 Q40 112 46 100 M28 72 Q16 66 14 56" style="--len:260"/>
+            <path d="M372 30 Q362 70 370 110 M366 64 Q378 58 384 50" style="--len:140"/>
+          </g>
+          <g fill="#F6D3A8" opacity=".9">
+            <circle cx="50" cy="61" r="3"/><circle cx="86" cy="76" r="3"/><circle cx="122" cy="83" r="3"/><circle cx="160" cy="76" r="3"/><circle cx="240" cy="74" r="3"/><circle cx="280" cy="82" r="3"/><circle cx="318" cy="76" r="3"/><circle cx="352" cy="62" r="3"/>
+          </g>
+          <g fill="#46191E"><path d="M194 168 q0 7 4 9 v4 h-3 h8 h-3 v-4 q4 -2 4 -9z" opacity=".85"/></g>
+          <g fill="#8FA98F" opacity=".8"><circle cx="30" cy="100" r="5"/><circle cx="40" cy="104" r="4"/><circle cx="26" cy="70" r="4"/><circle cx="368" cy="80" r="4"/><circle cx="378" cy="56" r="4"/></g>
+        </svg>
+        <figcaption>Skisse: kveld i Lille Bordeaux</figcaption>
+      </figure>
+    </div>
+    <figure class="yard-pic"><img src="img/vis-bakgard.webp" alt="Illustrasjon av bakgården Lille Bordeaux med parasoller, lyslenker, ranker og en værbeskyttet vinmaskin i kobber langs veggen"><figcaption>Illustrasjon: Lille Bordeaux en sensommerkveld</figcaption></figure>
+  </div>
+</section>
+
+<section id="tilbudet" class="offer band">
+  <div class="inner">
+    <div class="eyebrow">Tilbudet</div>
+    <h2 style="margin-top:18px">Konseptfasen <em>og veien videre</em></h2>
+    <div class="cols">
+      <div>
+        <div class="big num">238 000</div>
+        <p class="small">kr eks. mva, estimat fra 170 timer. Timepris kr 1 400.</p>
+      </div>
+      <div style="grid-column:span 2">
+        <p class="txt" style="font-size:16px">Hele tilbudet ligger på en egen side. Der finner dere tilnærmingen, hva konseptfasen leverer, hvordan vi jobber, honoraret linje for linje, opsjonene frem til åpning, rammen på 3 MNOK, tidsplanen og vilkårene.</p>
+        <p style="margin-top:26px"><a class="go" id="aapneTilbud" href="tilbud.html?v=24">Les hele tilbudet <span aria-hidden="true">→</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teamet" class="team band">
+  <div class="inner">
+    <div class="eyebrow">Teamet</div>
+    <h2 style="margin-top:18px">Vi lager det <em>sammen med dere</em></h2>
+    <div class="crew">
+      <div class="who"><div class="pic"><img src="img/camilla-team.webp" alt="Camilla Bentzen"></div><span class="role">Prosjektleder · Kreativ leder</span><h3>Camilla Bentzen</h3><p>Interiørarkitekt MNIL, partner<br>+47 995 50 001<br>camilla@monn.no</p></div>
+      <div class="who"><div class="pic"><img src="img/trond-team.webp" alt="Trond Ramsøskar"></div><span class="role">Daglig leder</span><h3>Trond Ramsøskar</h3><p>Interiørarkitekt MNIL, partner<br>+47 924 41 305<br>trond@monn.no</p></div>
+      <div class="who"><div class="pic"><img src="img/murad-team.webp" alt="Murad Khan"></div><span class="role">Partner</span><h3>Murad Khan</h3><p>Interiørarkitekt MNIL<br>+47 900 38 650<br>murad@monn.no</p></div>
+    </div>
+    <footer><span>Monn Interiørarkitekter · Value the inside</span><span>Konfidensielt. Utarbeidet for Glasset Vinbar.</span></footer>
+  </div>
+</section>
+
+<div class="modal" id="tilbudVindu" hidden role="dialog" aria-modal="true" aria-label="Tilbud til Nora">
+  <div class="modal-box"><button class="modal-x" id="lukkTilbud" type="button">Lukk</button><iframe id="tilbudRamme" title="Tilbud til Nora"></iframe></div>
+</div>
+<script>
+(function(){
+ const v=document.getElementById("tilbudVindu"), f=document.getElementById("tilbudRamme"), x=document.getElementById("lukkTilbud"), knapp=document.getElementById("aapneTilbud");
+ let forrige=null;
+ function aapne(e){ if(e) e.preventDefault(); forrige=document.activeElement; if(!f.getAttribute("src")) f.setAttribute("src","tilbud.html?v=24"); v.hidden=false; document.body.style.overflow="hidden"; x.focus(); }
+ function lukk(hash){ v.hidden=true; document.body.style.overflow=""; if(hash){ const m=document.querySelector(hash); if(m) m.scrollIntoView({behavior:"smooth"}); } else if(forrige) forrige.focus(); }
+ knapp.addEventListener("click",aapne);
+ x.addEventListener("click",()=>lukk());
+ v.addEventListener("click",e=>{ if(e.target===v) lukk(); });
+ addEventListener("keydown",e=>{ if(e.key==="Escape"&&!v.hidden) lukk(); });
+ addEventListener("message",e=>{ if(e.data&&e.data.tilbud==="lukk") lukk(e.data.hash||""); });
+})();
+</script>
+<script>
+(function(){
+ const k=document.getElementById("dagKunst"); if(!k) return;
+ const sc=[...document.querySelectorAll("#dognet .scene")];
+ const $=q=>k.querySelector(q), $$=q=>[...k.querySelectorAll(q)];
+ const S=[
+  {t:"12:30",h:["#8FBCE3","#E6EEF2"],sol:[300,118,1],mane:0,lys:.08,by:0,stj:0,gate:0,gulv:.15,skj:.35,flamme:0,noter:0,p:[1,1,0,1,0]},
+  {t:"16:30",h:["#D9A57A","#F4D9BC"],sol:[430,214,1],mane:0,lys:.35,by:.15,stj:0,gate:0,gulv:.4,skj:.6,flamme:.4,noter:0,p:[1,1,1,1,1]},
+  {t:"19:00",h:["#4E4268","#D9886A"],sol:[500,320,.85],mane:0,lys:.75,by:.65,stj:.2,gate:.7,gulv:.75,skj:.85,flamme:.85,noter:0,p:[1,1,1,0,1]},
+  {t:"21:30",h:["#12131D","#2A2838"],sol:[520,400,0],mane:1,lys:1,by:1,stj:1,gate:1,gulv:1,skj:1,flamme:1,noter:1,p:[1,1,1,1,1]}
+ ];
+ let i=0, auto=!matchMedia("(prefers-reduced-motion: reduce)").matches, timer;
+ function vis(n){ i=n; const c=S[n];
+  $("#h1").setAttribute("stop-color",c.h[0]); $("#h2").setAttribute("stop-color",c.h[1]);
+  const sol=$(".dk-sol"); sol.style.transform=`translate(${c.sol[0]}px,${c.sol[1]}px)`; sol.style.opacity=c.sol[2];
+  const m=$(".dk-mane"); m.style.transform="translate(140px,112px)"; m.style.opacity=c.mane;
+  $$(".dk-lys").forEach(e=>e.style.opacity=c.lys); $(".dk-byvinduer").style.opacity=c.by; $(".dk-stjerner").style.opacity=c.stj;
+  $(".dk-gatelys").style.opacity=c.gate; $(".dk-gulv").style.opacity=c.gulv; $(".dk-skjermer").style.opacity=c.skj;
+  $(".dk-lys2").style.opacity=c.flamme; $(".dk-noter").style.opacity=c.noter;
+  $$(".dk-p").forEach(e=>e.style.opacity=c.p[+e.dataset.n]?1:0);
+  document.getElementById("dkTid").textContent=c.t;
+  sc.forEach((e,j)=>e.classList.toggle("on",j===n));
+ }
+ function neste(){ vis((i+1)%S.length); }
+ function start(){ clearInterval(timer); if(auto) timer=setInterval(neste,4200); }
+ sc.forEach((e,j)=>{ e.setAttribute("tabindex","0"); e.setAttribute("role","button"); const go=()=>{ auto=false; clearInterval(timer); vis(j); }; e.addEventListener("click",go); e.addEventListener("keydown",ev=>{ if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); go(); } }); });
+ vis(0);
+ const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting) start(); else clearInterval(timer); }),{threshold:.3}); io.observe(k);
+})();
+</script>
+<script>
+/* Planen i meter. 0,0 er hjørnet mot bakgården og nabohuset. y øker mot gaten. */
+const W=16, H=11.2, T=0.5;
+/* Byggets ramme, målt opp fra Glassets plantegninger (1:100). Vegger som rektangler [x0,y0,x1,y1]. */
+const BASE={
+ 1:{
+  walls:[[T,5.24,4.04,5.6],[3.83,T,4.04,5.24],[T,2.52,3.83,2.68],[2.32,2.68,2.44,3.84],[T,3.84,3.83,3.94],[4.04,3.78,7.31,3.9],[7.2,T,7.31,3.78],[7.31,3.6,10.06,3.72],
+   [5.44,5.24,8.34,5.65],[10.5,5.24,11.6,5.65],[12.8,5.24,13.4,5.65],[14.9,5.24,W-T,5.65]],
+  rooms:[[T,T,3.33,2.02,"HC-toalett"],[T,2.68,1.82,1.16,"WC"],[T,3.94,3.33,1.3,""],[4.04,T,3.16,3.28,"Trapp"],[7.31,T,2.75,3.1,"Trapp"],[12.8,T,2.7,4.74,"Bar"]],
+  steps:[[4.04,5.42,1.4,.9,"v"]],
+  stair:[5.75,5.65,4.55,1.4],
+  windows:[[1.47,3.57,"b"],[5.79,7.92,"b"],[8.83,10.96,"b"],[12.63,14.73,"b"],[7.66,8.83,"t"],[11.75,13.15,"t"]],
+  doors:[[4.04,5.33,"b"],[10.08,11.4,"t"],[9.0,10.2,"l"]],
+  yard:true
+ },
+ 2:{
+  walls:[[3.87,T,4.04,5.33],[T,3.81,3.87,4.05],[T,5.33,10.5,5.62],[7.19,T,7.31,3.76],[4.04,3.76,7.31,3.93],[5.97,3.93,6.1,5.33],[7.31,3.76,11.5,3.9],[11.5,T,11.62,3.9],
+   [11.62,2.33,14.13,2.47],[12.93,2.47,13.05,3.76],[14.13,T,14.3,3.9],[11.62,3.76,14.3,3.9],[13.02,3.9,13.2,4.2],[13.02,5.33,13.2,H-T],[13.2,3.76,14.3,3.9]],
+  rooms:[[T,T,3.37,3.31,"Personal"],[T,4.05,3.37,1.28,"Dusj og WC"],[4.04,T,3.15,3.26,"Trapp"],[4.04,3.93,1.93,1.4,"WC"],[7.31,T,4.19,3.26,"Trapp"],[11.62,T,2.51,1.83,"Kjøl og frys"],[11.62,2.47,1.31,1.29,"Renhold"],[13.05,2.47,1.08,1.29,""],[14.3,T,1.2,3.4,""],[13.2,3.9,2.3,6.8,"Kjøkken"]],
+  void:[5.75,5.65,4.55,1.4],
+  lift:[14.75,8.45,.7,.7],
+  windows:[[1.65,2.82,"b"],[4.04,5.21,"b"],[6.43,7.66,"b"],[9.11,10.34,"b"],[11.44,12.61,"b"],[13.25,14.42,"b"],[1.6,2.76,"t"],[4.8,6.03,"t"],[8.0,9.17,"t"],[10.69,11.4,"t"],[12.0,13.08,"t"]],
+  doors:[],
+  yard:false
+ }
+};
+/* Forslagene. Mål i meter, møbler i reelle størrelser.
+ m vinmaskin (face: siden gjestene står, both = øy med maskiner på begge sider), t2 kvadratisk bord for to (rot 0: stoler over og under, 90: til siden), t4 kvadratisk bord for fire, rt4 rundt bord for fire, rt2 rundt bord for to, hi høybord, long langbord, bench fast benk mot vegg med n bord for to, sofa, arm lenestol, low lavt bord, bar disk med krakker, ledge vindusdisk, zone flisgulv, k forheng, screen lerret, h hylle, p plante, n nummer, a gangvei */
+const PROP={
+ A:{
+  name:"Vintorget", sub:"Maskinene samlet i en øy midt i rommet",
+  1:[
+   {k:"zone",cx:9.0,cy:8.6,rx:2.3,ry:.95},
+   {k:"m",x:7.6,y:8.2,w:2.8,h:.8,face:"both"},
+   {k:"ledge",x:5.65,y:10.35,w:5.0,h:.35,side:"t"},
+   {k:"bench",x:11.0,y:10.2,w:4.3,h:.5,side:"b",n:3},
+   {k:"t4",x:14.3,y:6.5},{k:"t2",x:14.3,y:8.3,rot:90},
+   {k:"sofa",x:1.9,y:10.0,w:2.0,h:.7,side:"b"},
+   {k:"low",x:2.9,y:9.5,r:.3},{k:"arm",x:2.05,y:9.1,face:90},{k:"arm",x:3.75,y:9.1,face:90},
+   {k:"long",x:1.0,y:6.4,w:2.5,h:.85},
+   {k:"bar",x:13.0,y:.9,w:.6,h:3.6,side:"l"},{k:"h",x:15.0,y:.9,w:.45,h:3.6},
+   {k:"p",x:3.75,y:7.75},{k:"p",x:15.15,y:9.55},
+   {k:"a",pts:[[4.7,11.0],[4.7,4.6],[10.75,4.6],[10.75,.2]]},
+   {k:"rt4",x:1.9,y:-3.7},{k:"rt4",x:4.3,y:-3.7},{k:"rt4",x:6.7,y:-3.7},{k:"rt4",x:1.9,y:-1.6},{k:"rt4",x:4.3,y:-1.6},{k:"rt4",x:6.7,y:-1.6},
+   {k:"long",x:8.6,y:-4.6,w:.9,h:3.1},
+   {k:"m",x:11.8,y:-4.3,w:.55,h:1.6,face:"l"},
+   {k:"p",x:.6,y:-4.9},{k:"p",x:3.1,y:-5.0},{k:"p",x:5.5,y:-5.0},{k:"p",x:10.6,y:-4.9},
+   {k:"n",x:10.9,y:7.7,n:1},{k:"n",x:1.25,y:8.6,n:2},{k:"n",x:3.85,y:6.85,n:3},{k:"n",x:12.4,y:9.0,n:4},{k:"n",x:12.1,y:2.7,n:5},{k:"n",x:10.2,y:-2.6,n:6}
+  ],
+  2:[
+   {k:"k",x:5.6,y1:5.62,y2:H-T},
+   {k:"m",x:.75,y:5.75,w:2.4,h:.55,face:"b"},
+   {k:"long",x:1.0,y:7.7,w:3.7,h:1.0},
+   {k:"screen",x:.55,y1:7.3,y2:9.9},
+   {k:"p",x:4.95,y:6.2},
+   {k:"zone",x:11.7,y:5.75,w:1.3,h:2.7},
+   {k:"m",x:12.45,y:5.9,w:.55,h:2.4,face:"l"},
+   {k:"bench",x:5.9,y:10.2,w:6.4,h:.5,side:"b",n:5},
+   {k:"t2",x:6.9,y:8.15,rot:90},{k:"t2",x:8.85,y:8.15,rot:90},{k:"t2",x:10.8,y:8.15,rot:90},
+   {k:"n",x:3.0,y:6.75,n:1},{k:"n",x:5.25,y:8.6,n:2},{k:"n",x:11.3,y:6.6,n:3},{k:"n",x:14.25,y:7.4,n:4}
+  ],
+  legend:{
+   1:[["Vintorget","En øy med maskiner på begge sider står foran den nye trappen, på flisgulv med fri sone rundt. Vindusdisken mot gaten har åtte krakker."],["Lounge","Sofa, to lenestoler og lavt bord i hjørnet. Døren i gavlen holdes fri."],["Langbordet","Åtte plasser i den gamle spisestuen."],["Benken","Fast benk under vinduene med tre bord for to, og et bord for fire og et for to innenfor."],["Baren","Disk med seks krakker og bakdisk, på veien ut til bakgården."],["Lille Bordeaux","Seks runde bord for fire, langbord og egen maskin langs veggen."]],
+   2:[["Selskapsrommet","Langbord for tolv, egen maskinrekke og lerret for vinsmaking."],["Forhenget","Deler etasjen ved selskap. Står åpent til vanlig."],["Maskinene oppe","Rekke langs kjøkkenveggen, med flisgulv foran."],["Kort vei for maten","Kjøkkenet ligger vegg i vegg med serveringen, med matheis ned."]]
+  }
+ },
+ B:{
+  name:"Vinpromenaden", sub:"Maskinene som en ryggrad gjennom rommet",
+  1:[
+   {k:"zone",x:5.6,y:7.75,w:6.2,h:1.9},
+   {k:"m",x:5.9,y:8.25,w:2.4,h:.8,face:"both"},{k:"m",x:9.1,y:8.25,w:2.4,h:.8,face:"both"},
+   {k:"ledge",x:5.65,y:10.35,w:5.0,h:.35,side:"t"},
+   {k:"bench",x:11.0,y:10.2,w:4.3,h:.5,side:"b",n:3},
+   {k:"t4",x:14.3,y:6.5},{k:"t2",x:14.3,y:8.3,rot:90},
+   {k:"sofa",x:1.9,y:10.0,w:2.0,h:.7,side:"b"},
+   {k:"low",x:2.9,y:9.5,r:.3},{k:"arm",x:2.05,y:9.1,face:90},{k:"arm",x:3.75,y:9.1,face:90},
+   {k:"bench",x:.5,y:5.9,w:.5,h:2.6,side:"l",n:2},
+      {k:"bar",x:13.0,y:.9,w:.6,h:3.6,side:"l"},{k:"h",x:15.0,y:.9,w:.45,h:3.6},
+   {k:"p",x:3.75,y:8.0},{k:"p",x:15.15,y:9.55},
+   {k:"a",pts:[[4.7,11.0],[4.7,4.6],[10.75,4.6],[10.75,.2]]},
+   {k:"long",x:1.2,y:-4.5,w:4.2,h:.9},{k:"long",x:1.2,y:-1.9,w:4.2,h:.9},
+   {k:"rt2",x:7.2,y:-3.8},{k:"rt2",x:9.4,y:-3.8},{k:"rt2",x:7.2,y:-1.7},{k:"rt2",x:9.4,y:-1.7},
+   {k:"m",x:11.8,y:-4.3,w:.55,h:1.6,face:"l"},
+   {k:"p",x:.6,y:-4.9},{k:"p",x:6.3,y:-5.0},{k:"p",x:10.6,y:-4.9},
+   {k:"n",x:11.95,y:8.65,n:1},{k:"n",x:5.3,y:9.75,n:2},{k:"n",x:1.25,y:8.9,n:3},{k:"n",x:1.75,y:5.95,n:4},{k:"n",x:12.1,y:2.7,n:5},{k:"n",x:10.2,y:-2.6,n:6}
+  ],
+  2:[
+   {k:"m",x:.6,y:5.9,w:.55,h:2.4,face:"r"},{k:"h",x:.6,y:8.5,w:.45,h:1.9},
+   {k:"zone",x:11.7,y:5.75,w:1.3,h:2.7},
+   {k:"m",x:12.45,y:5.9,w:.55,h:2.4,face:"l"},{k:"h",x:12.55,y:8.5,w:.45,h:1.9},
+   {k:"k",x:5.6,y1:5.62,y2:H-T,dash:true},
+   {k:"sofa",x:2.0,y:10.0,w:2.4,h:.7,side:"b"},{k:"low",x:3.2,y:9.45,r:.32},{k:"arm",x:2.6,y:8.7,face:90},{k:"arm",x:3.8,y:8.7,face:90},
+   {k:"rt4",x:3.1,y:6.8},
+   {k:"bench",x:5.9,y:10.2,w:6.4,h:.5,side:"b",n:5},
+   {k:"t2",x:6.9,y:8.15,rot:90},{k:"t2",x:8.85,y:8.15,rot:90},{k:"t2",x:10.8,y:8.15,rot:90},
+   {k:"n",x:1.65,y:5.6,n:1},{k:"n",x:9.8,y:9.1,n:2},{k:"n",x:5.95,y:6.3,n:3}
+  ],
+  legend:{
+   1:[["Vinpromenaden","To øyer med maskiner på begge sider står på rad foran trappen, med en åpning midt imellom. Vindusdisken mot gaten har åtte krakker."],["Disk i vinduet","Høy disk langs vinduene, mellom døren og benken."],["Lounge","Sofa, to lenestoler og lavt bord i hjørnet. Døren i gavlen holdes fri."],["Båsen","Fast benk langs gavlen med to bord for to."],["Baren","Disk med seks krakker og bakdisk, på veien ut til bakgården."],["Bakgården","To langbord for gjenger og fire små bord for to."]],
+   2:[["Vinbiblioteket","Maskiner og hyller langs veggene, slik som i Pilestredet."],["Fritt gulv","Fast benk under vinduene og små bord som lett flyttes fra middag til vinsmaking."],["Skyvevegg","Lukker av salongen ved selskap."]]
+  }
+ }
+};
+
+/* ---------- Skissene ---------- */
+const S=38, OX=40;
+let state={p:"A",f:1};
+const INK="#3B393F", PAPER="#F7F6F2", SEAT="#ECE7DF", WINE="#46191E";
+function drawPlan(){
+ const f=state.f, b=BASE[f], pr=PROP[state.p], items=pr[f]||[];
+ const top=b.yard?5.6:0, OY=40+top*S;
+ const X=x=>OX+x*S, Y=y=>OY+y*S, L=v=>v*S;
+ const vw=OX*2+W*S, vh=OY+H*S+64;
+ const o=[];
+ const chair=(cx,cy,ang)=>`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)}) rotate(${ang})"><rect x="${-L(.21)}" y="${-L(.2)}" width="${L(.42)}" height="${L(.4)}" rx="${L(.1)}" fill="${PAPER}"/><path d="M${-L(.19)} ${-L(.2)} Q0 ${-L(.31)} ${L(.19)} ${-L(.2)}" fill="none"/></g>`;
+ const toward=(cx,cy,tx,ty)=>Math.atan2(ty-cy,tx-cx)*180/Math.PI-90;
+ o.push(`<svg viewBox="0 0 ${vw} ${vh}" role="img" aria-label="Plan av ${f}. etasje, ${pr.name}" font-family="HK Grotesk, Helvetica, Arial, sans-serif">`);
+ o.push(`<defs><pattern id="tile" width="${L(.3)}" height="${L(.3)}" patternUnits="userSpaceOnUse"><rect width="${L(.3)}" height="${L(.3)}" fill="#EFE9E1"/><path d="M0 0H${L(.3)}M0 0V${L(.3)}" stroke="#D8CFC3" stroke-width=".6"/></pattern>
+ <pattern id="deck" width="${L(.16)}" height="10" patternUnits="userSpaceOnUse"><path d="M0 0V10" stroke="#C9D6CE" stroke-width=".7"/></pattern>
+ <pattern id="poche" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#D4D2CB"/><path d="M0 0V5" stroke="#9C9A95" stroke-width=".5"/></pattern>
+ <pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".55" fill="#C7C3BA"/></pattern></defs>`);
+ o.push(`<g stroke="${INK}" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">`);
+ // bakgård
+ if(b.yard){
+  o.push(`<rect x="${X(0)}" y="${Y(-5.4)}" width="${L(12.4)}" height="${L(5.4)}" fill="url(#deck)" stroke="none"/>`);
+  o.push(`<rect x="${X(0)}" y="${Y(-5.4)}" width="${L(12.4)}" height="${L(5.4)}" fill="none" stroke-dasharray="3 4" stroke-width=".7"/>`);
+  o.push(`<rect x="${X(12.4)}" y="${Y(-5.4)}" width="${L(3.6)}" height="${L(5.4)}" fill="url(#poche)" stroke-width="1.2"/>`);
+  for(const px of [.3,4.1,8.0,11.9]) for(const py of [-5.2,-.3]) o.push(`<rect x="${X(px)-3}" y="${Y(py)-3}" width="6" height="6" fill="${INK}" stroke="none"/>`);
+ }
+ // gulv
+ o.push(`<rect x="${X(0)}" y="${Y(0)}" width="${L(W)}" height="${L(H)}" fill="${PAPER}" stroke="none"/>`);
+ o.push(`<rect x="${X(T)}" y="${Y(T)}" width="${L(W-2*T)}" height="${L(H-2*T)}" fill="url(#dots)" stroke="none" opacity=".7"/>`);
+ b.rooms.forEach(r=>o.push(`<rect x="${X(r[0])}" y="${Y(r[1])}" width="${L(r[2])}" height="${L(r[3])}" fill="#EAE8E2" stroke="none"/>`));
+ items.filter(e=>e.k==="zone").forEach(e=>{ if(e.rx) o.push(`<ellipse cx="${X(e.cx)}" cy="${Y(e.cy)}" rx="${L(e.rx)}" ry="${L(e.ry)}" fill="url(#tile)" stroke="#CDBFAF" stroke-width=".8"/>`); else o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="${L(.4)}" fill="url(#tile)" stroke="#CDBFAF" stroke-width=".8"/>`); });
+ // yttervegg som poché
+ o.push(`<path d="M${X(0)} ${Y(0)}H${X(W)}V${Y(H)}H${X(0)}Z M${X(T)} ${Y(T)}V${Y(H-T)}H${X(W-T)}V${Y(T)}Z" fill="url(#poche)" fill-rule="evenodd" stroke-width="1.3"/>`);
+ b.walls.forEach(w=>{ const x=Math.min(w[0],w[2]), y=Math.min(w[1],w[3]); const ww=Math.max(Math.abs(w[2]-w[0]),.12), hh=Math.max(Math.abs(w[3]-w[1]),.12); o.push(`<rect x="${X(x)}" y="${Y(y)}" width="${L(ww)}" height="${L(hh)}" fill="${ww>.2&&hh>.2?"url(#poche)":"#BDBAB3"}" stroke-width=".8"/>`); });
+ if(b.level) o.push(`<path d="M${X(b.level[0])} ${Y(b.level[1])}V${Y(b.level[3])}" stroke-width=".6" stroke-dasharray="8 3 2 3"/>`);
+ (b.steps||[]).forEach(([sx,sy,sw,sh,dir])=>{ o.push(`<rect x="${X(sx)}" y="${Y(sy)}" width="${L(sw)}" height="${L(sh)}" fill="${PAPER}" stroke-width=".7"/>`); const n=3; for(let i=1;i<n;i++) o.push(dir==="v"?`<path d="M${X(sx)} ${Y(sy+sh*i/n)}H${X(sx+sw)}" stroke-width=".5"/>`:`<path d="M${X(sx+sw*i/n)} ${Y(sy)}V${Y(sy+sh)}" stroke-width=".5"/>`); });
+ // vinduer
+ b.windows.forEach(w=>{ if(w[2]==="b") o.push(`<rect x="${X(w[0])}" y="${Y(H-T)}" width="${L(w[1]-w[0])}" height="${L(T)}" fill="${PAPER}" stroke-width=".7"/><path d="M${X(w[0])} ${Y(H-T/2)}H${X(w[1])}" stroke-width=".6"/>`); else if(w[2]==="t") o.push(`<rect x="${X(w[0])}" y="${Y(0)}" width="${L(w[1]-w[0])}" height="${L(T)}" fill="${PAPER}" stroke-width=".7"/><path d="M${X(w[0])} ${Y(T/2)}H${X(w[1])}" stroke-width=".6"/>`); else o.push(`<rect x="${X(0)}" y="${Y(w[0])}" width="${L(T)}" height="${L(w[1]-w[0])}" fill="${PAPER}" stroke-width=".7"/><path d="M${X(T/2)} ${Y(w[0])}V${Y(w[1])}" stroke-width=".6"/>`); });
+ // dører
+ b.doors.forEach(d=>{ const r=L(d[1]-d[0]);
+  if(d[2]==="b") o.push(`<rect x="${X(d[0])}" y="${Y(H-T)}" width="${r}" height="${L(T)}" fill="${PAPER}" stroke="none"/><path d="M${X(d[0])} ${Y(H)}V${Y(H)+r}M${X(d[0])} ${Y(H)+r}A${r} ${r} 0 0 0 ${X(d[1])} ${Y(H)}" fill="none" stroke-width=".7"/>`);
+  if(d[2]==="t") o.push(`<rect x="${X(d[0])}" y="${Y(0)}" width="${r}" height="${L(T)}" fill="${PAPER}" stroke="none"/><path d="M${X(d[1])} ${Y(0)}V${Y(0)-r}M${X(d[1])} ${Y(0)-r}A${r} ${r} 0 0 0 ${X(d[0])} ${Y(0)}" fill="none" stroke-width=".7"/>`);
+  if(d[2]==="l") o.push(`<rect x="${X(0)}" y="${Y(d[0])}" width="${L(T)}" height="${r}" fill="${PAPER}" stroke="none"/><path d="M${X(0)} ${Y(d[0])}H${X(0)-r}M${X(0)-r} ${Y(d[0])}A${r} ${r} 0 0 0 ${X(0)} ${Y(d[1])}" fill="none" stroke-width=".7"/>`);
+ });
+ // trapper
+ const stair=(x,y,w,h,n)=>{ o.push(`<rect x="${X(x)}" y="${Y(y)}" width="${L(w)}" height="${L(h)}" fill="${PAPER}" stroke-width=".8"/>`); for(let i=1;i<n;i++) o.push(`<path d="M${X(x)} ${Y(y+h*i/n)}H${X(x+w)}" stroke-width=".5"/>`); o.push(`<path d="M${X(x+w/2)} ${Y(y+h-.15)}V${Y(y+.25)}" stroke-width=".7"/><path d="M${X(x+w/2)-4} ${Y(y+.4)}L${X(x+w/2)} ${Y(y+.2)}L${X(x+w/2)+4} ${Y(y+.4)}" fill="none" stroke-width=".7"/>`); };
+ stair(4.3,.7,2.65,2.85,11); if(f===1) stair(7.55,.7,2.3,2.7,11); else stair(7.6,.7,2.4,2.8,11);
+ // den nye trappen midt i lokalet, 18 trinn som stiger mot vest
+ const sv=b.stair||b.void;
+ if(sv){ const up=!!b.stair, n=18, t=sv[2]/n, x0=sv[0], y0=sv[1], x1=sv[0]+sv[2], y1=sv[1]+sv[3], ym=(y0+y1)/2;
+  o.push(`<rect x="${X(x0)}" y="${Y(y0)}" width="${L(sv[2])}" height="${L(sv[3])}" fill="${up?"#F1EBE2":"none"}" stroke-width="${up?1.1:.8}" ${up?"":'stroke-dasharray="5 4"'}/>`);
+  for(let i=1;i<n;i++){ const xx=x0+i*t; if(up&&xx<x0+sv[2]*.4) continue; o.push(`<path d="M${X(xx)} ${Y(y0)}V${Y(y1)}" stroke-width="${up?.6:.4}" ${up?"":'stroke-dasharray="2 3"'}/>`); }
+  if(up){ const bx=x0+sv[2]*.4; o.push(`<path d="M${X(bx-.15)} ${Y(y1)}L${X(bx+.15)} ${Y(y0)}" stroke-width=".9"/>`); for(let i=1;i<n*.4;i++){ const xx=x0+i*t; o.push(`<path d="M${X(xx)} ${Y(y0)}V${Y(y1)}" stroke-width=".4" stroke-dasharray="2 3"/>`); } }
+  else o.push(`<path d="M${X(x0)} ${Y(y1+.05)}H${X(x1+.05)}V${Y(y0)}" fill="none" stroke-width="2.2"/>`);
+  o.push(`<path d="M${X(up?x1-.2:x0+.25)} ${Y(ym)}H${X(up?x0+.3:x1-.3)}" stroke="${WINE}" stroke-width="1" marker-end="url(#arr)"/>`);
+  o.push(`<circle cx="${X(up?x1-.2:x0+.25)}" cy="${Y(ym)}" r="2.6" fill="${WINE}" stroke="none"/>`); }
+ if(b.lift){ const l=b.lift; o.push(`<rect x="${X(l[0])}" y="${Y(l[1])}" width="${L(l[2])}" height="${L(l[3])}" fill="${PAPER}" stroke-width=".8"/><path d="M${X(l[0])} ${Y(l[1])}L${X(l[0]+l[2])} ${Y(l[1]+l[3])}M${X(l[0]+l[2])} ${Y(l[1])}L${X(l[0])} ${Y(l[1]+l[3])}" stroke-width=".5"/>`); }
+ if(f===2){ o.push(`<rect x="${X(14.85)}" y="${Y(4.0)}" width="${L(.65)}" height="${L(4.3)}" fill="#E3E1DA" stroke-width=".7"/>`); for(let i=0;i<3;i++) o.push(`<rect x="${X(14.93)}" y="${Y(4.15+i*.72)}" width="${L(.5)}" height="${L(.6)}" fill="${PAPER}" stroke-width=".5"/><circle cx="${X(15.18)}" cy="${Y(4.45+i*.72)}" r="${L(.13)}" fill="none" stroke-width=".5"/>`); o.push(`<rect x="${X(13.45)}" y="${Y(9.4)}" width="${L(1.9)}" height="${L(.65)}" fill="#E3E1DA" stroke-width=".7"/><rect x="${X(13.35)}" y="${Y(5.6)}" width="${L(.9)}" height="${L(2.4)}" fill="#E3E1DA" stroke-width=".7"/>`); }
+ // møbler
+ items.forEach(e=>{
+  if(e.k==="m"){ const hz=e.w>e.h; o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="1.5" fill="${WINE}" stroke="${WINE}"/>`);
+   const len=hz?e.w:e.h, per=.8, n=Math.max(1,Math.round(len/per)), sl=len/n;
+   for(let i=1;i<n;i++){ const a=e[hz?"x":"y"]+sl*i; o.push(hz?`<path d="M${X(a)} ${Y(e.y)}V${Y(e.y+e.h)}" stroke="#6B2F35" stroke-width=".6"/>`:`<path d="M${X(e.x)} ${Y(a)}H${X(e.x+e.w)}" stroke="#6B2F35" stroke-width=".6"/>`); }
+   const rows=e.face==="both"?(hz?["t","b"]:["l","r"]):[e.face];
+   rows.forEach(fc=>{ const k=Math.round(len/.1); for(let i=0;i<n;i++) for(let j=0;j<8;j++){ const a=(i*sl)+sl*(j+1.5)/(8+2); let cx,cy; const d=.13; if(hz){ cx=X(e.x+a); cy=fc==="t"?Y(e.y+d):Y(e.y+e.h-d);} else { cy=Y(e.y+a); cx=fc==="l"?X(e.x+d):X(e.x+e.w-d);} o.push(`<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="1.5" fill="#D3AB9F" stroke="none"/>`); } }); }
+  if(e.k==="t2"||e.k==="t4"){ const s=e.k==="t2"?.7:.8, cx=X(e.x), cy=Y(e.y), hs=L(s/2), off=L(s/2+.25);
+   o.push(`<rect x="${cx-hs}" y="${cy-hs}" width="${2*hs}" height="${2*hs}" rx="1.5" fill="${PAPER}"/>`);
+   const sides=e.k==="t4"?[0,90,180,270]:(e.rot===90?[90,270]:[0,180]);
+   sides.forEach(a=>{ const r=a*Math.PI/180; const px=cx+Math.sin(r)*-off*-1, py=cy-Math.cos(r)*off; const dx=a===90?off:a===270?-off:0, dy=a===0?-off:a===180?off:0; o.push(chair(cx+dx,cy+dy,a===0?0:a===180?180:a===90?90:-90)); }); }
+  if(e.k==="bench"){ const hz=e.side==="b"||e.side==="t"; o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="3" fill="${SEAT}"/>`);
+   if(e.side==="b") o.push(`<path d="M${X(e.x)+3} ${Y(e.y+e.h-.16)}H${X(e.x+e.w)-3}" stroke-width=".5"/>`); if(e.side==="l") o.push(`<path d="M${X(e.x+.16)} ${Y(e.y)+3}V${Y(e.y+e.h)-3}" stroke-width=".5"/>`);
+   const len=hz?e.w:e.h, n=e.n||Math.round(len/1.3), sl=len/n;
+   for(let i=0;i<n;i++){ const c=(hz?e.x:e.y)+sl*(i+.5);
+    if(e.side==="b"){ const ty=e.y-.08-.6; o.push(`<rect x="${X(c-.35)}" y="${Y(ty)}" width="${L(.7)}" height="${L(.6)}" rx="1.5" fill="${PAPER}"/>`); o.push(chair(X(c),Y(ty-.25),0)); }
+    if(e.side==="l"){ const tx=e.x+e.w+.08; o.push(`<rect x="${X(tx)}" y="${Y(c-.35)}" width="${L(.6)}" height="${L(.7)}" rx="1.5" fill="${PAPER}"/>`); o.push(chair(X(tx+.6+.25),Y(c),90)); } } }
+  if(e.k==="h"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" fill="#E6DCCF" stroke-width=".8"/>`); const n=Math.round(e.h/.25); for(let i=1;i<n;i++) o.push(`<path d="M${X(e.x)} ${Y(e.y+e.h*i/n)}H${X(e.x+e.w)}" stroke-width=".4"/>`); }
+  if(e.k==="rt4"||e.k==="rt2"||e.k==="hi"){ const r=e.k==="rt4"?.42:e.k==="hi"?.36:.3; const cx=X(e.x), cy=Y(e.y); const n=e.k==="rt2"?2:e.k==="hi"?3:4; const off=e.k==="rt4"?Math.PI/4:e.k==="hi"?-Math.PI/2:0;
+   for(let i=0;i<n;i++){ const a=off+i*2*Math.PI/n; const px=cx+Math.cos(a)*L(r+.3), py=cy+Math.sin(a)*L(r+.3); if(e.k==="hi") o.push(`<circle cx="${px}" cy="${py}" r="${L(.17)}" fill="${PAPER}"/>`); else o.push(chair(px,py,toward(px,py,cx,cy))); }
+   o.push(`<circle cx="${cx}" cy="${cy}" r="${L(r)}" fill="${PAPER}"/>`); if(e.k==="hi") o.push(`<circle cx="${cx}" cy="${cy}" r="${L(r)-3}" fill="none" stroke-width=".4"/>`); }
+  if(e.k==="low"){ o.push(`<circle cx="${X(e.x)}" cy="${Y(e.y)}" r="${L(e.r)}" fill="#EFE9E1"/><circle cx="${X(e.x)}" cy="${Y(e.y)}" r="${L(e.r)-3}" fill="none" stroke-width=".4"/>`); }
+  if(e.k==="long"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="2" fill="#EADFD2"/>`); const hz=e.w>=e.h, len=hz?e.w:e.h, n=Math.round(len/.62);
+   for(let i=0;i<n;i++){ const a=(i+.5)/n; if(hz){ const px=X(e.x+e.w*a); o.push(chair(px,Y(e.y)-L(.27),0)); o.push(chair(px,Y(e.y+e.h)+L(.27),180)); } else { const py=Y(e.y+e.h*a); o.push(chair(X(e.x)-L(.27),py,-90)); o.push(chair(X(e.x+e.w)+L(.27),py,90)); } }
+   o.push(`<path d="M${X(e.x)+3} ${Y(e.y)+3}H${X(e.x+e.w)-3}" stroke-width=".3"/>`); }
+  if(e.k==="booth"){ const hz=e.side==="b"||e.side==="t"; const len=hz?e.w:e.h; const n=Math.max(1,Math.round(len/1.45)); const seg=len/n;
+   for(let i=0;i<n;i++){ const s0=i*seg;
+    if(hz){ const x0=X(e.x+s0+.05), x1=X(e.x+s0+seg-.05), yb=e.side==="b"?Y(e.y+e.h):Y(e.y), yf=e.side==="b"?Y(e.y):Y(e.y+e.h), dir=e.side==="b"?-1:1;
+     o.push(`<path d="M${x0} ${yb}V${yf+dir*-L(.12)} Q${x0} ${yf} ${x0+L(.15)} ${yf} H${x1-L(.15)} Q${x1} ${yf} ${x1} ${yf+dir*-L(.12)} V${yb}Z" fill="${SEAT}"/>`);
+     o.push(`<path d="M${x0+L(.08)} ${yb+dir*L(.16)}H${x1-L(.08)}" stroke-width=".5"/>`);
+     const tcx=(x0+x1)/2, tw=L(.75), th=L(.55), ty=yf+dir*L(.08)+(dir<0?-th:0);
+     o.push(`<rect x="${tcx-tw/2}" y="${ty}" width="${tw}" height="${th}" rx="2" fill="${PAPER}"/>`);
+     o.push(chair(tcx-L(.2),ty+(dir<0?-L(.28):th+L(.28)),dir<0?0:180)); o.push(chair(tcx+L(.2),ty+(dir<0?-L(.28):th+L(.28)),dir<0?0:180)); }
+    else { const y0=Y(e.y+s0+.05), y1=Y(e.y+s0+seg-.05), xb=e.side==="l"?X(e.x):X(e.x+e.w), xf=e.side==="l"?X(e.x+e.w):X(e.x), dir=e.side==="l"?1:-1;
+     o.push(`<path d="M${xb} ${y0}H${xf-dir*L(.12)} Q${xf} ${y0} ${xf} ${y0+L(.15)} V${y1-L(.15)} Q${xf} ${y1} ${xf-dir*L(.12)} ${y1} H${xb}Z" fill="${SEAT}"/>`);
+     o.push(`<path d="M${xb+dir*L(.16)} ${y0+L(.08)}V${y1-L(.08)}" stroke-width=".5"/>`);
+     const tcy=(y0+y1)/2, tw=L(.55), th=L(.75), tx=xf+dir*L(.08)+(dir<0?-tw:0);
+     o.push(`<rect x="${tx}" y="${tcy-th/2}" width="${tw}" height="${th}" rx="2" fill="${PAPER}"/>`);
+     o.push(chair(tx+(dir>0?tw+L(.28):-L(.28)),tcy-L(.2),dir>0?90:-90)); o.push(chair(tx+(dir>0?tw+L(.28):-L(.28)),tcy+L(.2),dir>0?90:-90)); } } }
+  if(e.k==="sofa"){ const bk=L(.22); o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="5" fill="${SEAT}"/>`);
+   let bx=X(e.x),by=Y(e.y),bw=L(e.w),bh=L(e.h); if(e.side==="b"){ o.push(`<path d="M${bx+4} ${by+bh-bk}H${bx+bw-4}" />`); const n=Math.max(2,Math.round(e.w/.8)); for(let i=1;i<n;i++) o.push(`<path d="M${bx+bw*i/n} ${by+4}V${by+bh-bk}" stroke-width=".5"/>`); }
+   if(e.side==="l"){ o.push(`<path d="M${bx+bk} ${by+4}V${by+bh-4}" />`); const n=Math.max(2,Math.round(e.h/.8)); for(let i=1;i<n;i++) o.push(`<path d="M${bx+bk} ${by+bh*i/n}H${bx+bw-4}" stroke-width=".5"/>`); } }
+  if(e.k==="arm"){ const cx=X(e.x), cy=Y(e.y), s=L(.36); o.push(`<g transform="translate(${cx} ${cy}) rotate(${e.face-90})"><rect x="${-s}" y="${-s}" width="${2*s}" height="${2*s}" rx="${L(.2)}" fill="${SEAT}"/><path d="M${-s+5} ${-s+L(.18)}Q0 ${-s+L(.1)} ${s-5} ${-s+L(.18)}M${-s+L(.15)} ${-s+L(.2)}V${s-6}M${s-L(.15)} ${-s+L(.2)}V${s-6}" fill="none" stroke-width=".6"/></g>`); }
+  if(e.k==="bar"||e.k==="ledge"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="2" fill="#D9D1C5"/>`); const hz=e.w>e.h, len=hz?e.w:e.h, n=Math.round(len/.6);
+   for(let i=0;i<n;i++){ const a=(i+.5)/n; let px,py; if(hz){ px=X(e.x+e.w*a); py=e.side==="t"?Y(e.y)-L(.32):Y(e.y+e.h)+L(.32);} else { py=Y(e.y+e.h*a); px=e.side==="l"?X(e.x)-L(.32):X(e.x+e.w)+L(.32);} o.push(`<circle cx="${px}" cy="${py}" r="${L(.17)}" fill="${PAPER}"/>`); } }
+  if(e.k==="k"){ let d=`M${X(e.x)} ${Y(e.y1)}`; const n=Math.round((e.y2-e.y1)/.25); for(let i=1;i<=n;i++){ const y=e.y1+(e.y2-e.y1)*i/n; d+=` Q${X(e.x+(i%2?.12:-.12))} ${Y(y-(e.y2-e.y1)/n/2)} ${X(e.x)} ${Y(y)}`; } o.push(`<path d="${d}" fill="none" stroke="${WINE}" stroke-width="1.1" ${e.dash?'stroke-dasharray="6 4"':''}/>`); }
+  if(e.k==="screen") o.push(`<path d="M${X(e.x)} ${Y(e.y1)}V${Y(e.y2)}" stroke-width="2.4"/>`);
+  if(e.k==="p"){ const cx=X(e.x), cy=Y(e.y), r=L(.26); o.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="#DCE6DF" stroke="#7F9A86" stroke-width=".7"/>`); for(let i=0;i<6;i++){ const a=i*Math.PI/3; o.push(`<path d="M${cx} ${cy}Q${cx+Math.cos(a+.4)*r*.7} ${cy+Math.sin(a+.4)*r*.7} ${cx+Math.cos(a)*r*1.05} ${cy+Math.sin(a)*r*1.05}" fill="none" stroke="#7F9A86" stroke-width=".6"/>`); } }
+ });
+ o.push(`</g>`);
+ items.filter(e=>e.k==="a").forEach(e=>{ const p=e.pts.map(q=>[X(q[0]),Y(q[1])]); o.push(`<path d="M${p.map(q=>q.join(" ")).join(" L")}" fill="none" stroke="${WINE}" stroke-width="1" stroke-dasharray="2 4" marker-end="url(#arr)" opacity=".75"/>`); });
+ items.filter(e=>e.k==="n").forEach(e=>o.push(`<g><circle cx="${X(e.x)}" cy="${Y(e.y)}" r="10" fill="${PAPER}" stroke="${WINE}" stroke-width=".9"/><text x="${X(e.x)}" y="${Y(e.y)+4.5}" text-anchor="middle" font-family="Nyght Serif, Georgia, serif" font-size="13" fill="${WINE}">${e.n}</text></g>`));
+ const lab=(x,y,t,size=9,fill="#5E5C58")=>`<text x="${x}" y="${y}" font-size="${size}" letter-spacing="1.6" fill="${fill}" text-anchor="middle">${t.toUpperCase()}</text>`;
+ if(sv) o.push(`<text x="${X(sv[0]+sv[2]/2)}" y="${Y(sv[1]+sv[3])+13}" font-size="8.5" letter-spacing="1.6" fill="${WINE}" text-anchor="middle">${b.stair?"NY TRAPP · OPP":"TRAPP · NED"}</text>`);
+ b.rooms.forEach(r=>{ if(r[4]&&r[4]!=="Trapp") o.push(lab(X(r[0]+r[2]/2), r[4]==="Bar"? Y(r[1])+14 : r[4]==="Kjøkken"? Y(r[1]+2.6) : Y(r[1]+r[3]/2)+3, r[4])); });
+ if(b.yard){ o.push(lab(X(14.2),Y(-2.6),"Lager")); o.push(`<text x="${X(5.6)}" y="${Y(-5.4)-10}" text-anchor="middle" font-family="Nyght Serif, Georgia, serif" font-style="italic" font-size="17" fill="${INK}">Lille Bordeaux</text>`); }
+ o.push(lab(X(W*.62), Y(H)+36, f===1?"Thorvald Meyers gate":"Mot gaten", 9.5, INK));
+ o.push(`<g transform="translate(${X(0)},${Y(H)+40})" stroke="${INK}"><path d="M0 0H${L(5)}M0 -4V4M${L(1)} -3V3M${L(2)} -3V3M${L(3)} -3V3M${L(4)} -3V3M${L(5)} -4V4" stroke-width=".8"/><text x="${L(5)+8}" y="4" font-size="10" fill="#5E5C58" stroke="none">5 m</text></g>`);
+ o.push(`<g transform="translate(${X(W)-10},${Y(H)+34})"><path d="M0 -14L5 0L0 -4L-5 0Z" fill="${INK}"/></g>`);
+ o.push(`</svg>`);
+ document.getElementById("drawing").innerHTML=o.join("");
+ const lg=pr.legend[f];
+ // plasser telles fra tegningen
+ const seats=e=>{ const len=Math.max(e.w||0,e.h||0); switch(e.k){ case"rt4":return 4; case"rt2":return 2; case"hi":return 3; case"arm":return 1;
+  case"long":return Math.round(len/.62)*2; case"booth":return Math.max(1,Math.round(len/1.45))*4; case"t2":return 2; case"t4":return 4; case"bench":return (e.n||Math.round(len/1.3))*2; case"sofa":return Math.max(2,Math.floor(len/.65)); case"bar":case"ledge":return Math.round(len/.6); default:return 0; } };
+ let inne=0, ute=0; items.forEach(e=>{ const n=seats(e); if((e.y??e.cy??0)<0) ute+=n; else inne+=n; });
+ const ant=`<p class="seats"><span class="num">${inne}</span> plasser i ${f}. etasje${b.yard?` og <span class="num">${ute}</span> i bakgården`:""}</p>`;
+ document.getElementById("legend").innerHTML=`<h3>${pr.name}</h3><p class="sub">${pr.sub}</p>${ant}<ul>${lg.map((l,i)=>`<li><span>${i+1}</span><div><b style="font-weight:400;color:var(--ink)">${l[0]}.</b> ${l[1]}</div></li>`).join("")}</ul>
+ <div class="keyrow"><span><i style="background:#46191E"></i>Vinmaskin</span><span><i style="background:#EFE9E1;border:1px solid #CDBFAF"></i>Flisgulv, fri sone</span><span><i style="background:#ECE7DF;border:1px solid #3B393F"></i>Sittemøbler</span><span><i style="background:#C9D6CE"></i>Bakgård</span></div>`;
+}
+function bindSeg(ids,fn){ ids.forEach(([id,val])=>{ const b=document.getElementById(id); b.addEventListener("click",()=>{ ids.forEach(([j])=>document.getElementById(j).setAttribute("aria-pressed",String(j===id))); fn(val); }); }); }
+bindSeg([["pA","A"],["pB","B"]],v=>{state.p=v;drawPlan();});
+bindSeg([["f1",1],["f2",2]],v=>{state.f=v;drawPlan();});
+drawPlan();
+</script>
+
+
+<script>
+(function(){
+  if(!!/claude/.test(location.hostname)) return;
+  fetch("signer/",{cache:"no-store"}).then(r=>r.json()).then(j=>{
+    if(!j||!j.signert) return;
+    const esc=t=>String(t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+    const k=document.getElementById("aapneTilbud"); if(!k) return;
+    k.insertAdjacentHTML("afterend",'<span class="signert-merke">Signert av '+esc(j.navn)+', '+esc(j.firma)+', '+esc(j.dato)+'</span>');
+  }).catch(()=>{});
+})();
+</script>
+<script>
+(function(){
+  const box=document.getElementById("matcol"); if(!box) return;
+  const items=[...box.querySelectorAll(".mc")];
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce||!("IntersectionObserver" in window)){items.forEach(i=>i.classList.add("inn"));return}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target;setTimeout(()=>{i.classList.add("inn");setTimeout(()=>i.classList.add("ro"),950)},items.indexOf(i)*90);io.unobserve(i)}}),{threshold:.15});
+  items.forEach(i=>io.observe(i));
+  let tick=false;
+  function flytt(){tick=false;if(innerWidth<860){items.forEach(i=>i.style.setProperty("--py","0px"));return}
+    const r=box.getBoundingClientRect(), mid=r.top+r.height/2-innerHeight/2;
+    items.forEach(i=>i.style.setProperty("--py",(mid*parseFloat(i.dataset.speed||0)).toFixed(1)+"px"));}
+  addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(flytt)}},{passive:true});
+  addEventListener("resize",flytt);flytt();
+})();
+</script>
+</body>
+</html>
