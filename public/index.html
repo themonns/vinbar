@@ -71,7 +71,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .yard-pic img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
 .arch-pic figcaption,.yard-pic figcaption{font-size:12px;color:var(--mute)}
 /* ideen */
-.idea .inner{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,6vw,88px);align-items:start}
+.idea .inner{display:grid;grid-template-columns:1fr 1.45fr;gap:clamp(28px,4vw,56px);align-items:start}
 .i-text{display:grid;gap:18px;align-content:start}
 .i-text h2{font-size:clamp(30px,4vw,50px);line-height:1.05}
 .i-lead{font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.8vw,22px);line-height:1.45;color:var(--wine);max-width:34ch}
@@ -82,10 +82,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .i-pr h3{font-size:18px}
 .i-pr p{font-size:13.5px;line-height:1.6;color:var(--body)}
 .idea .idea-pic{margin:0;display:grid;gap:12px;position:sticky;top:90px}
-.idea .idea-pic img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 55%}
+.idea .idea-pic img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
 .idea .idea-pic figcaption{display:flex;gap:14px;align-items:baseline;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--body)}
 .idea .idea-pic figcaption span{font-family:var(--sans);font-style:normal;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
-@media (max-width:860px){.idea .inner{grid-template-columns:1fr}.idea .idea-pic{position:static}.idea .idea-pic img{aspect-ratio:4/3}}
+@media (max-width:860px){.idea .inner{grid-template-columns:1fr}.idea .idea-pic{position:static}.idea .idea-pic img{aspect-ratio:3/2}}
 @media (max-width:520px){.i-pr{grid-template-columns:1fr}}
 .yard-skisse{margin:8px 0 0;max-width:340px;display:grid;gap:8px}
 .yard-skisse svg{width:100%;height:auto;display:block}
@@ -95,7 +95,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .entre svg{width:100%;height:auto;display:block}
 .entre figcaption{font-size:12px;color:var(--mute)}
 
-.matcol{margin-top:40px;display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:40px;gap:12px}
+.matcol{margin-top:40px;display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:36px;gap:8px}
 .mc{margin:0;position:relative;overflow:hidden;background:#D7D8D2;opacity:0;transform:translateY(28px) rotate(var(--rot,0deg));transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease;will-change:transform}
 .mc.inn{opacity:1;transform:translateY(var(--py,0px)) rotate(var(--rot,0deg))}
 .mc.inn.ro{transition:opacity .9s ease,box-shadow .4s ease}
@@ -263,6 +263,8 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.draw *{animation:none!important}}
 :focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+#tilbudet .rest{grid-column:span 2}
+@media (min-width:900px){#tilbudet .cols{grid-template-columns:max-content minmax(0,1fr);column-gap:64px}#tilbudet .rest{grid-column:auto;max-width:560px}#tilbudet .num{white-space:nowrap}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -288,7 +290,7 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
   <div class="inner">
     <span class="brand">Glasset <em>Nora</em></span>
     <div class="links">
-      <a href="#filmen">Filmen</a><a href="#ideen">Ideen</a><a href="#dognet">Et døgn</a><a href="#stedet">Stedet</a><a href="#planen">Planen</a><a href="#materialer">Materialer</a><a href="#bakgarden">Bakgården</a><a href="#tilbudet">Tilbudet</a><a href="#teamet">Teamet</a>
+      <a href="#stedet">Stedet</a><a href="#filmen">Filmen</a><a href="#ideen">Ideen</a><a href="#dognet">Et døgn</a><a href="#planen">Planen</a><a href="#materialer">Materialer</a><a href="#bakgarden">Bakgården</a><a href="#tilbudet">Tilbudet</a><a href="#teamet">Teamet</a>
     </div>
   </div>
 </nav>
@@ -348,97 +350,12 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
   </div>
 </header>
 
-<section id="filmen" class="film band">
-  <div class="inner">
-    <div class="film-head"><div class="eyebrow">Filmen</div><h2>Gå en runde <em>i Nora</em></h2></div>
-    <div class="screen">
-      <video src="film/nora.mp4" controls playsinline preload="metadata" poster="img/film-poster.webp" aria-label="Film: en runde i Nora, fra spisesalen, forbi vinmaskinene og ut i bakgården"></video>
-    </div>
-    <p class="txt" style="margin-top:18px">En kort film som tar dere gjennom spisesalen, forbi maskinene og ut i bakgården.</p>
-  </div>
-</section>
-
-<section id="ideen" class="idea band">
-  <div class="inner">
-    <div class="i-text">
-      <div class="eyebrow">Ideen</div>
-      <h2>Vinmaskinene <em>er torget</em></h2>
-      <p class="i-lead">Hos Glasset er restauranten vinkartet. På Nora får vinen et eget torg i hver del av huset.</p>
-      <p class="i-txt">Folk kommer for et glass og blir for kvelden. Vi vil at du skal kunne gå inn fra gaten, se maskinene med en gang, smake deg frem og finne en plass som passer selskapet ditt. To venninner ved vinduet. En gjeng ved langbordet. Et par i bakgården når det blir mørkt.</p>
-      <ol class="i-pr"><li><span class="i-no">01</span><h3>Plass til å utforske</h3><p>Fri sone rundt maskinene, så ingen står i veien for hverandre. Luftig å gå rundt, lunt ved bordene.</p></li><li><span class="i-no">02</span><h3>Samme kjerne, eget sted</h3><p>Du kjenner igjen Glasset på maskinene, fargekodene og tonen. Nora får sitt eget uttrykk med betong, gammelt tre, kobber og varmt lys.</p></li><li><span class="i-no">03</span><h3>Fra lunsj til stemningsbar</h3><p>Lys og lyd i scener. Rommet skifter karakter gjennom dagen uten at noen må flytte seg.</p></li><li><span class="i-no">04</span><h3>Livlig, men ikke bråkete</h3><p>God akustikk, så praten holder også når musikken går opp en lørdag.</p></li></ol>
-    </div>
-    <figure class="idea-pic"><img src="img/vis-inne.webp" alt="Visualisering av første etasje med vinmaskinene samlet i en kobberkledd øy midt i rommet, lounge mot gaten og bakgården i enden"><figcaption><span>Visualisering</span>Vintorget i første etasje</figcaption></figure>
-  </div>
-</section>
-
-<section id="dognet" class="day band">
-  <div class="inner">
-    <div class="eyebrow">Et døgn på Nora</div>
-    <h2 style="margin-top:18px">Samme rom, <em>fire stemninger</em></h2>
-    <div class="day-art" id="dagKunst" aria-hidden="true">
-      <svg viewBox="0 0 1120 400">
-        <defs>
-          <linearGradient id="himmel" x1="0" y1="0" x2="0" y2="1"><stop id="h1" offset="0" stop-color="#9CC3E4"/><stop id="h2" offset="1" stop-color="#E9EEF0"/></linearGradient>
-          <radialGradient id="lampeLys"><stop offset="0" stop-color="#F6D3A8" stop-opacity=".95"/><stop offset=".45" stop-color="#D3AB9F" stop-opacity=".35"/><stop offset="1" stop-color="#D3AB9F" stop-opacity="0"/></radialGradient>
-          <radialGradient id="gulvLys"><stop offset="0" stop-color="#E9B98A" stop-opacity=".35"/><stop offset="1" stop-color="#E9B98A" stop-opacity="0"/></radialGradient>
-          <clipPath id="vinduer"><rect x="60" y="70" width="140" height="262"/><rect x="220" y="70" width="140" height="262"/><rect x="380" y="70" width="140" height="262"/></clipPath>
-        </defs>
-        <g clip-path="url(#vinduer)">
-          <rect x="40" y="60" width="500" height="290" fill="url(#himmel)"/>
-          <g class="dk-stjerner" fill="#F4F3EF"><circle cx="90" cy="98" r="1.4"/><circle cx="150" cy="132" r="1"/><circle cx="262" cy="90" r="1.3"/><circle cx="318" cy="150" r="1"/><circle cx="420" cy="104" r="1.5"/><circle cx="480" cy="140" r="1"/><circle cx="350" cy="112" r=".9"/></g>
-          <circle class="dk-sol" cx="0" cy="0" r="26" fill="#F7E3B5"/>
-          <g class="dk-mane"><circle cx="0" cy="0" r="18" fill="#F4F3EF"/><circle cx="8" cy="-5" r="16" fill="#232128"/></g>
-          <g fill="#2E2C33"><path d="M40 350 V236 H96 V214 H150 V250 H214 V200 H270 V230 H318 V190 H372 V240 H430 V206 H486 V236 H540 V350Z"/></g>
-          <g class="dk-byvinduer" fill="#F2C98F"><rect x="108" y="226" width="8" height="10"/><rect x="128" y="226" width="8" height="10"/><rect x="226" y="214" width="8" height="10"/><rect x="246" y="236" width="8" height="10"/><rect x="330" y="206" width="8" height="10"/><rect x="350" y="226" width="8" height="10"/><rect x="442" y="220" width="8" height="10"/><rect x="462" y="248" width="8" height="10"/><rect x="498" y="256" width="8" height="10"/></g>
-          <g class="dk-gatelys"><path d="M300 350 V270 Q300 258 314 258" fill="none" stroke="#6E6C70" stroke-width="2"/><circle cx="316" cy="262" r="16" fill="url(#lampeLys)"/></g>
-        </g>
-        <g fill="none" stroke="#D7D8D2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
-          <path d="M20 26 H1100"/><path d="M20 360 H1100"/>
-          <rect x="60" y="70" width="140" height="262"/><rect x="220" y="70" width="140" height="262"/><rect x="380" y="70" width="140" height="262"/>
-          <path d="M130 70 V332 M60 160 H200 M290 70 V332 M220 160 H360 M450 70 V332 M380 160 H520" stroke-width=".7" opacity=".7"/>
-          <path d="M40 340 H540" stroke-width="2"/>
-        </g>
-        <ellipse class="dk-gulv" cx="820" cy="362" rx="300" ry="34" fill="url(#gulvLys)"/>
-        <g class="dk-lamper">
-          <g transform="translate(640 0)"><path d="M0 26 V110" stroke="#9A989C"/><path d="M-22 128 Q0 98 22 128Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="138" r="70" fill="url(#lampeLys)"/></g>
-          <g transform="translate(800 0)"><path d="M0 26 V96" stroke="#9A989C"/><path d="M-22 114 Q0 84 22 114Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="124" r="70" fill="url(#lampeLys)"/></g>
-          <g transform="translate(980 0)"><path d="M0 26 V118" stroke="#9A989C"/><path d="M-22 136 Q0 106 22 136Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="146" r="70" fill="url(#lampeLys)"/></g>
-        </g>
-        <g fill="none" stroke="#D7D8D2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
-          <path d="M610 360 V262 Q610 238 634 238 H866 Q890 238 890 262 V360" fill="#5A3326" fill-opacity=".55" stroke="#C98A5E"/>
-          <path d="M600 238 H900" stroke="#C98A5E" stroke-width="2"/>
-          <g stroke="#9A989C"><path d="M632 238 V206 Q632 198 636 194 V182 H642 V194 Q646 198 646 206 V238"/><path d="M660 238 V204 Q660 196 664 192 V178 H670 V192 Q674 196 674 204 V238"/><path d="M826 238 V206 Q826 198 830 194 V182 H836 V194 Q840 198 840 206 V238"/><path d="M854 238 V208 Q854 200 858 196 V184 H864 V196 Q868 200 868 208 V238"/></g>
-          <path d="M940 300 H1080 M960 300 V360 M1060 300 V360" />
-          <path d="M974 300 V286 M968 270 Q974 290 980 270" /><path d="M1046 300 V286 M1040 270 Q1046 290 1052 270"/>
-        </g>
-        <g class="dk-skjermer" fill="#F2C98F"><rect x="640" y="262" width="22" height="14" rx="2"/><rect x="684" y="262" width="22" height="14" rx="2"/><rect x="728" y="262" width="22" height="14" rx="2"/><rect x="772" y="262" width="22" height="14" rx="2"/><rect x="816" y="262" width="22" height="14" rx="2"/></g>
-        <g class="dk-lys2"><rect x="1006" y="286" width="8" height="14" fill="#E9E4DA"/><path class="dk-flamme" d="M1010 272 Q1004 280 1010 286 Q1016 280 1010 272Z" fill="#F6C27A"/><circle cx="1010" cy="280" r="26" fill="url(#lampeLys)" class="dk-flammelys"/></g>
-        <g fill="none" stroke="#D7D8D2" stroke-width="1.4" stroke-linecap="round" filter="url(#rough)">
-          <g class="dk-p" data-n="0"><circle cx="580" cy="262" r="11"/><path d="M580 273 C566 290 566 330 570 360 M580 273 C594 290 594 330 590 360 M572 292 L600 268"/></g>
-          <g class="dk-p" data-n="1"><circle cx="918" cy="262" r="11"/><path d="M918 273 C904 290 904 330 908 360 M918 273 C932 290 932 330 928 360 M926 292 L948 276"/></g>
-          <g class="dk-p" data-n="2"><circle cx="726" cy="196" r="10" /><path d="M726 206 C714 222 712 236 714 238 M726 206 C738 222 740 236 738 238"/></g>
-          <g class="dk-p" data-n="3"><circle cx="1096" cy="262" r="11"/><path d="M1096 273 C1082 290 1082 330 1086 360 M1096 273 C1110 290 1110 330 1106 360 M1088 292 L1066 278"/></g>
-          <g class="dk-p" data-n="4"><circle cx="556" cy="256" r="10"/><path d="M556 266 C544 284 544 330 548 360 M556 266 C568 284 568 330 564 360"/></g>
-        </g>
-        <g class="dk-noter" fill="#D3AB9F" font-family="Georgia, serif" font-size="26"><text x="700" y="160">♪</text><text x="880" y="150">♫</text><text x="1050" y="196">♪</text></g>
-      </svg>
-      <div class="dk-klokke"><span id="dkTid">12:30</span></div>
-    </div>
-    <ol class="scenes">
-      <li class="scene"><span class="time">12:30</span><h3>Lunsj</h3><p>Dagslys og hvitvin.</p></li>
-      <li class="scene"><span class="time">16:30</span><h3>Afterwork</h3><p>Smaking ved maskinene.</p></li>
-      <li class="scene"><span class="time">19:00</span><h3>Middag</h3><p>Lyset senkes over bordene.</p></li>
-      <li class="scene"><span class="time">21:30</span><h3>Kveld</h3><p>Musikken opp, lyset ned.</p></li>
-    </ol>
-  </div>
-</section>
-
 <section id="stedet" class="place band">
   <div class="inner">
     <div style="display:grid;gap:22px;align-content:start">
       <div class="eyebrow">Stedet</div>
       <h2>Thorvald Meyers <em>gate 56</em></h2>
-      <p class="txt">Det turkise hjørnehuset ved Metodistkirken, med himmelmaleriet på gavlen. To etasjer midt på Løkka, store vinduer mot gaten og en skjermet bakgård bak. Trappen i midten av huset samler etasjene.</p>
+      <p class="txt">Det turkise hjørnehuset ved Metodistkirken. To etasjer midt på Løkka, store vinduer mot gaten og en skjermet bakgård bak. Trappen i midten av huset samler etasjene.</p>
       <div class="facts num">
         <div><span class="n">ca. 138 m²</span><span class="k">Per etasje</span></div>
         <div><span class="n">ca. 130</span><span class="k">Plasser inne og ute</span></div>
@@ -503,6 +420,91 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
   </div>
 </section>
 
+<section id="filmen" class="film band">
+  <div class="inner">
+    <div class="film-head"><div class="eyebrow">Filmen</div><h2>Gå en runde <em>i Nora</em></h2></div>
+    <div class="screen">
+      <video src="film/nora.mp4" controls playsinline preload="metadata" poster="img/film-poster.webp" aria-label="Film: en runde i Nora, fra restauranten, forbi vinmaskinene og ut i bakgården"></video>
+    </div>
+    <p class="txt" style="margin-top:18px">En kort film som tar dere gjennom restauranten, forbi maskinene og ut i bakgården.</p>
+  </div>
+</section>
+
+<section id="ideen" class="idea band">
+  <div class="inner">
+    <div class="i-text">
+      <div class="eyebrow">Ideen</div>
+      <h2>Vinmaskinene <em>er torget</em></h2>
+      <p class="i-lead">Vinen får et eget torg i hver del av huset.</p>
+      <ol class="i-pr"><li><span class="i-no">01</span><h3>Plass til å utforske</h3><p>Fri sone rundt maskinene.</p></li><li><span class="i-no">02</span><h3>Samme kjerne, eget sted</h3><p>Glasset, med et eget uttrykk.</p></li><li><span class="i-no">03</span><h3>Fra lunsj til stemningsbar</h3><p>Lys og lyd i scener.</p></li><li><span class="i-no">04</span><h3>Livlig, men ikke bråkete</h3><p>God akustikk.</p></li></ol>
+    </div>
+    <figure class="idea-pic"><img src="img/vis-inne.webp" alt="Visualisering av første etasje med vinmaskinene samlet i en kobberkledd øy midt i rommet, lounge mot gaten og bakgården i enden"><figcaption><span>Visualisering</span>Vintorget i første etasje</figcaption></figure>
+  </div>
+</section>
+
+<section id="dognet" class="day band">
+  <div class="inner">
+    <div class="eyebrow">Et døgn på Nora</div>
+    <h2 style="margin-top:18px">Samme rom, <em>fire stemninger</em></h2>
+    <div class="day-art" id="dagKunst" aria-hidden="true">
+      <svg viewBox="0 0 1120 400">
+        <defs>
+          <linearGradient id="himmel" x1="0" y1="0" x2="0" y2="1"><stop id="h1" offset="0" stop-color="#9CC3E4"/><stop id="h2" offset="1" stop-color="#E9EEF0"/></linearGradient>
+          <radialGradient id="lampeLys"><stop offset="0" stop-color="#F6D3A8" stop-opacity=".95"/><stop offset=".45" stop-color="#D3AB9F" stop-opacity=".35"/><stop offset="1" stop-color="#D3AB9F" stop-opacity="0"/></radialGradient>
+          <radialGradient id="gulvLys"><stop offset="0" stop-color="#E9B98A" stop-opacity=".35"/><stop offset="1" stop-color="#E9B98A" stop-opacity="0"/></radialGradient>
+          <clipPath id="vinduer"><rect x="60" y="70" width="140" height="262"/><rect x="220" y="70" width="140" height="262"/><rect x="380" y="70" width="140" height="262"/></clipPath>
+        </defs>
+        <g clip-path="url(#vinduer)">
+          <rect x="40" y="60" width="500" height="290" fill="url(#himmel)"/>
+          <g class="dk-stjerner" fill="#F4F3EF"><circle cx="90" cy="98" r="1.4"/><circle cx="150" cy="132" r="1"/><circle cx="262" cy="90" r="1.3"/><circle cx="318" cy="150" r="1"/><circle cx="420" cy="104" r="1.5"/><circle cx="480" cy="140" r="1"/><circle cx="350" cy="112" r=".9"/></g>
+          <circle class="dk-sol" cx="0" cy="0" r="26" fill="#F7E3B5"/>
+          <g class="dk-mane"><circle cx="0" cy="0" r="18" fill="#F4F3EF"/><circle cx="8" cy="-5" r="16" fill="#232128"/></g>
+          <g fill="#2E2C33"><path d="M40 350 V236 H96 V214 H150 V250 H214 V200 H270 V230 H318 V190 H372 V240 H430 V206 H486 V236 H540 V350Z"/></g>
+          <g class="dk-byvinduer" fill="#F2C98F"><rect x="108" y="226" width="8" height="10"/><rect x="128" y="226" width="8" height="10"/><rect x="226" y="214" width="8" height="10"/><rect x="246" y="236" width="8" height="10"/><rect x="330" y="206" width="8" height="10"/><rect x="350" y="226" width="8" height="10"/><rect x="442" y="220" width="8" height="10"/><rect x="462" y="248" width="8" height="10"/><rect x="498" y="256" width="8" height="10"/></g>
+          <g class="dk-gatelys"><path d="M300 350 V270 Q300 258 314 258" fill="none" stroke="#6E6C70" stroke-width="2"/><circle cx="316" cy="262" r="16" fill="url(#lampeLys)"/></g>
+        </g>
+        <g fill="none" stroke="#D7D8D2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+          <path d="M20 26 H1100"/><path d="M20 360 H1100"/>
+          <rect x="60" y="70" width="140" height="262"/><rect x="220" y="70" width="140" height="262"/><rect x="380" y="70" width="140" height="262"/>
+          <path d="M130 70 V332 M60 160 H200 M290 70 V332 M220 160 H360 M450 70 V332 M380 160 H520" stroke-width=".7" opacity=".7"/>
+          <path d="M40 340 H540" stroke-width="2"/>
+        </g>
+        <ellipse class="dk-gulv" cx="820" cy="362" rx="300" ry="34" fill="url(#gulvLys)"/>
+        <g class="dk-lamper">
+          <g transform="translate(640 0)"><path d="M0 26 V110" stroke="#9A989C"/><path d="M-22 128 Q0 98 22 128Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="138" r="70" fill="url(#lampeLys)"/></g>
+          <g transform="translate(800 0)"><path d="M0 26 V96" stroke="#9A989C"/><path d="M-22 114 Q0 84 22 114Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="124" r="70" fill="url(#lampeLys)"/></g>
+          <g transform="translate(980 0)"><path d="M0 26 V118" stroke="#9A989C"/><path d="M-22 136 Q0 106 22 136Z" fill="#B8734A"/><circle class="dk-lys" cx="0" cy="146" r="70" fill="url(#lampeLys)"/></g>
+        </g>
+        <g fill="none" stroke="#D7D8D2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+          <path d="M610 360 V262 Q610 238 634 238 H866 Q890 238 890 262 V360" fill="#5A3326" fill-opacity=".55" stroke="#C98A5E"/>
+          <path d="M600 238 H900" stroke="#C98A5E" stroke-width="2"/>
+          <g stroke="#9A989C"><path d="M632 238 V206 Q632 198 636 194 V182 H642 V194 Q646 198 646 206 V238"/><path d="M660 238 V204 Q660 196 664 192 V178 H670 V192 Q674 196 674 204 V238"/><path d="M826 238 V206 Q826 198 830 194 V182 H836 V194 Q840 198 840 206 V238"/><path d="M854 238 V208 Q854 200 858 196 V184 H864 V196 Q868 200 868 208 V238"/></g>
+          <path d="M940 300 H1080 M960 300 V360 M1060 300 V360" />
+          <path d="M974 300 V286 M968 270 Q974 290 980 270" /><path d="M1046 300 V286 M1040 270 Q1046 290 1052 270"/>
+        </g>
+        <g class="dk-skjermer" fill="#F2C98F"><rect x="640" y="262" width="22" height="14" rx="2"/><rect x="684" y="262" width="22" height="14" rx="2"/><rect x="728" y="262" width="22" height="14" rx="2"/><rect x="772" y="262" width="22" height="14" rx="2"/><rect x="816" y="262" width="22" height="14" rx="2"/></g>
+        <g class="dk-lys2"><rect x="1006" y="286" width="8" height="14" fill="#E9E4DA"/><path class="dk-flamme" d="M1010 272 Q1004 280 1010 286 Q1016 280 1010 272Z" fill="#F6C27A"/><circle cx="1010" cy="280" r="26" fill="url(#lampeLys)" class="dk-flammelys"/></g>
+        <g fill="none" stroke="#D7D8D2" stroke-width="1.4" stroke-linecap="round" filter="url(#rough)">
+          <g class="dk-p" data-n="0"><circle cx="580" cy="262" r="11"/><path d="M580 273 C566 290 566 330 570 360 M580 273 C594 290 594 330 590 360 M572 292 L600 268"/></g>
+          <g class="dk-p" data-n="1"><circle cx="918" cy="262" r="11"/><path d="M918 273 C904 290 904 330 908 360 M918 273 C932 290 932 330 928 360 M926 292 L948 276"/></g>
+          <g class="dk-p" data-n="2"><circle cx="726" cy="196" r="10" /><path d="M726 206 C714 222 712 236 714 238 M726 206 C738 222 740 236 738 238"/></g>
+          <g class="dk-p" data-n="3"><circle cx="1096" cy="262" r="11"/><path d="M1096 273 C1082 290 1082 330 1086 360 M1096 273 C1110 290 1110 330 1106 360 M1088 292 L1066 278"/></g>
+          <g class="dk-p" data-n="4"><circle cx="556" cy="256" r="10"/><path d="M556 266 C544 284 544 330 548 360 M556 266 C568 284 568 330 564 360"/></g>
+        </g>
+        <g class="dk-noter" fill="#D3AB9F" font-family="Georgia, serif" font-size="26"><text x="700" y="160">♪</text><text x="880" y="150">♫</text><text x="1050" y="196">♪</text></g>
+      </svg>
+      <div class="dk-klokke"><span id="dkTid">12:30</span></div>
+    </div>
+    <ol class="scenes">
+      <li class="scene"><span class="time">12:30</span><h3>Lunsj</h3><p>Dagslys og vin.</p></li>
+      <li class="scene"><span class="time">16:30</span><h3>Afterwork</h3><p>Vinsmaking ved maskinene.</p></li>
+      <li class="scene"><span class="time">19:00</span><h3>Middag</h3><p>Lyset senkes over bordene.</p></li>
+      <li class="scene"><span class="time">21:30</span><h3>Kveld</h3><p>Musikken opp, lyset ned.</p></li>
+    </ol>
+  </div>
+</section>
+
+
 <section id="planen" class="band">
   <div class="inner">
     <div class="plan-head">
@@ -530,15 +532,16 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
     <div class="eyebrow">Materialer og lys</div>
     <h2 style="margin-top:18px">Røft, varmt <em>og ærlig</em></h2>
     <div class="matcol" id="matcol">
-      <figure class="mc" style="grid-column:1/span 3;grid-row:1/span 8;--rot:-1.2deg" data-speed="-0.06"><img src="img/m3.webp" alt="Rustrøde lenestoler rundt et rundt bord med vinglass" loading="lazy"><figcaption>Rust fløyel</figcaption></figure>
-      <figure class="mc" style="grid-column:4/span 2;grid-row:2/span 5;--rot:1.0deg" data-speed="0.05"><img src="img/m1.webp" alt="Prøvekort med tre i varme brune toner" loading="lazy"><figcaption>Varme tretoner</figcaption></figure>
-      <figure class="mc" style="grid-column:6/span 3;grid-row:1/span 8;--rot:0deg" data-speed="-0.03"><img src="img/m8.webp" alt="Et glass rødvin på mørk marmor med fiken" loading="lazy"><figcaption>Mørk marmor</figcaption></figure>
-      <figure class="mc" style="grid-column:9/span 2;grid-row:3/span 5;--rot:-0.8deg" data-speed="0.07"><img src="img/m4.webp" alt="Materialprøver i marmor, bouclé, tre og skinn" loading="lazy"><figcaption>Marmor og bouclé</figcaption></figure>
-      <figure class="mc" style="grid-column:11/span 2;grid-row:1/span 5;--rot:1.4deg" data-speed="-0.05"><img src="img/m0.webp" alt="Stripet krakk på eikegulv" loading="lazy"><figcaption>Eik og stripe</figcaption></figure>
-      <figure class="mc" style="grid-column:4/span 2;grid-row:8/span 5;--rot:-1.0deg" data-speed="-0.04"><img src="img/m6.webp" alt="Kalkstein, lin og en skål i messing" loading="lazy"><figcaption>Kalk og messing</figcaption></figure>
-      <figure class="mc" style="grid-column:9/span 3;grid-row:9/span 7;--rot:0.6deg" data-speed="0.04"><img src="img/m5.webp" alt="Stablede tallerkener i brent keramikk" loading="lazy"><figcaption>Keramikk</figcaption></figure>
-      <figure class="mc" style="grid-column:1/span 2;grid-row:10/span 5;--rot:0.9deg" data-speed="0.06"><img src="img/m2.webp" alt="Stoler i flettverk ved et mørkt bord" loading="lazy"><figcaption>Flettverk</figcaption></figure>
-      <figure class="mc" style="grid-column:6/span 3;grid-row:10/span 6;--rot:-0.5deg" data-speed="-0.05"><img src="img/m7.webp" alt="Dekket bord i stearinlys" loading="lazy"><figcaption>Levende lys</figcaption></figure>
+      <figure class="mc" style="grid-column:1/span 4;grid-row:1/span 9" data-speed="0"><img src="img/m4.webp?v=3" alt="Materialprøver i marmor, bouclé, tre og skinn" loading="lazy"><figcaption>Marmor og bouclé</figcaption></figure>
+      <figure class="mc" style="grid-column:5/span 4;grid-row:1/span 9" data-speed="0"><img src="img/m7.webp?v=3" alt="Dekket bord i stearinlys" loading="lazy"><figcaption>Levende lys</figcaption></figure>
+      <figure class="mc" style="grid-column:9/span 4;grid-row:1/span 9" data-speed="0"><img src="img/m5.webp?v=3" alt="Stablede tallerkener i brent keramikk" loading="lazy"><figcaption>Keramikk</figcaption></figure>
+      <figure class="mc" style="grid-column:1/span 3;grid-row:10/span 7" data-speed="0"><img src="img/m9.webp?v=3" alt="Gjester deler ost og småretter ved en bardisk i stein" loading="lazy"><figcaption>Ved baren</figcaption></figure>
+      <figure class="mc" style="grid-column:4/span 3;grid-row:10/span 7" data-speed="0"><img src="img/m10.webp?v=3" alt="Hvitvin og en flaske på et lite rundt marmorbord" loading="lazy"><figcaption>Et glass for to</figcaption></figure>
+      <figure class="mc" style="grid-column:7/span 3;grid-row:10/span 7" data-speed="0"><img src="img/m11.webp?v=3" alt="Ost, spekemat og vin på et rundt trebord, sett ovenfra" loading="lazy"><figcaption>Smårettene</figcaption></figure>
+      <figure class="mc" style="grid-column:10/span 3;grid-row:10/span 7" data-speed="0"><img src="img/m0.webp?v=3" alt="Stripet krakk på eikegulv" loading="lazy"><figcaption>Eik og stripe</figcaption></figure>
+      <figure class="mc" style="grid-column:1/span 4;grid-row:17/span 7" data-speed="0"><img src="img/m12.webp?v=3" alt="Uteservering sett gjennom grønt løvverk, med flettede stoler og dekkede bord" loading="lazy"><figcaption>Ute i det grønne</figcaption></figure>
+      <figure class="mc" style="grid-column:5/span 4;grid-row:17/span 7" data-speed="0"><img src="img/m13.webp?v=3" alt="Mørke trestoler ved et langbord på tredekke i kveldssol" loading="lazy"><figcaption>Tre og kveldssol</figcaption></figure>
+      <figure class="mc" style="grid-column:9/span 4;grid-row:17/span 7" data-speed="0"><img src="img/m14.webp?v=3" alt="Hvitvin og rødvin på et lite marmorbord ute, foran en grønn hekk" loading="lazy"><figcaption>Marmor ute</figcaption></figure>
     </div>
     </div>
 </section>
@@ -594,12 +597,13 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
     <h2 style="margin-top:18px">Konseptfasen <em>og veien videre</em></h2>
     <div class="cols">
       <div>
-        <div class="big num">238 000</div>
-        <p class="small">kr eks. mva, estimat fra 170 timer. Timepris kr 1 400.</p>
+        <div class="big num" style="font-size:clamp(30px,4.2vw,56px)">182&nbsp;000 til&nbsp;252&nbsp;000</div>
+        <p class="small">kr eks. mva for konseptfasen. Timepris kr&nbsp;1&nbsp;400.</p>
+        <p class="small" style="margin-top:10px;max-width:440px;white-space:normal">Opsjoner frem til åpning kommer i tillegg. Forprosjekt og arbeidstegninger 98&nbsp;000 til 126&nbsp;000. Grafisk design og profilering ca.&nbsp;42&nbsp;000.</p>
       </div>
-      <div style="grid-column:span 2">
-        <p class="txt" style="font-size:16px">Hele tilbudet ligger på en egen side. Der finner dere tilnærmingen, hva konseptfasen leverer, hvordan vi jobber, honoraret linje for linje, opsjonene frem til åpning, rammen på 3 MNOK, tidsplanen og vilkårene.</p>
-        <p style="margin-top:26px"><a class="go" id="aapneTilbud" href="tilbud.html?v=24">Les hele tilbudet <span aria-hidden="true">→</span></a></p>
+      <div class="rest">
+        <p class="txt" style="font-size:16px">Hele tilbudet ligger på en egen side. Der finner dere tilnærmingen, hva konseptfasen leverer, hvordan vi jobber, honoraret linje for linje, opsjonene frem til åpning, tidsplanen og vilkårene.</p>
+        <p style="margin-top:26px"><a class="go" id="aapneTilbud" href="tilbud.html?v=34">Les hele tilbudet <span aria-hidden="true">→</span></a></p>
       </div>
     </div>
   </div>
@@ -610,9 +614,9 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
     <div class="eyebrow">Teamet</div>
     <h2 style="margin-top:18px">Vi lager det <em>sammen med dere</em></h2>
     <div class="crew">
-      <div class="who"><div class="pic"><img src="img/camilla-team.webp" alt="Camilla Bentzen"></div><span class="role">Prosjektleder · Kreativ leder</span><h3>Camilla Bentzen</h3><p>Interiørarkitekt MNIL, partner<br>+47 995 50 001<br>camilla@monn.no</p></div>
-      <div class="who"><div class="pic"><img src="img/trond-team.webp" alt="Trond Ramsøskar"></div><span class="role">Daglig leder</span><h3>Trond Ramsøskar</h3><p>Interiørarkitekt MNIL, partner<br>+47 924 41 305<br>trond@monn.no</p></div>
-      <div class="who"><div class="pic"><img src="img/murad-team.webp" alt="Murad Khan"></div><span class="role">Partner</span><h3>Murad Khan</h3><p>Interiørarkitekt MNIL<br>+47 900 38 650<br>murad@monn.no</p></div>
+      <div class="who"><div class="pic"><img src="img/camilla-team.webp" alt="Camilla Bentzen"></div><span class="role">Kreativ leder · Partner</span><h3>Camilla Bentzen</h3><p>Interiørarkitekt MNIL<br>+47 995 50 001<br>camilla@monn.no</p></div>
+      <div class="who"><div class="pic"><img src="img/trond-team.webp" alt="Trond Ramsøskar"></div><span class="role">Daglig leder · Partner</span><h3>Trond Ramsøskar</h3><p>Interiørarkitekt MNIL<br>+47 924 41 305<br>trond@monn.no</p></div>
+      <div class="who"><div class="pic"><img src="img/murad-team.webp" alt="Murad Khan"></div><span class="role">Digital leder · Partner</span><h3>Murad Khan</h3><p>Interiørarkitekt MNIL<br>+47 900 38 650<br>murad@monn.no</p></div>
     </div>
     <footer><span>Monn Interiørarkitekter · Value the inside</span><span>Konfidensielt. Utarbeidet for Glasset Vinbar.</span></footer>
   </div>
@@ -625,7 +629,7 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
 (function(){
  const v=document.getElementById("tilbudVindu"), f=document.getElementById("tilbudRamme"), x=document.getElementById("lukkTilbud"), knapp=document.getElementById("aapneTilbud");
  let forrige=null;
- function aapne(e){ if(e) e.preventDefault(); forrige=document.activeElement; if(!f.getAttribute("src")) f.setAttribute("src","tilbud.html?v=24"); v.hidden=false; document.body.style.overflow="hidden"; x.focus(); }
+ function aapne(e){ if(e) e.preventDefault(); forrige=document.activeElement; if(!f.getAttribute("src")) f.setAttribute("src","tilbud.html?v=34"); v.hidden=false; document.body.style.overflow="hidden"; x.focus(); }
  function lukk(hash){ v.hidden=true; document.body.style.overflow=""; if(hash){ const m=document.querySelector(hash); if(m) m.scrollIntoView({behavior:"smooth"}); } else if(forrige) forrige.focus(); }
  knapp.addEventListener("click",aapne);
  x.addEventListener("click",()=>lukk());
@@ -666,117 +670,122 @@ footer{font-size:12px;color:#9A989C;border-top:1px solid #45434A;margin-top:64px
 </script>
 <script>
 /* Planen i meter. 0,0 er hjørnet mot bakgården og nabohuset. y øker mot gaten. */
-const W=16, H=11.2, T=0.5;
-/* Byggets ramme, målt opp fra Glassets plantegninger (1:100). Vegger som rektangler [x0,y0,x1,y1]. */
+const W=15.8, H=11.1, T=0.5;
+/* Byggets ramme, målt opp digitalt fra Glassets plantegninger (1:100, 300 dpi). Vegger som rektangler [x0,y0,x1,y1]. */
+const TR={1:[[10.83,10.59,10.83,11.07,12.45,11.07,12.45,10.59],[7.84,10.59,7.84,11.07,8.69,11.07,8.69,10.59],[5.23,10.59,5.23,11.07,5.7,11.07,5.7,10.59],[3.55,10.59,3.55,11.07,3.98,11.07,3.98,10.59],[0.0,10.12,0.0,11.02,0.06,11.02,0.06,11.07,1.41,11.07,1.41,10.59,0.48,10.59,0.48,10.12],[10.42,5.16,10.42,5.57,11.47,5.57,11.47,5.16],[12.62,5.16,12.62,5.58,13.52,5.58,13.52,5.16],[5.37,5.16,5.37,5.57,8.19,5.57,8.19,5.16],[4.56,3.78,4.56,3.83,4.65,3.83,4.65,3.86,4.85,3.86,4.85,3.81,4.97,3.81,4.97,3.86,5.82,3.86,5.82,3.73,4.65,3.73,4.65,3.78],[11.26,0.0,11.26,0.47,11.57,0.47,11.57,0.0],[9.0,0.0,9.0,0.47,9.94,0.47,9.94,0.0],[7.48,0.0,0.06,0.0,0.06,0.06,0.0,0.06,0.0,8.86,0.48,8.86,0.48,5.57,3.89,5.57,3.89,5.34,3.97,5.34,3.97,5.01,3.79,5.01,3.79,5.16,0.97,5.16,0.97,4.89,0.47,4.89,0.47,3.94,1.32,3.94,1.32,3.81,0.47,3.81,0.47,2.63,2.29,2.63,2.29,3.81,2.18,3.81,2.18,3.93,2.42,3.93,2.42,2.63,2.68,2.63,2.68,2.5,0.48,2.5,0.48,0.48,3.79,0.48,3.79,3.19,3.82,3.19,3.82,3.29,3.79,3.29,3.79,3.96,3.98,3.96,3.98,3.86,4.45,3.86,4.45,3.73,3.97,3.73,3.97,3.3,3.89,3.3,3.89,3.18,3.97,3.18,3.97,0.48,7.09,0.48,7.09,3.73,6.87,3.73,6.87,3.86,7.18,3.86,7.18,3.81,7.22,3.81,7.22,3.13,7.2,3.13,7.2,2.93,7.22,2.93,7.22,0.48,7.48,0.48],[12.44,-4.89,12.44,-4.83,12.38,-4.83,12.38,-4.08,12.75,-4.08,12.75,-4.52,15.35,-4.52,15.35,-0.01,13.6,-0.01,13.6,-0.13,12.78,-1.44,12.73,-1.44,12.73,-1.56,12.76,-1.56,12.76,-3.76,12.38,-3.76,12.38,-1.36,12.41,-1.36,12.41,-1.3,13.16,-0.1,13.16,0.0,12.99,0.0,12.99,0.48,15.35,0.48,15.35,5.16,14.75,5.16,14.75,5.58,15.35,5.58,15.35,10.59,14.59,10.59,14.59,11.07,15.82,11.07,15.82,-4.89]],2:[[9.9,10.59,9.9,11.07,10.85,11.07,10.85,10.59],[7.54,10.59,7.54,11.07,8.69,11.07,8.69,10.59],[5.17,10.59,5.17,11.07,6.33,11.07,6.33,10.59],[2.8,10.59,2.8,11.07,3.96,11.07,3.96,10.59],[13.03,5.17,12.89,5.17,12.89,5.26,12.34,5.26,12.34,5.53,12.89,5.53,12.89,10.33,12.91,10.33,12.91,10.59,12.06,10.59,12.06,11.07,13.03,11.07,13.03,10.4,13.0,10.4,13.0,10.19,13.03,10.19],[9.1,0.0,9.1,0.47,10.52,0.47,10.52,0.0],[6.0,0.0,6.0,0.48,7.1,0.48,7.1,3.73,6.99,3.73,6.99,3.86,7.22,3.86,7.22,3.73,7.2,3.73,7.2,0.48,7.89,0.48,7.89,0.0],[2.73,0.0,2.73,0.48,3.79,0.48,3.79,2.68,3.97,2.68,3.97,0.48,4.69,0.48,4.69,0.0],[0.0,0.06,0.0,11.02,0.06,11.02,0.06,11.07,1.59,11.07,1.59,10.59,0.48,10.59,0.48,5.56,7.07,5.56,7.07,5.67,5.72,5.67,5.72,5.81,7.22,5.81,7.22,5.54,10.39,5.54,10.39,5.27,7.23,5.27,7.23,5.16,7.09,5.16,7.09,5.28,5.99,5.28,5.99,5.02,5.85,5.02,5.85,5.28,3.98,5.28,3.98,3.86,5.85,3.86,5.85,3.97,5.99,3.97,5.99,3.87,5.94,3.87,5.94,3.73,3.79,3.73,3.79,3.81,3.73,3.81,3.73,3.99,3.79,3.99,3.79,5.29,2.78,5.29,2.78,3.99,2.87,3.99,2.87,3.81,2.62,3.81,2.62,3.99,2.7,3.99,2.7,4.14,2.7,5.3,1.49,5.3,1.49,4.66,1.4,4.66,1.4,5.3,0.48,5.3,0.48,3.99,1.78,3.99,1.78,3.81,0.47,3.81,0.47,0.48,1.52,0.48,1.52,0.0,0.06,0.0,0.06,0.06],[12.44,-4.89,12.44,-4.83,12.38,-4.83,12.38,-4.08,12.75,-4.08,12.75,-4.52,15.35,-4.52,15.35,-0.01,13.62,-0.01,13.62,-0.08,12.81,-1.37,12.73,-1.44,12.73,-1.56,12.76,-1.56,12.76,-3.76,12.38,-3.76,12.38,-1.36,12.43,-1.36,12.43,-1.24,13.16,-0.1,13.16,0.0,12.99,0.0,12.99,0.48,14.0,0.48,14.0,1.71,14.07,1.71,14.07,1.89,14.0,1.89,14.0,3.73,12.91,3.73,12.91,2.3,11.47,2.3,11.47,0.48,11.57,0.48,11.57,0.0,11.26,0.0,11.26,0.48,11.35,0.48,11.35,3.86,11.65,3.86,11.65,3.73,11.48,3.73,11.48,2.43,12.78,2.43,12.78,3.13,12.85,3.13,12.85,3.33,12.78,3.33,12.78,3.73,12.71,3.73,12.71,3.87,12.89,3.87,12.89,4.12,13.03,4.12,13.03,3.86,14.06,3.86,14.06,3.81,14.12,3.81,14.12,1.81,14.1,1.81,14.11,1.68,14.11,0.48,15.35,0.48,15.35,5.25,14.96,5.25,14.96,5.53,15.35,5.53,15.35,10.59,14.25,10.59,14.25,11.07,15.82,11.07,15.82,-4.89]]};
 const BASE={
  1:{
-  walls:[[T,5.24,4.04,5.6],[3.83,T,4.04,5.24],[T,2.52,3.83,2.68],[2.32,2.68,2.44,3.84],[T,3.84,3.83,3.94],[4.04,3.78,7.31,3.9],[7.2,T,7.31,3.78],[7.31,3.6,10.06,3.72],
-   [5.44,5.24,8.34,5.65],[10.5,5.24,11.6,5.65],[12.8,5.24,13.4,5.65],[14.9,5.24,W-T,5.65]],
-  rooms:[[T,T,3.33,2.02,"HC-toalett"],[T,2.68,1.82,1.16,"WC"],[T,3.94,3.33,1.3,""],[4.04,T,3.16,3.28,"Trapp"],[7.31,T,2.75,3.1,"Trapp"],[12.8,T,2.7,4.74,"Bar"]],
-  steps:[[4.04,5.42,1.4,.9,"v"]],
-  stair:[5.75,5.65,4.55,1.4],
-  windows:[[1.47,3.57,"b"],[5.79,7.92,"b"],[8.83,10.96,"b"],[12.63,14.73,"b"],[7.66,8.83,"t"],[11.75,13.15,"t"]],
-  doors:[[4.04,5.33,"b"],[10.08,11.4,"t"],[9.0,10.2,"l"]],
+  walls:[[3.8,T,4.0,3.9],[7.1,T,7.2,3.9],[T,2.4,2.7,2.6],[2.3,2.6,2.4,3.9],[T,3.8,1.3,3.9],[2.2,3.8,2.4,3.9],[4.0,3.6,5.8,3.9],[6.9,3.6,7.2,3.9],
+   [T,5.0,4.0,5.5],[5.4,5.0,8.2,5.5],[10.5,5.0,11.7,5.5],[12.8,5.0,13.7,5.5],[14.9,5.0,W-T,5.5],[13.6,1.2,13.7,4.4],[14.9,4.1,W-T,4.4]],
+  rooms:[[.48,.48,3.33,4.68,""],[.48,.6,3.33,1.9,"HC-toalett"],[1.25,3.2,1.0,.5,"WC"],[3.98,.48,3.12,3.25,"Trapp"],[12.6,.48,2.77,4.68,"Bar"]],
+  steps:[[3.95,5.3,1.42,.9,"v"],[8.3,6.98,.9,1.12,"h3"]],
+  level:[8.6,8.1,8.6,10.6], lt:[8.65,8.38],
+  sills:[[13.53,14.75]],
+  st:[5.39,5.58,4.55,1.4],
+  windows:[[1.41,3.55,"b"],[5.71,7.84,"b"],[8.7,10.83,"b"],[12.45,14.59,"b"],[7.48,9.0,"t"],[11.58,12.99,"t"]],
+  doors:[[3.99,5.23,"b"],[9.95,11.26,"t"],[8.87,10.12,"l"]],
+  san:[["wc",1.7,.5,"n"],["sink",2.75,.5,.55,.42],["wc",.5,3.22,"w"],["sink",1.6,2.65,.42,.32],["sink",.52,4.25,.42,.55]],
+  idoors:[{h:[3.78,2.57],l:[3.78,3.52],e:[2.83,2.57],s:1},{h:[2.2,3.87],l:[2.2,4.72],e:[1.35,3.87],s:1}],
+  vinrom:true,
   yard:true
  },
  2:{
-  walls:[[3.87,T,4.04,5.33],[T,3.81,3.87,4.05],[T,5.33,10.5,5.62],[7.19,T,7.31,3.76],[4.04,3.76,7.31,3.93],[5.97,3.93,6.1,5.33],[7.31,3.76,11.5,3.9],[11.5,T,11.62,3.9],
-   [11.62,2.33,14.13,2.47],[12.93,2.47,13.05,3.76],[14.13,T,14.3,3.9],[11.62,3.76,14.3,3.9],[13.02,3.9,13.2,4.2],[13.02,5.33,13.2,H-T],[13.2,3.76,14.3,3.9]],
-  rooms:[[T,T,3.37,3.31,"Personal"],[T,4.05,3.37,1.28,"Dusj og WC"],[4.04,T,3.15,3.26,"Trapp"],[4.04,3.93,1.93,1.4,"WC"],[7.31,T,4.19,3.26,"Trapp"],[11.62,T,2.51,1.83,"Kjøl og frys"],[11.62,2.47,1.31,1.29,"Renhold"],[13.05,2.47,1.08,1.29,""],[14.3,T,1.2,3.4,""],[13.2,3.9,2.3,6.8,"Kjøkken"]],
-  void:[5.75,5.65,4.55,1.4],
-  lift:[14.75,8.45,.7,.7],
-  windows:[[1.65,2.82,"b"],[4.04,5.21,"b"],[6.43,7.66,"b"],[9.11,10.34,"b"],[11.44,12.61,"b"],[13.25,14.42,"b"],[1.6,2.76,"t"],[4.8,6.03,"t"],[8.0,9.17,"t"],[10.69,11.4,"t"],[12.0,13.08,"t"]],
+  walls:[[3.8,T,4.0,2.5],[3.8,3.6,4.0,5.2],[T,3.7,1.8,3.9],[2.6,3.7,2.9,3.9],[3.5,3.7,3.8,3.9],[1.35,4.6,1.45,5.2],[2.7,3.9,2.8,5.2],
+   [4.0,3.6,6.0,3.8],[7.0,3.6,7.2,3.8],[7.1,T,7.2,3.8],[5.8,3.8,5.9,4.2],[5.8,5.05,5.9,5.2],
+   [11.3,T,11.5,3.8],[11.5,2.2,12.8,2.4],[12.7,2.4,12.9,3.8],[14.0,T,14.1,3.7],[12.9,3.6,14.0,3.8],[12.9,3.8,13.0,4.1],[12.9,5.0,13.0,5.2],
+   [T,5.2,10.4,5.5],[12.3,5.2,13.0,5.5],[14.8,5.2,W-T,5.5],[12.9,5.5,13.0,H-T]],
+  rooms:[[.48,.48,3.31,3.33,"Personal"],[.48,4.0,3.31,1.3,""],[3.98,.48,3.12,3.25,"Trapp"],[3.98,3.87,1.86,1.41,"WC"],[11.48,.48,2.52,1.82,"Kjøl og frys"],[11.48,2.44,1.3,1.29,"Renhold"],[12.92,2.44,1.08,1.29,""],[14.13,.48,1.22,5.1,""],[13.04,5.3,2.31,5.29,"Kjøkken"]],
+  st:[5.39,5.58,4.55,1.4],
+  lift:[14.55,8.45,.7,.7],
+  san:[["dusj",.5,4.02,.81,1.26],["sink",1.85,4.86,.5,.4],["wc",3.3,5.28,"s"],["sink",2.83,4.15,.3,.38],["wc",4.45,5.26,"s"],["sink",5.15,4.84,.5,.4]],
+  idoors:[{h:[2.57,3.81],l:[2.57,3.02],e:[1.78,3.81],s:0},{h:[3.72,3.81],l:[3.72,2.98],e:[2.89,3.81],s:0},{h:[5.85,4.25],l:[6.7,4.25],e:[5.85,5.1],s:1},{h:[12.95,4.15],l:[12.1,4.15],e:[12.95,5.0],s:0}],
+  windows:[[1.6,2.8,"b"],[3.97,5.17,"b"],[6.34,7.54,"b"],[8.7,9.9,"b"],[10.85,12.06,"b"],[13.05,14.25,"b"],[1.53,2.73,"t"],[4.7,6.0,"t"],[7.9,9.1,"t"],[10.52,11.26,"t"],[11.58,12.99,"t"]],
   doors:[],
+  vinrom:true,
   yard:false
  }
 };
-/* Forslagene. Mål i meter, møbler i reelle størrelser.
- m vinmaskin (face: siden gjestene står, both = øy med maskiner på begge sider), t2 kvadratisk bord for to (rot 0: stoler over og under, 90: til siden), t4 kvadratisk bord for fire, rt4 rundt bord for fire, rt2 rundt bord for to, hi høybord, long langbord, bench fast benk mot vegg med n bord for to, sofa, arm lenestol, low lavt bord, bar disk med krakker, ledge vindusdisk, zone flisgulv, k forheng, screen lerret, h hylle, p plante, n nummer, a gangvei */
+/* Forslagene. Mål i meter, møbler i reelle størrelser. */
+const BAK=[{k:"bar",x:12.6,y:1.12,w:.7,h:3.4,side:"l",nostool:true},{k:"h",x:14.85,y:1.15,w:.5,h:3.98},
+ {k:"rug",x:7.95,y:.65,w:1.75,h:3.05},{k:"sofa",x:7.28,y:.6,w:.6,h:3.15,side:"l"},{k:"low",x:8.3,y:1.15,r:.26},{k:"low",x:8.3,y:2.18,r:.26},{k:"low",x:8.3,y:3.2,r:.26},{k:"arm",x:9.12,y:1.15,face:180},{k:"arm",x:9.12,y:2.18,face:180},{k:"arm",x:9.12,y:3.2,face:180},{k:"p",x:9.75,y:.85},
+ {k:"a",pts:[[4.6,11.0],[4.6,4.4],[10.6,4.4],[10.6,.2]]}];
+const LOUNGE=[{k:"rug",x:.75,y:8.3,w:2.75,h:2.15},{k:"sofa",x:.6,y:8.45,w:.85,h:1.85,side:"l"},{k:"sofa",x:2.8,y:8.45,w:.85,h:1.85,side:"r"},{k:"low",x:2.12,y:9.37,r:.36},
+ {k:"pl",x:5.6,y:7.08,w:2.45,h:.42},
+ {k:"bas",x:5.45,y:9.15,w:3.1,h:1.45,n:2}];
+const HAGE=[{k:"gravel",x:.1,y:-4.85,w:12.2,h:4.8},{k:"pl",x:.1,y:-4.2,w:.4,h:3.9},{k:"pl",x:7.45,y:-.47,w:2.3,h:.4},
+ {k:"bench",x:.6,y:-4.85,w:10.6,h:.5,side:"t",four:true,c:[1.6,3.3,5.0,6.7,8.4,10.1]},
+ {k:"m",x:11.8,y:-4.2,w:.55,h:1.6,face:"l"},{k:"tak",x:11.15,y:-4.5,w:1.2,h:2.2},{k:"tree",x:11.6,y:-1.75,r:.4},{k:"p",x:.35,y:-4.6}];
+const CHAMBRE=[{k:"bench",x:7.35,y:.5,w:3.6,h:.5,side:"t",four:true,c:[7.98,9.18,10.38]},{k:"tv",x:7.27,y1:1.5,y2:2.7},{k:"h",x:10.9,y:2.5,w:.4,h:1.1},{k:"gardin",x1:7.3,x2:11.3,y:3.75}];
+const OPPE=[{k:"zone",x:11.45,y:6.3,w:.9,h:2.8},{k:"m",x:12.35,y:6.5,w:.55,h:2.4,face:"l"},
+ {k:"bench",x:6.0,y:10.1,w:6.4,h:.5,side:"b",round:true,c:[6.35,7.25,8.15,9.05,9.95,10.85,11.75]},{k:"bench",x:12.4,y:8.95,w:.5,h:1.65,side:"r",c:[]},
+ {k:"t2",x:8.45,y:7.75,rot:90},{k:"t2",x:10.25,y:7.75,rot:90}];
 const PROP={
  A:{
-  name:"Vintorget", sub:"Maskinene samlet i en øy midt i rommet",
+  name:"Vintorget", sub:"Maskinene samlet i en øy foran trappen",
   1:[
-   {k:"zone",cx:9.0,cy:8.6,rx:2.3,ry:.95},
-   {k:"m",x:7.6,y:8.2,w:2.8,h:.8,face:"both"},
-   {k:"ledge",x:5.65,y:10.35,w:5.0,h:.35,side:"t"},
-   {k:"bench",x:11.0,y:10.2,w:4.3,h:.5,side:"b",n:3},
-   {k:"t4",x:14.3,y:6.5},{k:"t2",x:14.3,y:8.3,rot:90},
-   {k:"sofa",x:1.9,y:10.0,w:2.0,h:.7,side:"b"},
-   {k:"low",x:2.9,y:9.5,r:.3},{k:"arm",x:2.05,y:9.1,face:90},{k:"arm",x:3.75,y:9.1,face:90},
-   {k:"long",x:1.0,y:6.4,w:2.5,h:.85},
-   {k:"bar",x:13.0,y:.9,w:.6,h:3.6,side:"l"},{k:"h",x:15.0,y:.9,w:.45,h:3.6},
-   {k:"p",x:3.75,y:7.75},{k:"p",x:15.15,y:9.55},
-   {k:"a",pts:[[4.7,11.0],[4.7,4.6],[10.75,4.6],[10.75,.2]]},
-   {k:"rt4",x:1.9,y:-3.7},{k:"rt4",x:4.3,y:-3.7},{k:"rt4",x:6.7,y:-3.7},{k:"rt4",x:1.9,y:-1.6},{k:"rt4",x:4.3,y:-1.6},{k:"rt4",x:6.7,y:-1.6},
-   {k:"long",x:8.6,y:-4.6,w:.9,h:3.1},
-   {k:"m",x:11.8,y:-4.3,w:.55,h:1.6,face:"l"},
-   {k:"p",x:.6,y:-4.9},{k:"p",x:3.1,y:-5.0},{k:"p",x:5.5,y:-5.0},{k:"p",x:10.6,y:-4.9},
-   {k:"n",x:10.9,y:7.7,n:1},{k:"n",x:1.25,y:8.6,n:2},{k:"n",x:3.85,y:6.85,n:3},{k:"n",x:12.4,y:9.0,n:4},{k:"n",x:12.1,y:2.7,n:5},{k:"n",x:10.2,y:-2.6,n:6}
+   {k:"zone",cx:11.35,cy:7.65,rx:1.9,ry:1.0},
+   {k:"m",x:10.15,y:7.25,w:2.4,h:.8,face:"both"},
+   {k:"bench",x:14.85,y:5.6,w:.5,h:3.55,side:"r",four:true,c:[6.4,7.9]},
+   {k:"bas",x:8.7,y:9.35,w:6.65,h:1.25,n:4},
+   
+   {k:"bench",x:.5,y:5.6,w:3.35,h:.5,side:"t",four:true,c:[1.75,3.1]},{k:"bench",x:.5,y:6.1,w:.5,h:1.2,side:"l",c:[]},
+   ...LOUNGE,...BAK,
+   {k:"p",x:3.65,y:7.75},
+   ...HAGE,
+   {k:"rt4",x:1.9,y:-1.1},{k:"rt4",x:4.2,y:-1.1},{k:"rt4",x:6.5,y:-1.1},
+   {k:"para",x:1.9,y:-1.1,r:1.1},{k:"para",x:4.2,y:-1.1,r:1.1},{k:"para",x:6.5,y:-1.1,r:1.1},
+   {k:"n",x:11.35,y:8.8,n:1},{k:"n",x:2.1,y:7.9,n:2},{k:"n",x:.95,y:7.6,n:3},{k:"n",x:13.1,y:6.15,n:4},{k:"n",x:12.0,y:2.6,n:5},{k:"n",x:8.9,y:-2.6,n:6},{k:"n",x:9.85,y:3.45,n:7}
   ],
   2:[
-   {k:"k",x:5.6,y1:5.62,y2:H-T},
-   {k:"m",x:.75,y:5.75,w:2.4,h:.55,face:"b"},
-   {k:"long",x:1.0,y:7.7,w:3.7,h:1.0},
-   {k:"screen",x:.55,y1:7.3,y2:9.9},
-   {k:"p",x:4.95,y:6.2},
-   {k:"zone",x:11.7,y:5.75,w:1.3,h:2.7},
-   {k:"m",x:12.45,y:5.9,w:.55,h:2.4,face:"l"},
-   {k:"bench",x:5.9,y:10.2,w:6.4,h:.5,side:"b",n:5},
-   {k:"t2",x:6.9,y:8.15,rot:90},{k:"t2",x:8.85,y:8.15,rot:90},{k:"t2",x:10.8,y:8.15,rot:90},
-   {k:"n",x:3.0,y:6.75,n:1},{k:"n",x:5.25,y:8.6,n:2},{k:"n",x:11.3,y:6.6,n:3},{k:"n",x:14.25,y:7.4,n:4}
+   {k:"m",x:2.6,y:5.62,w:2.4,h:.55,face:"b"},
+   {k:"long",x:1.7,y:7.05,w:.9,h:3.1},{k:"long",x:4.3,y:7.05,w:.9,h:3.1},
+   {k:"screen",x:.55,y1:7.2,y2:9.6},
+   ...OPPE,...CHAMBRE,
+   {k:"n",x:5.35,y:6.3,n:1},{k:"n",x:11.9,y:5.95,n:2},{k:"n",x:14.0,y:7.4,n:3},{k:"n",x:7.7,y:3.35,n:4},{k:"n",x:10.75,y:6.35,n:5}
   ],
   legend:{
-   1:[["Vintorget","En øy med maskiner på begge sider står foran den nye trappen, på flisgulv med fri sone rundt. Vindusdisken mot gaten har åtte krakker."],["Lounge","Sofa, to lenestoler og lavt bord i hjørnet. Døren i gavlen holdes fri."],["Langbordet","Åtte plasser i den gamle spisestuen."],["Benken","Fast benk under vinduene med tre bord for to, og et bord for fire og et for to innenfor."],["Baren","Disk med seks krakker og bakdisk, på veien ut til bakgården."],["Lille Bordeaux","Seks runde bord for fire, langbord og egen maskin langs veggen."]],
-   2:[["Selskapsrommet","Langbord for tolv, egen maskinrekke og lerret for vinsmaking."],["Forhenget","Deler etasjen ved selskap. Står åpent til vanlig."],["Maskinene oppe","Rekke langs kjøkkenveggen, med flisgulv foran."],["Kort vei for maten","Kjøkkenet ligger vegg i vegg med serveringen, med matheis ned."]]
+   1:[["Vintorget","En øy med maskiner på begge sider står foran den nye trappen, på flisgulv med fri sone rundt."],["Lounge","To sofaer mot hverandre med lavt bord."],["Benken","Fast benk i hjørnet, med to bord for fire."],["Østveggen og vinduet","Fast benk langs østveggen med to bord for fire. Åpningen mot baren holdes fri. Fire båser for fire under vinduene mot gaten, helt ut til østveggen."],["Baren","Lang disk og skap langs hele bakveggen. Gangen til bakgården holdes fri."],["Lille Bordeaux","Benk langs hele muren med seks bord for fire, tre runde bord under parasoller og maskin under tak."],["Lounge innerst","Fast benk langs veggen, tre små bord og tre loungestoler."]],
+   2:[["Selskapsrommet","To langbord for ti, egen maskinrekke og lerret. Tjue plasser."],["Maskinene oppe","Rekke langs kjøkkenveggen, slik Glasset har tegnet den, med flisgulv foran. Benken fortsetter rundt hjørnet."],["Kort vei for maten","Kjøkkenet ligger vegg i vegg med serveringen."],["Chambre séparée","Fast benk under vinduene med bord for tolv, TV på veggen, skjenk og gardin mot gangen."],["Trappen","Du kommer opp i østenden, ved åpningen mot gangen, mellom kjøkkenet, maskinene og chambre séparée."]]
   }
  },
  B:{
-  name:"Vinpromenaden", sub:"Maskinene som en ryggrad gjennom rommet",
+  name:"Vinpromenaden", sub:"Maskinene langs veggene, bordene i midten",
   1:[
-   {k:"zone",x:5.6,y:7.75,w:6.2,h:1.9},
-   {k:"m",x:5.9,y:8.25,w:2.4,h:.8,face:"both"},{k:"m",x:9.1,y:8.25,w:2.4,h:.8,face:"both"},
-   {k:"ledge",x:5.65,y:10.35,w:5.0,h:.35,side:"t"},
-   {k:"bench",x:11.0,y:10.2,w:4.3,h:.5,side:"b",n:3},
-   {k:"t4",x:14.3,y:6.5},{k:"t2",x:14.3,y:8.3,rot:90},
-   {k:"sofa",x:1.9,y:10.0,w:2.0,h:.7,side:"b"},
-   {k:"low",x:2.9,y:9.5,r:.3},{k:"arm",x:2.05,y:9.1,face:90},{k:"arm",x:3.75,y:9.1,face:90},
-   {k:"bench",x:.5,y:5.9,w:.5,h:2.6,side:"l",n:2},
-      {k:"bar",x:13.0,y:.9,w:.6,h:3.6,side:"l"},{k:"h",x:15.0,y:.9,w:.45,h:3.6},
-   {k:"p",x:3.75,y:8.0},{k:"p",x:15.15,y:9.55},
-   {k:"a",pts:[[4.7,11.0],[4.7,4.6],[10.75,4.6],[10.75,.2]]},
-   {k:"long",x:1.2,y:-4.5,w:4.2,h:.9},{k:"long",x:1.2,y:-1.9,w:4.2,h:.9},
-   {k:"rt2",x:7.2,y:-3.8},{k:"rt2",x:9.4,y:-3.8},{k:"rt2",x:7.2,y:-1.7},{k:"rt2",x:9.4,y:-1.7},
-   {k:"m",x:11.8,y:-4.3,w:.55,h:1.6,face:"l"},
-   {k:"p",x:.6,y:-4.9},{k:"p",x:6.3,y:-5.0},{k:"p",x:10.6,y:-4.9},
-   {k:"n",x:11.95,y:8.65,n:1},{k:"n",x:5.3,y:9.75,n:2},{k:"n",x:1.25,y:8.9,n:3},{k:"n",x:1.75,y:5.95,n:4},{k:"n",x:12.1,y:2.7,n:5},{k:"n",x:10.2,y:-2.6,n:6}
+   {k:"zone",x:.7,y:5.6,w:3.1,h:1.5},{k:"m",x:1.0,y:5.62,w:2.4,h:.55,face:"b"},{k:"hi",x:2.2,y:7.72},
+   {k:"zone",x:13.6,y:5.7,w:1.15,h:2.9},{k:"m",x:14.75,y:5.9,w:.55,h:2.4,face:"l"},
+   {k:"bench",x:8.65,y:10.1,w:6.7,h:.5,side:"b",four:true,c:[9.5,11.1,12.7,14.3]},
+   {k:"rt4",x:11.5,y:7.45,r:.65,n:6},
+   ...LOUNGE,...BAK,
+   {k:"p",x:3.65,y:7.75},{k:"p",x:15.0,y:8.75},
+   ...HAGE,
+   {k:"rt2",x:1.9,y:-2.2},{k:"rt2",x:1.9,y:-.9},{k:"rt2",x:4.3,y:-2.2},{k:"rt2",x:4.3,y:-.9},{k:"rt2",x:6.7,y:-2.2},{k:"rt2",x:6.7,y:-.9},
+   {k:"para",x:1.9,y:-1.55,r:1.2},{k:"para",x:4.3,y:-1.55,r:1.2},{k:"para",x:6.7,y:-1.55,r:1.2},
+   {k:"n",x:13.25,y:6.0,n:1},{k:"n",x:13.3,y:8.35,n:2},{k:"n",x:3.85,y:9.0,n:3},{k:"n",x:3.3,y:6.8,n:4},{k:"n",x:12.0,y:2.6,n:5},{k:"n",x:8.9,y:-2.6,n:6},{k:"n",x:9.85,y:3.45,n:7}
   ],
   2:[
    {k:"m",x:.6,y:5.9,w:.55,h:2.4,face:"r"},{k:"h",x:.6,y:8.5,w:.45,h:1.9},
-   {k:"zone",x:11.7,y:5.75,w:1.3,h:2.7},
-   {k:"m",x:12.45,y:5.9,w:.55,h:2.4,face:"l"},{k:"h",x:12.55,y:8.5,w:.45,h:1.9},
-   {k:"k",x:5.6,y1:5.62,y2:H-T,dash:true},
-   {k:"sofa",x:2.0,y:10.0,w:2.4,h:.7,side:"b"},{k:"low",x:3.2,y:9.45,r:.32},{k:"arm",x:2.6,y:8.7,face:90},{k:"arm",x:3.8,y:8.7,face:90},
-   {k:"rt4",x:3.1,y:6.8},
-   {k:"bench",x:5.9,y:10.2,w:6.4,h:.5,side:"b",n:5},
-   {k:"t2",x:6.9,y:8.15,rot:90},{k:"t2",x:8.85,y:8.15,rot:90},{k:"t2",x:10.8,y:8.15,rot:90},
-   {k:"n",x:1.65,y:5.6,n:1},{k:"n",x:9.8,y:9.1,n:2},{k:"n",x:5.95,y:6.3,n:3}
+   {k:"rug",x:2.1,y:8.2,w:2.6,h:2.0},{k:"sofa",x:2.2,y:9.85,w:2.4,h:.75,side:"b"},{k:"low",x:3.4,y:9.25,r:.34},{k:"arm",x:2.75,y:8.55,face:90},{k:"arm",x:4.05,y:8.55,face:90},
+   {k:"rt4",x:3.3,y:6.85},{k:"t2",x:6.3,y:7.45,rot:90},{k:"t2",x:6.3,y:8.3,rot:90},
+   ...OPPE,...CHAMBRE,
+   {k:"n",x:1.65,y:5.95,n:1},{k:"n",x:11.05,y:7.15,n:2},{k:"n",x:7.7,y:3.35,n:3},{k:"n",x:10.75,y:6.35,n:4}
   ],
   legend:{
-   1:[["Vinpromenaden","To øyer med maskiner på begge sider står på rad foran trappen, med en åpning midt imellom. Vindusdisken mot gaten har åtte krakker."],["Disk i vinduet","Høy disk langs vinduene, mellom døren og benken."],["Lounge","Sofa, to lenestoler og lavt bord i hjørnet. Døren i gavlen holdes fri."],["Båsen","Fast benk langs gavlen med to bord for to."],["Baren","Disk med seks krakker og bakdisk, på veien ut til bakgården."],["Bakgården","To langbord for gjenger og fire små bord for to."]],
-   2:[["Vinbiblioteket","Maskiner og hyller langs veggene, slik som i Pilestredet."],["Fritt gulv","Fast benk under vinduene og små bord som lett flyttes fra middag til vinsmaking."],["Skyvevegg","Lukker av salongen ved selskap."]]
+   1:[["Vinpromenaden","Maskinene står langs veggene: en rekke ved trappen og en langs østveggen. Gulvet i midten er fritt for bord."],["Benken mot gaten","Fast benk under vinduene i hele rommets bredde med fire bord for fire, og et rundt bord for seks innenfor."],["Lounge","To sofaer mot hverandre med lavt bord."],["Smakehjørnet","Maskinrekken med flisgulv foran og et lite høybord med tre krakker."],["Baren","Lang disk og skap langs hele bakveggen."],["Bakgården","Benk langs hele muren med seks bord for fire, seks små runde bord under tre parasoller, og maskin under tak."],["Lounge innerst","Fast benk langs veggen, tre små bord og tre loungestoler."]],
+   2:[["Vinbiblioteket","To maskinrekker midt i rommet, salong med to sofaer og to runde bord for fire."],["Benken","Fast benk under vinduene og rundt hjørnet, med sju små runde bord for to."],["Chambre séparée","Fast benk under vinduene med bord for tolv, TV, skjenk og gardin."],["Trappen","Du kommer opp i østenden, ved åpningen mot gangen."]]
   }
  }
 };
 
 /* ---------- Skissene ---------- */
-const S=38, OX=40;
+const S=38, OX=62;
 let state={p:"A",f:1};
 const INK="#3B393F", PAPER="#F7F6F2", SEAT="#ECE7DF", WINE="#46191E";
 function drawPlan(){
- const f=state.f, b=BASE[f], pr=PROP[state.p], items=pr[f]||[];
- const top=b.yard?5.6:0, OY=40+top*S;
+ const f=state.f, b=BASE[f], pr=PROP[state.p], items=(pr[f]||[]).filter(e=>!e.del);
+ const MOB=(e,h)=>`<g class="mob" data-i="${pr[f].indexOf(e)}">${h}</g>`;
+ const top=5.1, OY=40+top*S;
  const X=x=>OX+x*S, Y=y=>OY+y*S, L=v=>v*S;
- const vw=OX*2+W*S, vh=OY+H*S+64;
+ const vw=OX*2+W*S, vh=OY+H*S+104;
  const o=[];
  const chair=(cx,cy,ang)=>`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)}) rotate(${ang})"><rect x="${-L(.21)}" y="${-L(.2)}" width="${L(.42)}" height="${L(.4)}" rx="${L(.1)}" fill="${PAPER}"/><path d="M${-L(.19)} ${-L(.2)} Q0 ${-L(.31)} ${L(.19)} ${-L(.2)}" fill="none"/></g>`;
  const toward=(cx,cy,tx,ty)=>Math.atan2(ty-cy,tx-cx)*180/Math.PI-90;
@@ -784,25 +793,38 @@ function drawPlan(){
  o.push(`<defs><pattern id="tile" width="${L(.3)}" height="${L(.3)}" patternUnits="userSpaceOnUse"><rect width="${L(.3)}" height="${L(.3)}" fill="#EFE9E1"/><path d="M0 0H${L(.3)}M0 0V${L(.3)}" stroke="#D8CFC3" stroke-width=".6"/></pattern>
  <pattern id="deck" width="${L(.16)}" height="10" patternUnits="userSpaceOnUse"><path d="M0 0V10" stroke="#C9D6CE" stroke-width=".7"/></pattern>
  <pattern id="poche" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#D4D2CB"/><path d="M0 0V5" stroke="#9C9A95" stroke-width=".5"/></pattern>
+ <pattern id="grus" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#EEF2EE"/><circle cx="2" cy="3" r=".7" fill="#C7D3CA"/><circle cx="6.5" cy="7" r=".6" fill="#C7D3CA"/></pattern>
+ <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9" fill="none" stroke="#46191E" stroke-width="1.4"/></marker>
  <pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".55" fill="#C7C3BA"/></pattern></defs>`);
  o.push(`<g stroke="${INK}" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">`);
  // bakgård
  if(b.yard){
-  o.push(`<rect x="${X(0)}" y="${Y(-5.4)}" width="${L(12.4)}" height="${L(5.4)}" fill="url(#deck)" stroke="none"/>`);
-  o.push(`<rect x="${X(0)}" y="${Y(-5.4)}" width="${L(12.4)}" height="${L(5.4)}" fill="none" stroke-dasharray="3 4" stroke-width=".7"/>`);
-  o.push(`<rect x="${X(12.4)}" y="${Y(-5.4)}" width="${L(3.6)}" height="${L(5.4)}" fill="url(#poche)" stroke-width="1.2"/>`);
-  for(const px of [.3,4.1,8.0,11.9]) for(const py of [-5.2,-.3]) o.push(`<rect x="${X(px)-3}" y="${Y(py)-3}" width="6" height="6" fill="${INK}" stroke="none"/>`);
+  o.push(`<rect x="${X(0)}" y="${Y(-4.9)}" width="${L(12.4)}" height="${L(4.9)}" fill="url(#deck)" stroke="none"/>`);
+  o.push(`<rect x="${X(0)}" y="${Y(-4.9)}" width="${L(12.4)}" height="${L(4.9)}" fill="none" stroke-dasharray="3 4" stroke-width=".7"/>`);
+  
+  for(const px of [.3,4.1,8.0,11.9]) for(const py of [-4.7,-.3]) o.push(`<rect x="${X(px)-3}" y="${Y(py)-3}" width="6" height="6" fill="${INK}" stroke="none"/>`);
  }
  // gulv
  o.push(`<rect x="${X(0)}" y="${Y(0)}" width="${L(W)}" height="${L(H)}" fill="${PAPER}" stroke="none"/>`);
  o.push(`<rect x="${X(T)}" y="${Y(T)}" width="${L(W-2*T)}" height="${L(H-2*T)}" fill="url(#dots)" stroke="none" opacity=".7"/>`);
  b.rooms.forEach(r=>o.push(`<rect x="${X(r[0])}" y="${Y(r[1])}" width="${L(r[2])}" height="${L(r[3])}" fill="#EAE8E2" stroke="none"/>`));
- items.filter(e=>e.k==="zone").forEach(e=>{ if(e.rx) o.push(`<ellipse cx="${X(e.cx)}" cy="${Y(e.cy)}" rx="${L(e.rx)}" ry="${L(e.ry)}" fill="url(#tile)" stroke="#CDBFAF" stroke-width=".8"/>`); else o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="${L(.4)}" fill="url(#tile)" stroke="#CDBFAF" stroke-width=".8"/>`); });
+ items.filter(e=>e.k==="gravel").forEach(e=>o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" fill="url(#grus)" stroke="none"/>`));
+ items.filter(e=>e.k==="zone").forEach(e=>{ const o0=o.length; { if(e.rx) o.push(`<ellipse cx="${X(e.cx)}" cy="${Y(e.cy)}" rx="${L(e.rx)}" ry="${L(e.ry)}" fill="url(#tile)" stroke="#CDBFAF" stroke-width=".8"/>`); else o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="${L(.4)}" fill="url(#tile)" stroke="#CDBFAF" stroke-width=".8"/>`); }; o.push(MOB(e,o.splice(o0).join(""))); });
+ items.filter(e=>e.k==="rug").forEach(e=>{ const o0=o.length; o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="3" fill="#E7DFD3" stroke="#CDBFAF" stroke-width=".7"/><rect x="${X(e.x)+4}" y="${Y(e.y)+4}" width="${L(e.w)-8}" height="${L(e.h)-8}" rx="2" fill="none" stroke="#CDBFAF" stroke-width=".5" stroke-dasharray="2 3"/>`); o.push(MOB(e,o.splice(o0).join(""))); });
  // yttervegg som poché
- o.push(`<path d="M${X(0)} ${Y(0)}H${X(W)}V${Y(H)}H${X(0)}Z M${X(T)} ${Y(T)}V${Y(H-T)}H${X(W-T)}V${Y(T)}Z" fill="url(#poche)" fill-rule="evenodd" stroke-width="1.3"/>`);
- b.walls.forEach(w=>{ const x=Math.min(w[0],w[2]), y=Math.min(w[1],w[3]); const ww=Math.max(Math.abs(w[2]-w[0]),.12), hh=Math.max(Math.abs(w[3]-w[1]),.12); o.push(`<rect x="${X(x)}" y="${Y(y)}" width="${L(ww)}" height="${L(hh)}" fill="${ww>.2&&hh>.2?"url(#poche)":"#BDBAB3"}" stroke-width=".8"/>`); });
- if(b.level) o.push(`<path d="M${X(b.level[0])} ${Y(b.level[1])}V${Y(b.level[3])}" stroke-width=".6" stroke-dasharray="8 3 2 3"/>`);
- (b.steps||[]).forEach(([sx,sy,sw,sh,dir])=>{ o.push(`<rect x="${X(sx)}" y="${Y(sy)}" width="${L(sw)}" height="${L(sh)}" fill="${PAPER}" stroke-width=".7"/>`); const n=3; for(let i=1;i<n;i++) o.push(dir==="v"?`<path d="M${X(sx)} ${Y(sy+sh*i/n)}H${X(sx+sw)}" stroke-width=".5"/>`:`<path d="M${X(sx+sw*i/n)} ${Y(sy)}V${Y(sy+sh)}" stroke-width=".5"/>`); });
+ { const d=TR[f].map(q=>{ let t=""; for(let i=0;i<q.length;i+=2) t+=(i?"L":"M")+X(q[i]).toFixed(1)+" "+Y(q[i+1]).toFixed(1); return t+"Z"; }).join("");
+  o.push(`<path d="${d}" fill="url(#poche)" fill-rule="evenodd" stroke-width="1.1"/>`);
+  o.push(`<rect x="${X(12.39)}" y="${Y(-4.16)}" width="${L(.345)}" height="${L(.46)}" fill="url(#poche)" stroke="none"/><path d="M${X(12.39)} ${Y(-4.16)}V${Y(-3.7)}M${X(12.735)} ${Y(-4.16)}V${Y(-3.7)}" stroke-width="1.1"/>`); }
+ if(b.level) o.push(`<path d="M${X(b.level[0])} ${Y(b.level[1])}V${Y(b.level[3])}" stroke-width="1.6"/><text x="${X(b.lt?b.lt[0]:b.level[0])+6}" y="${Y(b.lt?b.lt[1]:b.level[1])+3}" font-size="7.5" letter-spacing="1.2" fill="#5E5C58" stroke="none">+3 TRINN</text>`);
+ (b.steps||[]).forEach(([sx,sy,sw,sh,dir])=>{  o.push(`<rect x="${X(sx)}" y="${Y(sy)}" width="${L(sw)}" height="${L(sh)}" fill="${PAPER}" stroke-width=".7"/>`); const n=dir==="h"?5:3; dir=dir[0]; for(let i=1;i<n;i++) o.push(dir==="v"?`<path d="M${X(sx)} ${Y(sy+sh*i/n)}H${X(sx+sw)}" stroke-width=".5"/>`:`<path d="M${X(sx+sw*i/n)} ${Y(sy)}V${Y(sy+sh)}" stroke-width=".5"/>`); });
+ if(b.platform){ const q=b.platform; o.push(`<rect x="${X(q[0])}" y="${Y(q[1])}" width="${L(q[2])}" height="${L(q[3])}" fill="${PAPER}" stroke-width=".7"/>`); }
+ (b.sills||[]).forEach(q=>o.push(`<rect x="${X(q[0])}" y="${Y(5.16)}" width="${L(q[1]-q[0])}" height="${L(.42)}" fill="${PAPER}" stroke-width=".7"/><path d="M${X(q[0])} ${Y(5.37)}H${X(q[1])}" stroke-width=".6"/>`));
+ (b.idoors||[]).forEach(d=>{ const r=L(Math.hypot(d.l[0]-d.h[0],d.l[1]-d.h[1])); o.push(`<path d="M${X(d.h[0])} ${Y(d.h[1])}L${X(d.l[0])} ${Y(d.l[1])}" stroke-width="1"/><path d="M${X(d.l[0])} ${Y(d.l[1])}A${r} ${r} 0 0 ${d.s} ${X(d.e[0])} ${Y(d.e[1])}" fill="none" stroke-width=".6"/>`); });
+ // sanitærutstyr
+ (b.san||[]).forEach(q=>{ const t=q[0];
+  if(t==="sink"){ const [,x,y,w,h]=q; o.push(`<rect x="${X(x)}" y="${Y(y)}" width="${L(w)}" height="${L(h)}" rx="2" fill="${PAPER}" stroke-width=".6"/><ellipse cx="${X(x+w/2)}" cy="${Y(y+h/2)}" rx="${L(w*.32)}" ry="${L(h*.3)}" fill="none" stroke-width=".5"/>`); }
+  if(t==="dusj"){ const [,x,y,w,h]=q; o.push(`<rect x="${X(x)}" y="${Y(y)}" width="${L(w)}" height="${L(h)}" fill="${PAPER}" stroke-width=".6"/><path d="M${X(x)} ${Y(y)}L${X(x+w)} ${Y(y+h)}M${X(x+w)} ${Y(y)}L${X(x)} ${Y(y+h)}" stroke-width=".4"/><circle cx="${X(x+w/2)}" cy="${Y(y+h/2)}" r="2" fill="${PAPER}" stroke-width=".5"/>`); }
+  if(t==="wc"){ const [,x,y,d]=q; const rot={n:0,e:90,s:180,w:270}[d]; o.push(`<g transform="translate(${X(x)} ${Y(y)}) rotate(${rot})"><rect x="${-L(.19)}" y="0" width="${L(.38)}" height="${L(.17)}" rx="1.5" fill="${PAPER}" stroke-width=".6"/><ellipse cx="0" cy="${L(.42)}" rx="${L(.18)}" ry="${L(.25)}" fill="${PAPER}" stroke-width=".6"/></g>`); } });
  // vinduer
  b.windows.forEach(w=>{ if(w[2]==="b") o.push(`<rect x="${X(w[0])}" y="${Y(H-T)}" width="${L(w[1]-w[0])}" height="${L(T)}" fill="${PAPER}" stroke-width=".7"/><path d="M${X(w[0])} ${Y(H-T/2)}H${X(w[1])}" stroke-width=".6"/>`); else if(w[2]==="t") o.push(`<rect x="${X(w[0])}" y="${Y(0)}" width="${L(w[1]-w[0])}" height="${L(T)}" fill="${PAPER}" stroke-width=".7"/><path d="M${X(w[0])} ${Y(T/2)}H${X(w[1])}" stroke-width=".6"/>`); else o.push(`<rect x="${X(0)}" y="${Y(w[0])}" width="${L(T)}" height="${L(w[1]-w[0])}" fill="${PAPER}" stroke-width=".7"/><path d="M${X(T/2)} ${Y(w[0])}V${Y(w[1])}" stroke-width=".6"/>`); });
  // dører
@@ -811,22 +833,43 @@ function drawPlan(){
   if(d[2]==="t") o.push(`<rect x="${X(d[0])}" y="${Y(0)}" width="${r}" height="${L(T)}" fill="${PAPER}" stroke="none"/><path d="M${X(d[1])} ${Y(0)}V${Y(0)-r}M${X(d[1])} ${Y(0)-r}A${r} ${r} 0 0 0 ${X(d[0])} ${Y(0)}" fill="none" stroke-width=".7"/>`);
   if(d[2]==="l") o.push(`<rect x="${X(0)}" y="${Y(d[0])}" width="${L(T)}" height="${r}" fill="${PAPER}" stroke="none"/><path d="M${X(0)} ${Y(d[0])}H${X(0)-r}M${X(0)-r} ${Y(d[0])}A${r} ${r} 0 0 0 ${X(0)} ${Y(d[1])}" fill="none" stroke-width=".7"/>`);
  });
+ // dører til lageret: fra baren og fra bakgården, som i Glassets tegning
+ { const r1=L(.7);
+  o.push(`<rect x="${X(14.36)}" y="${Y(-.02)}" width="${r1}" height="${L(.52)}" fill="${PAPER}" stroke="none"/><path d="M${X(15.06)} ${Y(0)}V${Y(0)-r1}" stroke-width="1"/><path d="M${X(15.06)} ${Y(0)-r1}A${r1} ${r1} 0 0 0 ${X(14.36)} ${Y(0)}" fill="none" stroke-width=".6"/>`);
+  if(f===1){ const P=[12.52,-.99], Hh=[12.93,-.40], n=[.846*.5,-.533*.5], E=[12.35,-.09], r2=L(.72);
+  o.push(`<path d="M${X(P[0]-n[0]*.06)} ${Y(P[1]-n[1]*.06)}L${X(Hh[0]-n[0]*.06)} ${Y(Hh[1]-n[1]*.06)}L${X(Hh[0]+n[0])} ${Y(Hh[1]+n[1])}L${X(P[0]+n[0])} ${Y(P[1]+n[1])}Z" fill="${PAPER}" stroke="none"/><path d="M${X(Hh[0])} ${Y(Hh[1])}L${X(E[0])} ${Y(E[1])}" stroke-width="1"/><path d="M${X(E[0])} ${Y(E[1])}A${r2} ${r2} 0 0 1 ${X(P[0])} ${Y(P[1])}" fill="none" stroke-width=".6"/>`); } }
  // trapper
  const stair=(x,y,w,h,n)=>{ o.push(`<rect x="${X(x)}" y="${Y(y)}" width="${L(w)}" height="${L(h)}" fill="${PAPER}" stroke-width=".8"/>`); for(let i=1;i<n;i++) o.push(`<path d="M${X(x)} ${Y(y+h*i/n)}H${X(x+w)}" stroke-width=".5"/>`); o.push(`<path d="M${X(x+w/2)} ${Y(y+h-.15)}V${Y(y+.25)}" stroke-width=".7"/><path d="M${X(x+w/2)-4} ${Y(y+.4)}L${X(x+w/2)} ${Y(y+.2)}L${X(x+w/2)+4} ${Y(y+.4)}" fill="none" stroke-width=".7"/>`); };
- stair(4.3,.7,2.65,2.85,11); if(f===1) stair(7.55,.7,2.3,2.7,11); else stair(7.6,.7,2.4,2.8,11);
- // den nye trappen midt i lokalet, 18 trinn som stiger mot vest
- const sv=b.stair||b.void;
- if(sv){ const up=!!b.stair, n=18, t=sv[2]/n, x0=sv[0], y0=sv[1], x1=sv[0]+sv[2], y1=sv[1]+sv[3], ym=(y0+y1)/2;
-  o.push(`<rect x="${X(x0)}" y="${Y(y0)}" width="${L(sv[2])}" height="${L(sv[3])}" fill="${up?"#F1EBE2":"none"}" stroke-width="${up?1.1:.8}" ${up?"":'stroke-dasharray="5 4"'}/>`);
-  for(let i=1;i<n;i++){ const xx=x0+i*t; if(up&&xx<x0+sv[2]*.4) continue; o.push(`<path d="M${X(xx)} ${Y(y0)}V${Y(y1)}" stroke-width="${up?.6:.4}" ${up?"":'stroke-dasharray="2 3"'}/>`); }
-  if(up){ const bx=x0+sv[2]*.4; o.push(`<path d="M${X(bx-.15)} ${Y(y1)}L${X(bx+.15)} ${Y(y0)}" stroke-width=".9"/>`); for(let i=1;i<n*.4;i++){ const xx=x0+i*t; o.push(`<path d="M${X(xx)} ${Y(y0)}V${Y(y1)}" stroke-width=".4" stroke-dasharray="2 3"/>`); } }
-  else o.push(`<path d="M${X(x0)} ${Y(y1+.05)}H${X(x1+.05)}V${Y(y0)}" fill="none" stroke-width="2.2"/>`);
-  o.push(`<path d="M${X(up?x1-.2:x0+.25)} ${Y(ym)}H${X(up?x0+.3:x1-.3)}" stroke="${WINE}" stroke-width="1" marker-end="url(#arr)"/>`);
-  o.push(`<circle cx="${X(up?x1-.2:x0+.25)}" cy="${Y(ym)}" r="2.6" fill="${WINE}" stroke="none"/>`); }
+ // eksisterende trapp: hestesko med svingtrinn rundt en kjerne, går gjennom alle etasjer
+ { const x0=3.98,x1=7.10,y0=.48,y1=3.73, cx0=5.2,cx1=5.9,cy0=1.5,cy1=2.78;
+  o.push(`<rect x="${X(x0)}" y="${Y(y0)}" width="${L(x1-x0)}" height="${L(y1-y0)}" fill="${PAPER}" stroke="none"/>`);
+  for(let y=cy0;y<=cy1+.01;y+=.256){ o.push(`<path d="M${X(x0)} ${Y(y)}H${X(cx0)}M${X(cx1)} ${Y(y)}H${X(x1)}" stroke-width=".5"/>`); }
+  for(let x=cx0;x<=cx1+.01;x+=.233) o.push(`<path d="M${X(x)} ${Y(y0)}V${Y(cy0)}" stroke-width=".5"/>`);
+  const ray=(px,py,a)=>{ const dx=Math.cos(a),dy=Math.sin(a); let t=1e9; if(dx<0) t=Math.min(t,(x0-px)/dx); if(dx>0) t=Math.min(t,(x1-px)/dx); if(dy<0) t=Math.min(t,(y0-py)/dy); return [px+dx*t,py+dy*t]; };
+  for(let i=1;i<4;i++){ const a=Math.PI+i*Math.PI/8, q=ray(cx0,cy0,a); o.push(`<path d="M${X(cx0)} ${Y(cy0)}L${X(q[0])} ${Y(q[1])}" stroke-width=".5"/>`); const a2=1.5*Math.PI+i*Math.PI/8, q2=ray(cx1,cy0,a2); o.push(`<path d="M${X(cx1)} ${Y(cy0)}L${X(q2[0])} ${Y(q2[1])}" stroke-width=".5"/>`); }
+  o.push(`<rect x="${X(cx0)}" y="${Y(cy0)}" width="${L(cx1-cx0)}" height="${L(cy1-cy0)}" fill="url(#poche)" stroke-width=".8"/>`);
+  o.push(`<path d="M${X(x0)} ${Y(cy1)}H${X(cx0)}M${X(cx1)} ${Y(cy1)}H${X(x1)}" stroke-width=".8"/>`);
+  const mx0=(x0+cx0)/2, mx1=(cx1+x1)/2, my=(y0+cy0)/2;
+  o.push(`<path d="M${X(mx0)} ${Y(cy1-.1)}V${Y(my+.25)}Q${X(mx0)} ${Y(my)} ${X(mx0+.3)} ${Y(my)}H${X(mx1-.3)}Q${X(mx1)} ${Y(my)} ${X(mx1)} ${Y(my+.25)}V${Y(cy1-.3)}" fill="none" stroke="${WINE}" stroke-width=".9" marker-end="url(#arr2)"/><circle cx="${X(mx0)}" cy="${Y(cy1-.1)}" r="2.4" fill="${WINE}" stroke="none"/>`); }
+ // den nye trappen midt i lokalet, langs midtveggen. 18 trinn som stiger mot øst
+ const st=b.st;
+ if(st){ const up=f===1, n=18, t=st[2]/n, x0=st[0], y0=st[1], x1=st[0]+st[2], y1=st[1]+st[3], ym=(y0+y1)/2, kutt=10;
+  o.push(`<rect x="${X(x0)}" y="${Y(y0)}" width="${L(st[2])}" height="${L(st[3])}" fill="${up?"#F1EBE2":"#EFEDE7"}" stroke-width="${up?1.1:.8}" ${up?"":'stroke-dasharray="5 4"'}/>`);
+  for(let i=1;i<n;i++){ const xx=x0+i*t, hel=up&&i<=kutt; o.push(`<path d="M${X(xx)} ${Y(y0)}V${Y(y1)}" stroke-width="${hel?.6:.4}" ${hel?"":'stroke-dasharray="2 3"'}/>`); }
+  if(up){ const bx=x0+kutt*t; o.push(`<path d="M${X(bx+.15)} ${Y(y1)}L${X(bx-.15)} ${Y(y0)}" stroke-width=".9"/>`);
+   o.push(`<path d="M${X(x0+.25)} ${Y(ym)}H${X(x1-.3)}" stroke="${WINE}" stroke-width="1" marker-end="url(#arr2)"/><circle cx="${X(x0+.25)}" cy="${Y(ym)}" r="2.6" fill="${WINE}" stroke="none"/>`); }
+  else { o.push(`<path d="M${X(x1)} ${Y(y1)}H${X(x0)}V${Y(y0)}" fill="none" stroke-width="2.2"/>`);
+   o.push(`<path d="M${X(x1-.25)} ${Y(ym)}H${X(x0+.3)}" stroke="${WINE}" stroke-width="1" marker-end="url(#arr2)"/><circle cx="${X(x1-.25)}" cy="${Y(ym)}" r="2.6" fill="${WINE}" stroke="none"/>`); }
+ }
  if(b.lift){ const l=b.lift; o.push(`<rect x="${X(l[0])}" y="${Y(l[1])}" width="${L(l[2])}" height="${L(l[3])}" fill="${PAPER}" stroke-width=".8"/><path d="M${X(l[0])} ${Y(l[1])}L${X(l[0]+l[2])} ${Y(l[1]+l[3])}M${X(l[0]+l[2])} ${Y(l[1])}L${X(l[0])} ${Y(l[1]+l[3])}" stroke-width=".5"/>`); }
- if(f===2){ o.push(`<rect x="${X(14.85)}" y="${Y(4.0)}" width="${L(.65)}" height="${L(4.3)}" fill="#E3E1DA" stroke-width=".7"/>`); for(let i=0;i<3;i++) o.push(`<rect x="${X(14.93)}" y="${Y(4.15+i*.72)}" width="${L(.5)}" height="${L(.6)}" fill="${PAPER}" stroke-width=".5"/><circle cx="${X(15.18)}" cy="${Y(4.45+i*.72)}" r="${L(.13)}" fill="none" stroke-width=".5"/>`); o.push(`<rect x="${X(13.45)}" y="${Y(9.4)}" width="${L(1.9)}" height="${L(.65)}" fill="#E3E1DA" stroke-width=".7"/><rect x="${X(13.35)}" y="${Y(5.6)}" width="${L(.9)}" height="${L(2.4)}" fill="#E3E1DA" stroke-width=".7"/>`); }
+ if(f===2){ o.push(`<rect x="${X(14.65)}" y="${Y(4.0)}" width="${L(.65)}" height="${L(4.3)}" fill="#E3E1DA" stroke-width=".7"/>`); for(let i=0;i<3;i++) o.push(`<rect x="${X(14.73)}" y="${Y(4.15+i*.72)}" width="${L(.5)}" height="${L(.6)}" fill="${PAPER}" stroke-width=".5"/><circle cx="${X(14.98)}" cy="${Y(4.45+i*.72)}" r="${L(.13)}" fill="none" stroke-width=".5"/>`); o.push(`<rect x="${X(13.3)}" y="${Y(9.4)}" width="${L(1.9)}" height="${L(.65)}" fill="#E3E1DA" stroke-width=".7"/><rect x="${X(13.25)}" y="${Y(5.6)}" width="${L(.9)}" height="${L(2.4)}" fill="#E3E1DA" stroke-width=".7"/>`); }
  // møbler
- items.forEach(e=>{
+ const soneAv=e=>{ const x=e.cx??(e.x+(e.w||0)/2), y=e.cy??(e.y+(e.h||0)/2); if(x==null||isNaN(x)||isNaN(y)) return null;
+  if(y<0) return "bakgarden";
+  if(f===1){ if(y<5.3) return x>12.5?"baren":x>7.2?"lounge-innerst":null; if(x<3.95) return y<8.2?"hjornebenken-vest":"lounge-ved-gavlen"; if(x<8.6) return "under-trappen"; if(y>9.2&&x<13.5) return "basene-mot-gaten"; if(x>13.5) return "benken-ostveggen"; return "vintorget-midten"; }
+  if(y<5.3) return x>7.2&&x<11.4?"chambre-separee":null; if(x<7.5) return "vestre-sal-oppe"; if(x>12.9) return "kjokkenet"; if(y>9.0) return "benken-mot-gaten-oppe"; return x>11.3?"maskinene-oppe":"bordene-ved-trappen-oppe"; };
+ const soner={};
+ items.forEach(e=>{ const o0=o.length;
   if(e.k==="m"){ const hz=e.w>e.h; o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="1.5" fill="${WINE}" stroke="${WINE}"/>`);
    const len=hz?e.w:e.h, per=.8, n=Math.max(1,Math.round(len/per)), sl=len/n;
    for(let i=1;i<n;i++){ const a=e[hz?"x":"y"]+sl*i; o.push(hz?`<path d="M${X(a)} ${Y(e.y)}V${Y(e.y+e.h)}" stroke="#6B2F35" stroke-width=".6"/>`:`<path d="M${X(e.x)} ${Y(a)}H${X(e.x+e.w)}" stroke="#6B2F35" stroke-width=".6"/>`); }
@@ -837,19 +880,40 @@ function drawPlan(){
    const sides=e.k==="t4"?[0,90,180,270]:(e.rot===90?[90,270]:[0,180]);
    sides.forEach(a=>{ const r=a*Math.PI/180; const px=cx+Math.sin(r)*-off*-1, py=cy-Math.cos(r)*off; const dx=a===90?off:a===270?-off:0, dy=a===0?-off:a===180?off:0; o.push(chair(cx+dx,cy+dy,a===0?0:a===180?180:a===90?90:-90)); }); }
   if(e.k==="bench"){ const hz=e.side==="b"||e.side==="t"; o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="3" fill="${SEAT}"/>`);
-   if(e.side==="b") o.push(`<path d="M${X(e.x)+3} ${Y(e.y+e.h-.16)}H${X(e.x+e.w)-3}" stroke-width=".5"/>`); if(e.side==="l") o.push(`<path d="M${X(e.x+.16)} ${Y(e.y)+3}V${Y(e.y+e.h)-3}" stroke-width=".5"/>`);
-   const len=hz?e.w:e.h, n=e.n||Math.round(len/1.3), sl=len/n;
-   for(let i=0;i<n;i++){ const c=(hz?e.x:e.y)+sl*(i+.5);
-    if(e.side==="b"){ const ty=e.y-.08-.6; o.push(`<rect x="${X(c-.35)}" y="${Y(ty)}" width="${L(.7)}" height="${L(.6)}" rx="1.5" fill="${PAPER}"/>`); o.push(chair(X(c),Y(ty-.25),0)); }
-    if(e.side==="l"){ const tx=e.x+e.w+.08; o.push(`<rect x="${X(tx)}" y="${Y(c-.35)}" width="${L(.6)}" height="${L(.7)}" rx="1.5" fill="${PAPER}"/>`); o.push(chair(X(tx+.6+.25),Y(c),90)); } } }
+   if(e.side==="b") o.push(`<path d="M${X(e.x)+3} ${Y(e.y+e.h-.16)}H${X(e.x+e.w)-3}" stroke-width=".5"/>`); if(e.side==="t") o.push(`<path d="M${X(e.x)+3} ${Y(e.y+.16)}H${X(e.x+e.w)-3}" stroke-width=".5"/>`);
+   if(e.side==="l") o.push(`<path d="M${X(e.x+.16)} ${Y(e.y)+3}V${Y(e.y+e.h)-3}" stroke-width=".5"/>`); if(e.side==="r") o.push(`<path d="M${X(e.x+e.w-.16)} ${Y(e.y)+3}V${Y(e.y+e.h)-3}" stroke-width=".5"/>`);
+   const len=hz?e.w:e.h, n0=e.n||Math.round(len/1.3), cs=e.c||Array.from({length:n0},(_,i)=>(hz?e.x:e.y)+len/n0*(i+.5)), tw=e.four?1.2:.7, td=.7, g=.08, cd=.26;
+   cs.forEach(c=>{ let tx,ty,w,h,cx,cy,ang;
+    if(e.side==="b"){ w=tw;h=td;tx=c-tw/2;ty=e.y-g-td;cx=c;cy=ty-cd;ang=0; }
+    if(e.side==="t"){ w=tw;h=td;tx=c-tw/2;ty=e.y+e.h+g;cx=c;cy=ty+td+cd;ang=180; }
+    if(e.side==="l"){ w=td;h=tw;tx=e.x+e.w+g;ty=c-tw/2;cx=tx+td+cd;cy=c;ang=90; }
+    if(e.side==="r"){ w=td;h=tw;tx=e.x-g-td;ty=c-tw/2;cx=tx-cd;cy=c;ang=-90; }
+    if(e.round) o.push(`<circle cx="${X(tx+w/2)}" cy="${Y(ty+h/2)}" r="${L(.33)}" fill="${PAPER}"/>`); else o.push(`<rect x="${X(tx)}" y="${Y(ty)}" width="${L(w)}" height="${L(h)}" rx="1.5" fill="${PAPER}"/>`);
+    const offs=e.nc?[]:e.four?[-.3,.3]:[0]; offs.forEach(d=>o.push(chair(X(hz?cx+d:cx),Y(hz?cy:cy+d),ang))); }); }
+  if(e.k==="tv"){ o.push(`<path d="M${X(e.x)} ${Y(e.y1)}V${Y(e.y2)}" stroke-width="3.2"/><text x="${X(e.x)+8}" y="${Y((e.y1+e.y2)/2)+3}" font-size="8" letter-spacing="1.4" fill="#5E5C58" stroke="none">TV</text>`); }
+  if(e.k==="hj"){ const R=e.r||.7, tx=e.x-R+.08, ty=e.y-R+.08, px=X(tx-.42), py=Y(ty-.42); o.push(`<path d="M${X(e.x-R)} ${Y(e.y)}A${L(R)} ${L(R)} 0 0 0 ${X(e.x)} ${Y(e.y-R)}V${Y(e.y)}Z" fill="${SEAT}"/>`); o.push(chair(px,py,toward(px,py,X(tx),Y(ty)))); o.push(`<circle cx="${X(tx)}" cy="${Y(ty)}" r="${L(.3)}" fill="${PAPER}"/>`); }
+  if(e.k==="lbench"){ const d=.5, R=e.r||.8, tr=.3, bl=d-.16, acx=e.x2-R, acy=e.y-R;
+   o.push(`<path d="M${X(e.x)} ${Y(e.y+d)}H${X(e.x2+d)}V${Y(e.y2)}H${X(e.x2)}V${Y(acy)}A${L(R)} ${L(R)} 0 0 1 ${X(acx)} ${Y(e.y)}H${X(e.x)}Z" fill="${SEAT}" stroke-linejoin="round"/>`);
+   o.push(`<path d="M${X(e.x)+3} ${Y(e.y+bl)}H${X(acx)}A${L(R+bl)} ${L(R+bl)} 0 0 0 ${X(e.x2+bl)} ${Y(acy)}V${Y(e.y2)+3}" fill="none" stroke-width=".5"/>`);
+   (e.cb||[]).forEach(c=>{ const ty=e.y-.08-tr; o.push(chair(X(c),Y(ty-tr-.3),0)); o.push(`<circle cx="${X(c)}" cy="${Y(ty)}" r="${L(tr)}" fill="${PAPER}"/>`); });
+   (e.cr||[]).forEach(c=>{ const tx=e.x2-.08-tr; if((e.ch||[]).includes(c)) o.push(chair(X(tx-tr-.3),Y(c),-90)); o.push(`<circle cx="${X(tx)}" cy="${Y(c)}" r="${L(tr)}" fill="${PAPER}"/>`); });
+   const q=(R-.08-tr)*Math.SQRT1_2, hx=acx+q, hy=acy+q, sx=X(hx-.43), sy=Y(hy-.43); o.push(chair(sx,sy,toward(sx,sy,X(hx),Y(hy)))); o.push(`<circle cx="${X(hx)}" cy="${Y(hy)}" r="${L(tr)}" fill="${PAPER}"/>`); }
+  if(e.k==="pall"){ o.push(`<circle cx="${X(e.x)}" cy="${Y(e.y)}" r="${L(.2)}" fill="${SEAT}"/><circle cx="${X(e.x)}" cy="${Y(e.y)}" r="${L(.2)-2.5}" fill="none" stroke-width=".4"/>`); }
+  if(e.k==="gardin"){ let d="M"+X(e.x1)+" "+Y(e.y); const n=Math.max(4,Math.round((e.x2-e.x1)/.22)), st=(e.x2-e.x1)/n; for(let i=0;i<n;i++){ const xa=e.x1+st*(i+.5), xb=e.x1+st*(i+1); d+="Q"+X(xa).toFixed(1)+" "+(Y(e.y)+(i%2?4:-4)).toFixed(1)+" "+X(xb).toFixed(1)+" "+Y(e.y); } o.push(`<path d="${d}" fill="none" stroke="${WINE}" stroke-width="1.5"/><text x="${X((e.x1+e.x2)/2)}" y="${Y(e.y)+16}" font-size="8" letter-spacing="1.4" fill="${WINE}" stroke="none" text-anchor="middle">GARDIN</text>`); }
+  if(e.k==="sd"){ o.push(`<path d="M${X(e.x1)} ${Y(e.y)}H${X(e.x2)}" stroke="${WINE}" stroke-width="1.4" stroke-dasharray="9 4"/><text x="${X((e.x1+e.x2)/2)}" y="${Y(e.y)+12}" font-size="8" letter-spacing="1.4" fill="${WINE}" stroke="none" text-anchor="middle">SKYVEDØR</text>`); }
+  if(e.k==="tak"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" fill="rgba(70,25,30,.06)" stroke="${WINE}" stroke-width=".8" stroke-dasharray="6 3"/><text x="${X(e.x)+4}" y="${Y(e.y)-4}" font-size="8" letter-spacing="1.4" fill="${WINE}" stroke="none">TAK</text>`); }
   if(e.k==="h"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" fill="#E6DCCF" stroke-width=".8"/>`); const n=Math.round(e.h/.25); for(let i=1;i<n;i++) o.push(`<path d="M${X(e.x)} ${Y(e.y+e.h*i/n)}H${X(e.x+e.w)}" stroke-width=".4"/>`); }
-  if(e.k==="rt4"||e.k==="rt2"||e.k==="hi"){ const r=e.k==="rt4"?.42:e.k==="hi"?.36:.3; const cx=X(e.x), cy=Y(e.y); const n=e.k==="rt2"?2:e.k==="hi"?3:4; const off=e.k==="rt4"?Math.PI/4:e.k==="hi"?-Math.PI/2:0;
+  if(e.k==="rt4"||e.k==="rt2"||e.k==="hi"){ const r=e.r||(e.k==="rt4"?.42:e.k==="hi"?.36:.3); const cx=X(e.x), cy=Y(e.y); const n=e.n||(e.k==="rt2"?2:e.k==="hi"?3:4); const off=e.n?Math.PI/2:e.k==="rt4"?Math.PI/4:e.k==="hi"?-Math.PI/2:0;
    for(let i=0;i<n;i++){ const a=off+i*2*Math.PI/n; const px=cx+Math.cos(a)*L(r+.3), py=cy+Math.sin(a)*L(r+.3); if(e.k==="hi") o.push(`<circle cx="${px}" cy="${py}" r="${L(.17)}" fill="${PAPER}"/>`); else o.push(chair(px,py,toward(px,py,cx,cy))); }
    o.push(`<circle cx="${cx}" cy="${cy}" r="${L(r)}" fill="${PAPER}"/>`); if(e.k==="hi") o.push(`<circle cx="${cx}" cy="${cy}" r="${L(r)-3}" fill="none" stroke-width=".4"/>`); }
   if(e.k==="low"){ o.push(`<circle cx="${X(e.x)}" cy="${Y(e.y)}" r="${L(e.r)}" fill="#EFE9E1"/><circle cx="${X(e.x)}" cy="${Y(e.y)}" r="${L(e.r)-3}" fill="none" stroke-width=".4"/>`); }
   if(e.k==="long"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="2" fill="#EADFD2"/>`); const hz=e.w>=e.h, len=hz?e.w:e.h, n=Math.round(len/.62);
    for(let i=0;i<n;i++){ const a=(i+.5)/n; if(hz){ const px=X(e.x+e.w*a); o.push(chair(px,Y(e.y)-L(.27),0)); o.push(chair(px,Y(e.y+e.h)+L(.27),180)); } else { const py=Y(e.y+e.h*a); o.push(chair(X(e.x)-L(.27),py,-90)); o.push(chair(X(e.x+e.w)+L(.27),py,90)); } }
    o.push(`<path d="M${X(e.x)+3} ${Y(e.y)+3}H${X(e.x+e.w)-3}" stroke-width=".3"/>`); }
+  if(e.k==="bas"){ const u=e.w/e.n; for(let i=0;i<e.n;i++){ const ux=e.x+i*u;
+    [[ux+.03,1],[ux+u-.49,-1]].forEach(([bx,d])=>{ o.push(`<rect x="${X(bx)}" y="${Y(e.y)}" width="${L(.46)}" height="${L(e.h)}" rx="3" fill="${SEAT}"/><path d="M${X(d>0?bx+.12:bx+.34)} ${Y(e.y)+3}V${Y(e.y+e.h)-3}" stroke-width=".5"/><path d="M${X(bx+.23)} ${Y(e.y+e.h/2)}H${X(bx+.23)}" stroke-width="0"/>`); });
+    o.push(`<rect x="${X(ux+.55)}" y="${Y(e.y+.12)}" width="${L(u-1.1)}" height="${L(e.h-.12)}" rx="1.5" fill="${PAPER}"/>`); }
+   for(let i=0;i<=e.n;i++) o.push(`<path d="M${X(e.x+i*u)} ${Y(e.y-.05)}V${Y(e.y+e.h)}" stroke-width="1.6"/>`); }
   if(e.k==="booth"){ const hz=e.side==="b"||e.side==="t"; const len=hz?e.w:e.h; const n=Math.max(1,Math.round(len/1.45)); const seg=len/n;
    for(let i=0;i<n;i++){ const s0=i*seg;
     if(hz){ const x0=X(e.x+s0+.05), x1=X(e.x+s0+seg-.05), yb=e.side==="b"?Y(e.y+e.h):Y(e.y), yf=e.side==="b"?Y(e.y):Y(e.y+e.h), dir=e.side==="b"?-1:1;
@@ -866,45 +930,62 @@ function drawPlan(){
      o.push(chair(tx+(dir>0?tw+L(.28):-L(.28)),tcy-L(.2),dir>0?90:-90)); o.push(chair(tx+(dir>0?tw+L(.28):-L(.28)),tcy+L(.2),dir>0?90:-90)); } } }
   if(e.k==="sofa"){ const bk=L(.22); o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="5" fill="${SEAT}"/>`);
    let bx=X(e.x),by=Y(e.y),bw=L(e.w),bh=L(e.h); if(e.side==="b"){ o.push(`<path d="M${bx+4} ${by+bh-bk}H${bx+bw-4}" />`); const n=Math.max(2,Math.round(e.w/.8)); for(let i=1;i<n;i++) o.push(`<path d="M${bx+bw*i/n} ${by+4}V${by+bh-bk}" stroke-width=".5"/>`); }
-   if(e.side==="l"){ o.push(`<path d="M${bx+bk} ${by+4}V${by+bh-4}" />`); const n=Math.max(2,Math.round(e.h/.8)); for(let i=1;i<n;i++) o.push(`<path d="M${bx+bk} ${by+bh*i/n}H${bx+bw-4}" stroke-width=".5"/>`); } }
+   if(e.side==="r"){ o.push(`<path d="M${bx+bw-bk} ${by+4}V${by+bh-4}" />`); const n=Math.max(2,Math.round(e.h/.8)); for(let i=1;i<n;i++) o.push(`<path d="M${bx+4} ${by+bh*i/n}H${bx+bw-bk}" stroke-width=".5"/>`); }
+  if(e.side==="l"){ o.push(`<path d="M${bx+bk} ${by+4}V${by+bh-4}" />`); const n=Math.max(2,Math.round(e.h/.8)); for(let i=1;i<n;i++) o.push(`<path d="M${bx+bk} ${by+bh*i/n}H${bx+bw-4}" stroke-width=".5"/>`); } }
   if(e.k==="arm"){ const cx=X(e.x), cy=Y(e.y), s=L(.36); o.push(`<g transform="translate(${cx} ${cy}) rotate(${e.face-90})"><rect x="${-s}" y="${-s}" width="${2*s}" height="${2*s}" rx="${L(.2)}" fill="${SEAT}"/><path d="M${-s+5} ${-s+L(.18)}Q0 ${-s+L(.1)} ${s-5} ${-s+L(.18)}M${-s+L(.15)} ${-s+L(.2)}V${s-6}M${s-L(.15)} ${-s+L(.2)}V${s-6}" fill="none" stroke-width=".6"/></g>`); }
-  if(e.k==="bar"||e.k==="ledge"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="2" fill="#D9D1C5"/>`); const hz=e.w>e.h, len=hz?e.w:e.h, n=Math.round(len/.6);
+  if(e.k==="bar"||e.k==="ledge"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="2" fill="#D9D1C5"/>`); const hz=e.w>e.h, len=hz?e.w:e.h, n=e.nostool?0:Math.round(len/.6);
    for(let i=0;i<n;i++){ const a=(i+.5)/n; let px,py; if(hz){ px=X(e.x+e.w*a); py=e.side==="t"?Y(e.y)-L(.32):Y(e.y+e.h)+L(.32);} else { py=Y(e.y+e.h*a); px=e.side==="l"?X(e.x)-L(.32):X(e.x+e.w)+L(.32);} o.push(`<circle cx="${px}" cy="${py}" r="${L(.17)}" fill="${PAPER}"/>`); } }
   if(e.k==="k"){ let d=`M${X(e.x)} ${Y(e.y1)}`; const n=Math.round((e.y2-e.y1)/.25); for(let i=1;i<=n;i++){ const y=e.y1+(e.y2-e.y1)*i/n; d+=` Q${X(e.x+(i%2?.12:-.12))} ${Y(y-(e.y2-e.y1)/n/2)} ${X(e.x)} ${Y(y)}`; } o.push(`<path d="${d}" fill="none" stroke="${WINE}" stroke-width="1.1" ${e.dash?'stroke-dasharray="6 4"':''}/>`); }
   if(e.k==="screen") o.push(`<path d="M${X(e.x)} ${Y(e.y1)}V${Y(e.y2)}" stroke-width="2.4"/>`);
+  if(e.k==="pl"){ o.push(`<rect x="${X(e.x)}" y="${Y(e.y)}" width="${L(e.w)}" height="${L(e.h)}" rx="2" fill="#D2DED5" stroke="#7F9A86" stroke-width=".7"/>`); const hz=e.w>e.h, len=hz?e.w:e.h, n=Math.max(2,Math.round(len/.3)); for(let i=0;i<n;i++){ const a=(i+.5)/n; const cx=hz?X(e.x+e.w*a):X(e.x+e.w/2), cy=hz?Y(e.y+e.h/2):Y(e.y+e.h*a); o.push(`<circle cx="${cx}" cy="${cy}" r="${L(.13+(i%3)*.03)}" fill="#B7CCBD" stroke="#7F9A86" stroke-width=".5"/>`); } }
+  if(e.k==="tree"){ const cx=X(e.x), cy=Y(e.y), r=L(e.r); let d=""; const n=14; for(let i=0;i<=n;i++){ const a=i*2*Math.PI/n, rr=r*(i%2?.86:1); d+=(i?"L":"M")+(cx+Math.cos(a)*rr).toFixed(1)+" "+(cy+Math.sin(a)*rr).toFixed(1); } o.push(`<path d="${d}Z" fill="#C9DACE" stroke="#7F9A86" stroke-width=".7"/><circle cx="${cx}" cy="${cy}" r="${r*.45}" fill="none" stroke="#7F9A86" stroke-width=".5"/><circle cx="${cx}" cy="${cy}" r="2" fill="#7F9A86" stroke="none"/>`); }
   if(e.k==="p"){ const cx=X(e.x), cy=Y(e.y), r=L(.26); o.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="#DCE6DF" stroke="#7F9A86" stroke-width=".7"/>`); for(let i=0;i<6;i++){ const a=i*Math.PI/3; o.push(`<path d="M${cx} ${cy}Q${cx+Math.cos(a+.4)*r*.7} ${cy+Math.sin(a+.4)*r*.7} ${cx+Math.cos(a)*r*1.05} ${cy+Math.sin(a)*r*1.05}" fill="none" stroke="#7F9A86" stroke-width=".6"/>`); } }
+  if(o.length>o0){ const w=MOB(e,o.splice(o0).join("")), z=soneAv(e); if(z) (soner[z]=soner[z]||[]).push(w); else o.push(w); }
  });
+ Object.keys(soner).forEach(z=>o.push(`<g id="sone-${z}" aria-label="${z.replace(/-/g," ")}">${soner[z].join("")}</g>`));
+  items.filter(e=>e.k==="para").forEach(e=>{ const o0=o.length; { const cx=X(e.x), cy=Y(e.y), r=L(e.r); o.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="rgba(211,171,159,.16)" stroke="#B48A7E" stroke-width=".7" stroke-dasharray="4 3"/>`); for(let i=0;i<8;i++){ const a=i*Math.PI/4; o.push(`<path d="M${cx} ${cy}L${(cx+Math.cos(a)*r).toFixed(1)} ${(cy+Math.sin(a)*r).toFixed(1)}" stroke="#B48A7E" stroke-width=".4" opacity=".7"/>`); } o.push(`<circle cx="${cx}" cy="${cy}" r="2.2" fill="#B48A7E" stroke="none"/>`); }; o.push(MOB(e,o.splice(o0).join(""))); });
  o.push(`</g>`);
- items.filter(e=>e.k==="a").forEach(e=>{ const p=e.pts.map(q=>[X(q[0]),Y(q[1])]); o.push(`<path d="M${p.map(q=>q.join(" ")).join(" L")}" fill="none" stroke="${WINE}" stroke-width="1" stroke-dasharray="2 4" marker-end="url(#arr)" opacity=".75"/>`); });
- items.filter(e=>e.k==="n").forEach(e=>o.push(`<g><circle cx="${X(e.x)}" cy="${Y(e.y)}" r="10" fill="${PAPER}" stroke="${WINE}" stroke-width=".9"/><text x="${X(e.x)}" y="${Y(e.y)+4.5}" text-anchor="middle" font-family="Nyght Serif, Georgia, serif" font-size="13" fill="${WINE}">${e.n}</text></g>`));
+ items.filter(e=>e.k==="a").forEach(e=>{ const p=e.pts.map(q=>[X(q[0]),Y(q[1])]); o.push(`<path d="M${p.map(q=>q.join(" ")).join(" L")}" fill="none" stroke="${WINE}" stroke-width="1" stroke-dasharray="2 4" marker-end="url(#arr2)" opacity=".75"/>`); });
+ items.filter(e=>e.k==="n").forEach(e=>{ const o0=o.length; o.push(`<g><circle cx="${X(e.x)}" cy="${Y(e.y)}" r="10" fill="${PAPER}" stroke="${WINE}" stroke-width=".9"/><text x="${X(e.x)}" y="${Y(e.y)+4.5}" text-anchor="middle" font-family="Nyght Serif, Georgia, serif" font-size="13" fill="${WINE}">${e.n}</text></g>`); o.push(MOB(e,o.splice(o0).join(""))); });
  const lab=(x,y,t,size=9,fill="#5E5C58")=>`<text x="${x}" y="${y}" font-size="${size}" letter-spacing="1.6" fill="${fill}" text-anchor="middle">${t.toUpperCase()}</text>`;
- if(sv) o.push(`<text x="${X(sv[0]+sv[2]/2)}" y="${Y(sv[1]+sv[3])+13}" font-size="8.5" letter-spacing="1.6" fill="${WINE}" text-anchor="middle">${b.stair?"NY TRAPP · OPP":"TRAPP · NED"}</text>`);
+ if(st) o.push(`<text x="${X(st[0]+st[2]/2)}" y="${Y(st[1])+12}" font-size="8" letter-spacing="1.6" fill="${WINE}" text-anchor="middle" stroke="#F3EEE7" stroke-width="3.5" paint-order="stroke">${f===1?"NY TRAPP · OPP":"TRAPP · NED"}</text>`);
  b.rooms.forEach(r=>{ if(r[4]&&r[4]!=="Trapp") o.push(lab(X(r[0]+r[2]/2), r[4]==="Bar"? Y(r[1])+14 : r[4]==="Kjøkken"? Y(r[1]+2.6) : Y(r[1]+r[3]/2)+3, r[4])); });
- if(b.yard){ o.push(lab(X(14.2),Y(-2.6),"Lager")); o.push(`<text x="${X(5.6)}" y="${Y(-5.4)-10}" text-anchor="middle" font-family="Nyght Serif, Georgia, serif" font-style="italic" font-size="17" fill="${INK}">Lille Bordeaux</text>`); }
- o.push(lab(X(W*.62), Y(H)+36, f===1?"Thorvald Meyers gate":"Mot gaten", 9.5, INK));
- o.push(`<g transform="translate(${X(0)},${Y(H)+40})" stroke="${INK}"><path d="M0 0H${L(5)}M0 -4V4M${L(1)} -3V3M${L(2)} -3V3M${L(3)} -3V3M${L(4)} -3V3M${L(5)} -4V4" stroke-width=".8"/><text x="${L(5)+8}" y="4" font-size="10" fill="#5E5C58" stroke="none">5 m</text></g>`);
- o.push(`<g transform="translate(${X(W)-10},${Y(H)+34})"><path d="M0 -14L5 0L0 -4L-5 0Z" fill="${INK}"/></g>`);
+ o.push(lab(X(14.2),Y(-2.6),"Lager"));
+ if(!b.yard){ o.push(`<rect x="${X(0)}" y="${Y(-4.9)}" width="${L(12.4)}" height="${L(4.9)}" fill="none" stroke="#B9B6AE" stroke-width=".7" stroke-dasharray="3 4"/>`); o.push(lab(X(6.2),Y(-2.4),"Bakgården nedenfor",8.5,"#8A8882")); }
+ if(b.yard){ o.push(`<text x="${X(5.6)}" y="${Y(-4.9)-10}" text-anchor="middle" font-family="Nyght Serif, Georgia, serif" font-style="italic" font-size="17" fill="${INK}">Lille Bordeaux</text>`); }
+ o.push(lab(X(W*.62), Y(H)+78, f===1?"Thorvald Meyers gate":"Mot gaten", 9.5, INK));
+ o.push(`<g transform="translate(${X(0)},${Y(H)+82})" stroke="${INK}"><path d="M0 0H${L(5)}M0 -4V4M${L(1)} -3V3M${L(2)} -3V3M${L(3)} -3V3M${L(4)} -3V3M${L(5)} -4V4" stroke-width=".8"/><text x="${L(5)+8}" y="4" font-size="10" fill="#5E5C58" stroke="none">5 m</text></g>`);
+ o.push(`<g transform="translate(${X(W)-10},${Y(H)+86})"><path d="M0 -14L5 0L0 -4L-5 0Z" fill="${INK}"/></g>`);
  o.push(`</svg>`);
  document.getElementById("drawing").innerHTML=o.join("");
  const lg=pr.legend[f];
  // plasser telles fra tegningen
- const seats=e=>{ const len=Math.max(e.w||0,e.h||0); switch(e.k){ case"rt4":return 4; case"rt2":return 2; case"hi":return 3; case"arm":return 1;
-  case"long":return Math.round(len/.62)*2; case"booth":return Math.max(1,Math.round(len/1.45))*4; case"t2":return 2; case"t4":return 4; case"bench":return (e.n||Math.round(len/1.3))*2; case"sofa":return Math.max(2,Math.floor(len/.65)); case"bar":case"ledge":return Math.round(len/.6); default:return 0; } };
+ const seats=e=>{ const len=Math.max(e.w||0,e.h||0); switch(e.k){ case"pall":return 1; case"hj":return 3; case"lbench":return (e.cb||[]).length*2+3+(e.cr||[]).length+(e.ch||[]).length; case"rt4":return e.n||4; case"rt2":return 2; case"hi":return 3; case"arm":return 1;
+  case"long":return Math.round(len/.62)*2; case"bas":return e.n*4; case"booth":return Math.max(1,Math.round(len/1.45))*4; case"t2":return 2; case"t4":return 4; case"bench":return e.nc?Math.floor(len/.65):(e.c?e.c.length:(e.n||Math.round(len/1.3)))*(e.four?4:2); case"sofa":return Math.max(2,Math.floor(len/.65)); case"bar":return e.nostool?0:Math.round(len/.6); case"ledge":return Math.round(len/.6); default:return 0; } };
  let inne=0, ute=0; items.forEach(e=>{ const n=seats(e); if((e.y??e.cy??0)<0) ute+=n; else inne+=n; });
  const ant=`<p class="seats"><span class="num">${inne}</span> plasser i ${f}. etasje${b.yard?` og <span class="num">${ute}</span> i bakgården`:""}</p>`;
  document.getElementById("legend").innerHTML=`<h3>${pr.name}</h3><p class="sub">${pr.sub}</p>${ant}<ul>${lg.map((l,i)=>`<li><span>${i+1}</span><div><b style="font-weight:400;color:var(--ink)">${l[0]}.</b> ${l[1]}</div></li>`).join("")}</ul>
- <div class="keyrow"><span><i style="background:#46191E"></i>Vinmaskin</span><span><i style="background:#EFE9E1;border:1px solid #CDBFAF"></i>Flisgulv, fri sone</span><span><i style="background:#ECE7DF;border:1px solid #3B393F"></i>Sittemøbler</span><span><i style="background:#C9D6CE"></i>Bakgård</span></div>`;
+ <div class="keyrow"><span><i style="background:#46191E"></i>Vinmaskin</span><span><i style="background:#EFE9E1;border:1px solid #CDBFAF"></i>Flisgulv, fri sone</span><span><i style="background:#ECE7DF;border:1px solid #3B393F"></i>Sittemøbler</span><span><i style="background:#C9D6CE"></i>Bakgård</span><span><i style="background:rgba(211,171,159,.35);border:1px dashed #B48A7E;border-radius:50%"></i>Parasoll</span></div>`;
 }
 function bindSeg(ids,fn){ ids.forEach(([id,val])=>{ const b=document.getElementById(id); b.addEventListener("click",()=>{ ids.forEach(([j])=>document.getElementById(j).setAttribute("aria-pressed",String(j===id))); fn(val); }); }); }
-bindSeg([["pA","A"],["pB","B"]],v=>{state.p=v;drawPlan();});
-bindSeg([["f1",1],["f2",2]],v=>{state.f=v;drawPlan();});
+
+/* ---------- Fast oppsett ---------- */
+let sel=null;
+const restore=t=>{ const d=JSON.parse(t); for(const p of ["A","B"]) for(const f of [1,2]) PROP[p][f]=d[p][f].filter(e=>e&&e.k!=="k").map(e=>e.k==="sd"?Object.assign({},e,{k:"gardin"}):e); 
+ /* 16.11: benken under vinduene oppe skal ha små runde bord for to, også i et lagret oppsett */
+ for(const p of ["A","B"]) PROP[p][2].forEach(e=>{ if(e.k==="bench"&&e.side==="b"&&e.y>9.5&&e.four){ delete e.four; e.round=true; e.c=[]; for(let x=e.x+.4;x<=e.x+e.w-.35;x+=.9) e.c.push(+x.toFixed(2)); } });
+};
+/* Fast oppsett, låst av Murad 16.11.2026. Plasseringene skal ikke endres uten at han ber om det. */
+const FAST={"A":{"1":[{"k":"zone","cx":11.35,"cy":7.65,"rx":1.9,"ry":1},{"k":"m","x":10.15,"y":7.25,"w":2.4,"h":0.8,"face":"both"},{"k":"bench","x":14.85,"y":5.6,"w":0.5,"h":3.55,"side":"r","four":true,"c":[6.4,7.9]},{"k":"bas","x":8.7,"y":9.35,"w":6.65,"h":1.25,"n":4},{"k":"bench","x":0.5,"y":5.6,"w":3.35,"h":0.5,"side":"t","four":true,"c":[1.75,3.1]},{"k":"bench","x":0.5,"y":6.1,"w":0.5,"h":1.2,"side":"l","c":[]},{"k":"rug","x":0.75,"y":8.3,"w":2.75,"h":2.15},{"k":"sofa","x":0.6,"y":8.45,"w":0.85,"h":1.85,"side":"l"},{"k":"sofa","x":2.8,"y":8.45,"w":0.85,"h":1.85,"side":"r"},{"k":"low","x":2.12,"y":9.37,"r":0.36},{"k":"pl","x":5.6,"y":7.08,"w":2.45,"h":0.42},{"k":"bas","x":5.45,"y":9.15,"w":3.1,"h":1.45,"n":2},{"k":"bar","x":12.6,"y":1.12,"w":0.7,"h":3.4,"side":"l","nostool":true},{"k":"h","x":14.85,"y":1.15,"w":0.5,"h":3.98},{"k":"rug","x":7.95,"y":0.65,"w":1.75,"h":3.05},{"k":"sofa","x":7.28,"y":0.6,"w":0.6,"h":3.15,"side":"l"},{"k":"low","x":8.3,"y":1.15,"r":0.26},{"k":"low","x":8.3,"y":2.18,"r":0.26},{"k":"low","x":8.3,"y":3.2,"r":0.26},{"k":"arm","x":9.12,"y":1.15,"face":180},{"k":"arm","x":9.12,"y":2.18,"face":180},{"k":"arm","x":9.12,"y":3.2,"face":180},{"k":"p","x":9.75,"y":0.85},{"k":"a","pts":[[4.6,11],[4.6,4.4],[10.6,4.4],[10.6,0.2]]},{"k":"p","x":3.65,"y":7.75},{"k":"gravel","x":0.1,"y":-4.85,"w":12.2,"h":4.8},{"k":"pl","x":0.1,"y":-4.2,"w":0.4,"h":3.9},{"k":"pl","x":7.45,"y":-0.47,"w":2.3,"h":0.4},{"k":"bench","x":0.6,"y":-4.85,"w":10.6,"h":0.5,"side":"t","four":true,"c":[1.6,3.3,5,6.7,8.4,10.1]},{"k":"m","x":11.8,"y":-4.2,"w":0.55,"h":1.6,"face":"l"},{"k":"tak","x":11.15,"y":-4.5,"w":1.2,"h":2.2},{"k":"tree","x":11.6,"y":-1.75,"r":0.4},{"k":"p","x":0.35,"y":-4.6},{"k":"rt4","x":1.9,"y":-1.1},{"k":"rt4","x":4.2,"y":-1.1},{"k":"rt4","x":6.5,"y":-1.1},{"k":"para","x":1.9,"y":-1.1,"r":1.1},{"k":"para","x":4.2,"y":-1.1,"r":1.1},{"k":"para","x":6.5,"y":-1.1,"r":1.1},{"k":"n","x":11.35,"y":8.8,"n":1},{"k":"n","x":2.1,"y":7.9,"n":2},{"k":"n","x":0.95,"y":7.6,"n":3},{"k":"n","x":13.1,"y":6.15,"n":4},{"k":"n","x":12,"y":2.6,"n":5},{"k":"n","x":8.9,"y":-2.6,"n":6},{"k":"n","x":9.85,"y":3.45,"n":7}],"2":[{"k":"m","x":5.37,"y":8.1,"w":0.55,"h":2.4,"face":"l"},{"k":"long","x":1.5,"y":8.95,"w":3.1,"h":0.9},{"k":"long","x":1.5,"y":6.5,"w":3.1,"h":0.9},{"k":"screen","x":0.65,"y1":6.9,"y2":9.3},{"k":"zone","x":11.35,"y":5.55,"w":0.9,"h":2.8},{"k":"m","x":12.35,"y":5.65,"w":0.55,"h":2.4,"face":"l"},{"k":"bench","x":6.8,"y":10.1,"w":5.6,"h":0.5,"side":"b","round":true,"c":[7.25,8.15,9.05,9.95,10.85,11.75]},{"k":"bench","x":12.4,"y":8.95,"w":0.5,"h":1.65,"side":"r","c":[]},{"k":"bench","x":7.25,"y":0.6,"w":3.6,"h":0.5,"side":"t","four":true,"c":[7.88,9.08,10.28]},{"k":"gardin","x1":7.3,"x2":11.3,"y":3.75},{"k":"n","x":5.35,"y":6.3,"n":1},{"k":"n","x":11.9,"y":5.95,"n":2},{"k":"n","x":14,"y":7.4,"n":3},{"k":"n","x":7.7,"y":3.35,"n":4},{"k":"n","x":10.75,"y":6.35,"n":5}]},"B":{"1":[{"k":"zone","x":0.7,"y":5.6,"w":3.1,"h":1.5},{"k":"m","x":1,"y":5.62,"w":2.4,"h":0.55,"face":"b"},{"k":"hi","x":2.2,"y":7.72},{"k":"zone","x":13.6,"y":5.7,"w":1.15,"h":2.9},{"k":"m","x":14.75,"y":5.9,"w":0.55,"h":2.4,"face":"l"},{"k":"bench","x":8.65,"y":10.1,"w":6.7,"h":0.5,"side":"b","four":true,"c":[9.5,11.1,12.7,14.3]},{"k":"rt4","x":11.5,"y":7.45,"r":0.65,"n":6},{"k":"rug","x":0.75,"y":8.3,"w":2.75,"h":2.15},{"k":"sofa","x":0.6,"y":8.45,"w":0.85,"h":1.85,"side":"l"},{"k":"sofa","x":2.8,"y":8.45,"w":0.85,"h":1.85,"side":"r"},{"k":"low","x":2.12,"y":9.37,"r":0.36},{"k":"pl","x":5.6,"y":7.08,"w":2.45,"h":0.42},{"k":"bas","x":5.45,"y":9.15,"w":3.1,"h":1.45,"n":2},{"k":"bar","x":12.6,"y":1.12,"w":0.7,"h":3.4,"side":"l","nostool":true},{"k":"h","x":14.85,"y":1.15,"w":0.5,"h":3.98},{"k":"rug","x":7.95,"y":0.65,"w":1.75,"h":3.05},{"k":"sofa","x":7.28,"y":0.6,"w":0.6,"h":3.15,"side":"l"},{"k":"low","x":8.3,"y":1.15,"r":0.26},{"k":"low","x":8.3,"y":2.18,"r":0.26},{"k":"low","x":8.3,"y":3.2,"r":0.26},{"k":"arm","x":9.12,"y":1.15,"face":180},{"k":"arm","x":9.12,"y":2.18,"face":180},{"k":"arm","x":9.12,"y":3.2,"face":180},{"k":"p","x":9.75,"y":0.85},{"k":"a","pts":[[4.6,11],[4.6,4.4],[10.6,4.4],[10.6,0.2]]},{"k":"p","x":3.65,"y":7.75},{"k":"p","x":15,"y":8.75},{"k":"gravel","x":0.1,"y":-4.85,"w":12.2,"h":4.8},{"k":"pl","x":0.1,"y":-4.2,"w":0.4,"h":3.9},{"k":"pl","x":7.45,"y":-0.47,"w":2.3,"h":0.4},{"k":"bench","x":0.6,"y":-4.85,"w":10.6,"h":0.5,"side":"t","four":true,"c":[1.6,3.3,5,6.7,8.4,10.1]},{"k":"m","x":11.8,"y":-4.2,"w":0.55,"h":1.6,"face":"l"},{"k":"tak","x":11.15,"y":-4.5,"w":1.2,"h":2.2},{"k":"tree","x":11.6,"y":-1.75,"r":0.4},{"k":"p","x":0.35,"y":-4.6},{"k":"rt2","x":1.9,"y":-2.2},{"k":"rt2","x":1.9,"y":-0.9},{"k":"rt2","x":4.3,"y":-2.2},{"k":"rt2","x":4.3,"y":-0.9},{"k":"rt2","x":6.7,"y":-2.2},{"k":"rt2","x":6.7,"y":-0.9},{"k":"para","x":1.9,"y":-1.55,"r":1.2},{"k":"para","x":4.3,"y":-1.55,"r":1.2},{"k":"para","x":6.7,"y":-1.55,"r":1.2},{"k":"n","x":13.25,"y":6,"n":1},{"k":"n","x":13.3,"y":8.35,"n":2},{"k":"n","x":3.85,"y":9,"n":3},{"k":"n","x":3.3,"y":6.8,"n":4},{"k":"n","x":12,"y":2.6,"n":5},{"k":"n","x":8.9,"y":-2.6,"n":6},{"k":"n","x":9.85,"y":3.45,"n":7}],"2":[{"k":"m","x":5.31,"y":7.08,"w":2.4,"h":0.55,"face":"b"},{"k":"rug","x":0.65,"y":7.9,"w":2,"h":2.6},{"k":"sofa","x":2.78,"y":8.08,"w":0.75,"h":2.4,"side":"r"},{"k":"low","x":1.95,"y":9.15,"r":0.34},{"k":"arm","x":1.05,"y":8.5,"face":0},{"k":"rt4","x":1.7,"y":6.65},{"k":"zone","x":4.9,"y":7.75,"w":2.8,"h":0.9},{"k":"m","x":7.83,"y":7.08,"w":2.4,"h":0.55,"face":"b"},{"k":"lbench","x":6,"y":10.1,"x2":12.4,"y2":6.0,"r":0.8,"cb":[6.4,7.25,8.1,8.95,9.8,10.65],"cr":[6.45,7.3,8.15],"ch":[8.15]},{"k":"bench","x":7.7,"y":0.65,"w":3.6,"h":0.5,"side":"t","four":true,"c":[8.33,9.53,10.73]},{"k":"tv","x":7.27,"y1":1.5,"y2":2.7},{"k":"gardin","x1":7.3,"x2":11.3,"y":3.75},{"k":"n","x":2.85,"y":7.6,"n":1},{"k":"n","x":10.95,"y":7.0,"n":2},{"k":"n","x":9.2,"y":3.05,"n":3},{"k":"n","x":10.4,"y":6.3,"n":4},{"k":"arm","x":1.05,"y":10.05,"face":0},{"k":"rt4","x":3.85,"y":6.6},{"k":"sofa","x":3.67,"y":8.08,"w":0.75,"h":2.4,"side":"l"},{"k":"low","x":4.85,"y":9.7,"r":0.34},{"k":"zone","x":7.8,"y":7.75,"w":2.8,"h":0.9}]}};
+restore(JSON.stringify(FAST));
+bindSeg([["pA","A"],["pB","B"]],v=>{state.p=v;sel=null;drawPlan();});
+bindSeg([["f1",1],["f2",2]],v=>{state.f=v;sel=null;drawPlan();});
 drawPlan();
 </script>
 
-
 <script>
 (function(){
-  if(!!/claude/.test(location.hostname)) return;
+  if(!/(^|\.)themonns\.no$/.test(location.hostname)) return;
   fetch("signer/",{cache:"no-store"}).then(r=>r.json()).then(j=>{
     if(!j||!j.signert) return;
     const esc=t=>String(t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -929,5 +1010,6 @@ drawPlan();
   addEventListener("resize",flytt);flytt();
 })();
 </script>
+
 </body>
 </html>
